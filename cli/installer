@@ -5,9 +5,8 @@ cd SIIIP
 git checkout develop
 docker-compose up -d
 cp public_html/.env.example public_html/.env
-sudo chmod 757 public_html/storage/app/*
-sudo chmod 757 public_html/storage/framework/*
-sudo chmod 757 public_html/storage/logs
+sudo chmod -R o+w public_html/storage
+sudo chmod -R o+w public_html/bootstrap/cache
 echo "Waiting for composer installation..."
 sleep 2
 echo -ne '#####                     (33%)\r'
