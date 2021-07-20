@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -e
+. "$BAGCLI_WORKDIR/common"
+
+cli_help_deploy() {
+  echo "
+Command: start
+
+Usage: 
+  start all"
+  exit 1
+}
+
+[ ! -n "$1" ] && cli_help_deploy
+
+export BAGCLI_PROJECT_NAME=$1
+
+cli_log "booting"
+docker-compose up -d
+cd public_html
+npm run watch
+
+cli_log "Bye!"
