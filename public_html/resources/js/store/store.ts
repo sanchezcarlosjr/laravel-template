@@ -5,6 +5,13 @@ const state = Vue.observable({
         name: '',
         token: '',
         permissions: {
+            "/inicio": {
+                "module": "/inicio",
+                "create": false,
+                "edit": false,
+                "read": true,
+                "destroy": false
+            },
             "/cuerpos-academicos": {
                 "module": "/cuerpos-academicos",
                 "create": false,
