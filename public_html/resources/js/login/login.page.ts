@@ -28,6 +28,16 @@ export default class LoginPage extends Vue {
         this.passwordStatus = this.passwordStatus == 0 ? 1 : 0;
     }
 
+    mounted() {
+        if (this.$route.query.redirectTo) {
+            this.$bvToast.toast(`Sin permisos para ejecutar la operación solicitada.`, {
+                title: 'Inicie sesión para continuar.',
+                variant: 'danger',
+                solid: true
+            });
+        }
+    }
+
     async login() {
         this.form.loading = true;
         try {
