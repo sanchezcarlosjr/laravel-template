@@ -54,7 +54,7 @@ export default class EvaluationsPage extends Vue {
     criteria = [validity, campus, grade];
     formSchemas = permission.hasPermissions();
     fields = [
-        {key: 'name', label: 'Cuerpo académico', sortable: true},
+        {key: 'name', label: 'Cuerpo académico', sortable: true, class: 'vw-20'},
         {key: 'last_evaluation.grade_name', label: 'Grado de consolidación', sortable: true},
         {key: 'last_evaluation.finish_date', label: 'Vigente hasta', sortable: true},
         {key: 'leader.academic_unit.name', label: 'Unidad académica', sortable: true},

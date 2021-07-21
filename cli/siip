@@ -32,6 +32,9 @@ cli_log "Exporting config ..."
 export $(cat "$BAGCLI_WORKDIR/config" | xargs)
 
 case "$1" in
+   start|s)
+    "$BAGCLI_WORKDIR/commands/start" "$2" | tee -ia "$BAGCLI_WORKDIR/logs/start${2}.log"
+    ;;
   populate|p)
     "$BAGCLI_WORKDIR/commands/populate" "$2" | tee -ia "$BAGCLI_WORKDIR/logs/populate_${2}.log"
     ;;

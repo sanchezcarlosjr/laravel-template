@@ -1,40 +1,34 @@
 #!/usr/bin/env bash
 
 git clone https://github.com/sanchezcarlosjr/SIIP.git SIIIP
-cd SIIIP
+cd SIIIP || exit 1
 git checkout develop
 docker-compose up -d
 cp public_html/.env.example public_html/.env
-sudo chmod 757 public_html/storage/app/*
-sudo chmod 757 public_html/storage/framework/*
-sudo chmod 757 public_html/storage/logs
-echo "Waiting for composer installation..."
+sudo chmod -R o+w public_html/storage
+sudo chmod -R o+w public_html/bootstrap/cache
+echo "Waiting for composer and npm installation..."
 sleep 2
 echo -ne '#####                     (33%)\r'
-sleep 3
-echo -ne '#############             (66%)\r'
 sleep 6
+echo -ne '#############             (66%)\r'
+sleep 18
 echo -ne '#######################   (100%)\r'
 echo -ne '\n'
-docker-compose exec php php artisan key:generate
 ./cli/siip populate 0
-cd public_html
-npm i
 clear
 echo "🎉 Ready! Welcome to SIIIP."
 echo "Do you want to start developing? (y/n)"
-read input
+read -r input
 if [ "$input" == "" ]; then
-   echo "bye!"
+  echo "bye!"
 
 elif [[ "$input" == "y" ]] || [[ "$input" == "yes" ]]; then
-   npm run watch
-   echo "Remember visit http://localhost:8080/"
+  docker-compose run node npm run watch
+  echo "Remember visit http://localhost:8080/"
 
 else
-   cd ..
-   docker-compose stop
-   echo "bye!"
+  cd ..
+  docker-compose stop
+  echo "bye!"
 fi
-
-

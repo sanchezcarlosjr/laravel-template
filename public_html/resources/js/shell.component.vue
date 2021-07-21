@@ -14,13 +14,13 @@
                     <div>
                         <siip-breadcrumb></siip-breadcrumb>
                     </div>
-                    <b-dropdown no-caret variant="link">
+                    <b-dropdown v-if="isAuthenticated" no-caret variant="link">
                         <template #button-content>
                             <b-avatar></b-avatar>
                         </template>
                         <b-dropdown-item @click="logout">Salir</b-dropdown-item>
                     </b-dropdown>
-
+                    <router-link v-else :to="{name: 'login'}" tag="b-button">Iniciar sesión</router-link>
                 </div>
             </nav>
         </div>
@@ -125,6 +125,10 @@ export default class ShellComponent extends Vue {
 
     get permissions() {
         return state.user.permissions;
+    }
+
+    get isAuthenticated() {
+        return !!state.user.token;
     }
 
     mounted() {

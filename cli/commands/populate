@@ -5,7 +5,7 @@ set -e
 cli_help_deploy() {
   echo "
 	Command: populate
-	Warning. This command removes all data
+	Warning. This command factory fake data
 	Usage:
   		populate
 	"

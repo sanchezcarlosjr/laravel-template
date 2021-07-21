@@ -13,17 +13,20 @@ export const AcademicBodyRoutes = {
         {
             path: 'redes',
             name: 'Redes',
+            meta: {title: 'Cuerpos Académicos | Redes'},
             component: () => import('./networks/index.vue')
         },
         {
             path: 'evaluaciones',
             name: 'Evaluaciones',
+            meta: {title: 'Cuerpos Académicos | Evaluaciones'},
             component: () => import('./evaluations/index.vue')
         },
         {
             path: 'apoyos',
             name: 'Apoyos',
             meta: {
+                title: 'Cuerpos Académicos | Apoyos',
                 requiresAuth: true,
             },
             component: () => import('./helps/index.vue')
@@ -31,11 +34,13 @@ export const AcademicBodyRoutes = {
         {
             path: 'miembros',
             name: 'Miembros',
+            meta: {title: 'Cuerpos Académicos | Miembros'},
             component: () => import('./members/index.vue')
         },
         {
             path: 'lgac',
             name: 'LGAC',
+            meta: {title: 'Cuerpos Académicos | LGAC'},
             component: () => import('./lgac/index.vue')
         },
         {
@@ -48,10 +53,10 @@ export const AcademicBodyRoutes = {
             children: [
                 {
                     path: '',
-                    redirect: 'editar'
+                    redirect: 'detalles'
                 },
                 {
-                    path: 'editar',
+                    path: 'detalles',
                     name: "Detalles de cuerpo académico",
                     component: () => import('./academic-body/index.vue')
                 },

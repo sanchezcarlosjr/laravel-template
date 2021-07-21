@@ -20,8 +20,8 @@ export default {
         return {
             links: {
                 'edit': {
-                    link: '/cuerpos-academicos/*/editar',
-                    tooltip: 'Detalles de cuerpo académico'
+                    link: '/cuerpos-academicos/*/detalles',
+                    tooltip: 'Detalles del cuerpo académico'
                 },
                 'project-diagram': {
                     link: '/cuerpos-academicos/*/lgac',
