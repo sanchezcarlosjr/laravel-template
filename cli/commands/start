@@ -17,7 +17,5 @@ export BAGCLI_PROJECT_NAME=$1
 
 cli_log "booting"
 docker-compose up -d
-cd public_html
-npm run watch
-
+docker-compose run node npm run watch
 cli_log "Bye!"
