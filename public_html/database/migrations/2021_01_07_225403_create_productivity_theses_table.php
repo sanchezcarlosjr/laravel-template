@@ -21,7 +21,7 @@ class CreateProductivityThesesTable extends Migration
             $table->date('fecha_de_obtencion');
             $table->string('grado');
             $table->integer('nempleado')->unsigned();
-            #$table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
+            $table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
             $table->timestamps();
         });
     }

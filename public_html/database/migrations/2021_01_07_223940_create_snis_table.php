@@ -25,8 +25,8 @@ class CreateSnisTable extends Migration
             $table->integer('nempleado')->unsigned();
             $table->integer('area_sni_id')->unsigned();
             $table->timestamps();
-            #$table->foreign('area_sni_id')->references('id')->on('areas_sni')->onDelete('cascade');
-            #$table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
+            $table->foreign('area_sni_id')->references('id')->on('areas_sni')->onDelete('cascade');
+            $table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
         });
     }
 

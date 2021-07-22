@@ -18,7 +18,7 @@ class CreateActivityPhotosTable extends Migration
             $table->string('nombre');
             $table->string('url');
             $table->integer('pit_actividad_id')->unsigned();
-            #$table->foreign('pit_actividad_id')->references('id')->on('pit_actividades')->onDelete('cascade');
+            $table->foreign('pit_actividad_id')->references('id')->on('pit_actividades')->onDelete('cascade');
             $table->timestamps();
         });
     }

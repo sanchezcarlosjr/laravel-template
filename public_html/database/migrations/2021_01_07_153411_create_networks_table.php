@@ -25,7 +25,7 @@ class CreateNetworksTable extends Migration
             $table->integer('lider_de_red_id')->unsigned()->nullable();
             $table->timestamps();
             $table->integer('cuerpos_academico_id')->unsigned();
-            #$table->foreign('cuerpos_academico_id')->references('id')->on('cuerpos_academicos')->onDelete('cascade');
+            $table->foreign('cuerpos_academico_id')->references('id')->on('cuerpos_academicos')->onDelete('cascade');
         });
     }
 

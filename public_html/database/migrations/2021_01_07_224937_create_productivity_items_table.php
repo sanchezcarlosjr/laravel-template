@@ -25,7 +25,7 @@ class CreateProductivityItemsTable extends Migration
             $table->string('doi');
             $table->string('factor_de_impacto');
             $table->integer('nempleado')->unsigned();
-            #$table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
+            $table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
             $table->timestamps();
         });
     }

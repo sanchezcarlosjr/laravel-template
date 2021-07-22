@@ -13,15 +13,15 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('usuarios', function (Blueprint $table) {
+        Schema::create('siiip_usuarios', function (Blueprint $table) {
             $table->id();
             $table->integer('nempleado')->unsigned();
             $table->string('contrasena');
             $table->integer('rol_id')->unsigned();
-            #$table->foreign('rol_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->foreign('rol_id')->references('id')->on('roles')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
-            #$table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
+            $table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
         });
     }
 

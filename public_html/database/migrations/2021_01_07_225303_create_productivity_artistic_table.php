@@ -20,7 +20,7 @@ class CreateProductivityArtisticTable extends Migration
             $table->string('numero_de_registro');
             $table->date('fecha_de_publicacion');
             $table->integer('nempleado')->unsigned();
-            #$table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
+            $table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
             $table->timestamps();
         });
     }

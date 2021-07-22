@@ -12,7 +12,7 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable implements HasApiTokensContract
 {
     use HasApiTokens, HasFactory, Notifiable;
-    protected $table = "usuarios";
+    protected $table = "siiip_usuarios";
     protected $fillable = [
         'rol_id',
         'nempleado',

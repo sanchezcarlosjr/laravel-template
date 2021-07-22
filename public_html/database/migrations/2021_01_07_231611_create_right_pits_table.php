@@ -21,9 +21,9 @@ class CreateRightPitsTable extends Migration
             $table->date('fecha');
             $table->integer('proyectos_cgip')->unsigned();
             $table->integer('nempleado')->unsigned();
-            #$table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
+            $table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
             $table->integer('nunidad')->unsigned();
-            #$table->foreign('nunidad')->references('nunidad')->on('unidades')->onDelete('cascade');
+            $table->foreign('nunidad')->references('nunidad')->on('unidades')->onDelete('cascade');
             $table->timestamps();
         });
     }

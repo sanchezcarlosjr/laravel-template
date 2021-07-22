@@ -16,10 +16,10 @@ class CreateEducationalProgramUnitsTable extends Migration
         Schema::create('programas_educativos_unidades', function (Blueprint $table) {
             $table->id();
             $table->integer('programa_educativo_id')->unsigned();
-            #$table->foreign('programa_educativo_id')->references('id')->on('programas_educativos')->onDelete('cascade');
+            $table->foreign('programa_educativo_id')->references('id')->on('programas_educativos')->onDelete('cascade');
             $table->timestamps();
             $table->integer('nunidad')->unsigned();
-            #$table->foreign('nunidad')->references('nunidad')->on('unidades')->onDelete('cascade');
+            $table->foreign('nunidad')->references('nunidad')->on('unidades')->onDelete('cascade');
         });
     }
 

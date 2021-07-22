@@ -22,9 +22,9 @@ class CreateHelpsTable extends Migration
             $table->date('fecha');
             $table->timestamps();
             $table->integer('cuerpo_academico_id')->unsigned();
-            #$table->foreign('cuerpo_academico_id')->references('id')->on('cuerpos_academicos')->onDelete('cascade');
+            $table->foreign('cuerpo_academico_id')->references('id')->on('cuerpos_academicos')->onDelete('cascade');
             $table->integer('nempleado_beneficiado')->unsigned();
-            #$table->foreign('nempleado_beneficiado')->references('nempleado')->on('empleados')->onDelete('cascade');
+            $table->foreign('nempleado_beneficiado')->references('nempleado')->on('empleados')->onDelete('cascade');
         });
     }
 
