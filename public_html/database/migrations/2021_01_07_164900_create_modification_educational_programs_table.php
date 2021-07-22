@@ -20,7 +20,7 @@ class CreateModificationEducationalProgramsTable extends Migration
             $table->string('plan_proceso');
             $table->timestamps();
             $table->integer('programa_educativo_id')->unsigned();
-            #$table->foreign('programa_educativo_id')->references('id')->on('programas_educativos')->onDelete('cascade');
+            $table->foreign('programa_educativo_id')->references('id')->on('programas_educativos')->onDelete('cascade');
         });
     }
 

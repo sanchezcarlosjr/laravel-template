@@ -23,7 +23,7 @@ class CreateProductivityBooksTable extends Migration
             $table->string('isbn');
             $table->string('doi');
             $table->integer('nempleado')->unsigned();
-            #$table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
+            $table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
             $table->timestamps();
         });
     }

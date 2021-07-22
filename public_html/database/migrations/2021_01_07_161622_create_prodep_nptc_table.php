@@ -22,7 +22,7 @@ class CreateProdepNPTCTable extends Migration
             $table->boolean('autorizado')->nullable();
             $table->timestamps();
             $table->integer('nempleado')->unsigned();
-            #$table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
+            $table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
         });
     }
 

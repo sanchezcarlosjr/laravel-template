@@ -17,7 +17,7 @@ class CreateProdepAreasTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->integer('disciplina_prodep_id')->unsigned();
-            #$table->foreign('disciplina_prodep_id')->references('id')->on('disciplinas_prodep')->onDelete('cascade');
+            $table->foreign('disciplina_prodep_id')->references('id')->on('disciplinas_prodep')->onDelete('cascade');
             $table->timestamps();
         });
     }

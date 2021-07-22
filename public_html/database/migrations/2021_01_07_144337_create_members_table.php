@@ -19,8 +19,8 @@ class CreateMembersTable extends Migration
             $table->integer('nempleado')->unsigned();
             $table->timestamps();
             $table->softDeletes();
-            #$table->foreign('lgac_cuerpos_academicos_id')->references('id')->on('lgac_cuerpos_academicos')->onDelete('cascade');
-            #$table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
+            $table->foreign('lgac_cuerpos_academicos_id')->references('id')->on('lgac_cuerpos_academicos')->onDelete('cascade');
+            $table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
         });
     }
 

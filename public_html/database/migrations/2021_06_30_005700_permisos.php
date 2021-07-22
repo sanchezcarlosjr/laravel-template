@@ -21,8 +21,8 @@ class Permisos extends Migration
             $table->boolean('editar');
             $table->boolean('leer');
             $table->boolean('destruir');
-            #$table->foreign('rol_id')->references('id')->on('roles')->onDelete('cascade');
-            #$table->foreign('modulo_id')->references('id')->on('modulos')->onDelete('cascade');
+            $table->foreign('rol_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->foreign('modulo_id')->references('id')->on('modulos')->onDelete('cascade');
             $table->timestamps();
         });
     }

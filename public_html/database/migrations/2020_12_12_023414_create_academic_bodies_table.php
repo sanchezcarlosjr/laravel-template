@@ -23,9 +23,9 @@ class CreateAcademicBodiesTable extends Migration
             $table->string('disciplina');
             $table->integer('des_id')->unsigned();
             $table->timestamps();
-            #$table->foreign('nempleado_lider')->references('nempleado')->on('empleados')->onDelete('cascade');
-            #$table->foreign('des_id')->references('cdes')->on('des')->onDelete('cascade');
-            #$table->foreign('area_prodep_id')->references('id')->on('areas_prodep')->onDelete('cascade');
+            $table->foreign('nempleado_lider')->references('nempleado')->on('empleados')->onDelete('cascade');
+            $table->foreign('des_id')->references('cdes')->on('des')->onDelete('cascade');
+            $table->foreign('area_prodep_id')->references('id')->on('areas_prodep')->onDelete('cascade');
         });
     }
 

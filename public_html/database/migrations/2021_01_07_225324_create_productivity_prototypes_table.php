@@ -22,7 +22,7 @@ class CreateProductivityPrototypesTable extends Migration
             $table->string('tipo');
             $table->string('instituto');
             $table->integer('nempleado')->unsigned();
-            #$table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
+            $table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
             $table->timestamps();
         });
     }
