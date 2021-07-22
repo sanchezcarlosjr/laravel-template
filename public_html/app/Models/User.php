@@ -37,7 +37,7 @@ class User extends Authenticatable implements HasApiTokensContract
     public function scopeCampus(Builder $query, string $campus): Builder
     {
         return $query->joinSub(Employee::campus($campus), 'employeeCampus', function ($join) {
-            $join->on('usuarios.nempleado', '=', 'employeeCampus.nempleado');
+            $join->on('siiip_usuarios.nempleado', '=', 'employeeCampus.nempleado');
         });
     }
 
@@ -48,7 +48,7 @@ class User extends Authenticatable implements HasApiTokensContract
     public function scopeGender(Builder $query, string $gender): Builder
     {
         return $query->joinSub(Employee::gender($gender), 'employeeGender', function ($join) {
-            $join->on('usuarios.nempleado', '=', 'employeeGender.nempleado');
+            $join->on('siiip_usuarios.nempleado', '=', 'employeeGender.nempleado');
         });
     }
 
@@ -58,7 +58,7 @@ class User extends Authenticatable implements HasApiTokensContract
             return $query;
         }
         return $query->joinSub(Employee::terms($terms), 'employee', function ($join) {
-            $join->on('usuarios.nempleado', '=', 'employee.nempleado');
+            $join->on('ussiiip_usuariosuarios.nempleado', '=', 'employee.nempleado');
         });
     }
 
