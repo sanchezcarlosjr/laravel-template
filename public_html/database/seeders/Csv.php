@@ -16,7 +16,9 @@ trait Csv
         $line_of_text = collect($line_of_text);
         $columns = $line_of_text[0];
         $line_of_text->forget(0);
-        return  $line_of_text->map(function ($line) use ($columns) {
+        return  $line_of_text->filter(function($line) {
+            return is_array($line);
+        })->map(function ($line) use ($columns) {
             return [
                 $columns[0] => $line[0],
                 $columns[1] => $line[1],
