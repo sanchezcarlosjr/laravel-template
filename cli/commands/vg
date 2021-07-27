@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+#!/usr/bin/env bash
+set -e
+. "$BAGCLI_WORKDIR/common"
+
+cli_help_deploy() {
+  echo "
+  Command: vg
+    Vue generator component.
+    - Name.
+      It must be as snake case, kebab case and it does not case sensitive.
+      What are the different kinds of cases?
+      https://stackoverflow.com/questions/17326185/what-are-the-different-kinds-of-cases
+
+  Usage:
+    vg [name]
+
+  Worked Example:
+    vg uabc-research
+  "
+  exit 1
+}
+
+[ ! -n "$1" ] && cli_help_deploy
+
+cli_log "VG BEGIN"
+sub_path=$(echo "$1" | tr '[:upper:]' '[:lower:]')
+regex='\/([a-z\-]*)'
+[[ "$sub_path" =~ $regex ]]
+file="${BASH_REMATCH[-1]}"
+path=public_html/resources/js/"$sub_path"
+cp -r public_html/resources/etc/example "$path"
+mv "$path/example.page.scss" "$path/$file.page.scss"
+cli_log "$path/$file.page.scss created"
+mv "$path/example.page.ts" "$path/$file.page.ts"
+class=$(echo "$file" | sed -r 's/(^|_|-)([a-z])/\U\2/g')
+sed -i "s/Example/$class/" "$path/$file.page.ts"
+cli_log "$path/$file.page.ts created"
+sed -i "s/example/$file/" "$path/index.vue"
+cli_log "$path/index.vue created"
+cli_log "VG Page created"
