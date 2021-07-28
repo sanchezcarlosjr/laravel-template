@@ -46,7 +46,7 @@ case "$1" in
     "$BAGCLI_WORKDIR/commands/generate" "$2" | tee -ia "$BAGCLI_WORKDIR/logs/generate_${2}.log"
     ;;
   vue-generate | vg)
-   "$BAGCLI_WORKDIR/commands/vg" "$2" | tee -ia "$BAGCLI_WORKDIR/logs/generate_${2}.log"
+   "$BAGCLI_WORKDIR/commands/vg" "$2" "$3" "$4" | tee -ia "$BAGCLI_WORKDIR/logs/generate_${2}.log"
     ;;
   *)
     cli_help
