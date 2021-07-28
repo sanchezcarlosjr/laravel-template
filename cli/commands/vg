@@ -1,0 +1,79 @@
+#!/usr/bin/env bash
+
+#!/usr/bin/env bash
+set -e
+. "$BAGCLI_WORKDIR/common"
+
+cli_help_deploy() {
+  echo "
+  Command: vg
+    Vue generator component.
+    - Name.
+      It must be as snake case, kebab case and it does not case sensitive.
+      What are the different kinds of cases?
+      https://stackoverflow.com/questions/17326185/what-are-the-different-kinds-of-cases
+
+  Synopsis
+    vg [name] [-f]
+
+  Options
+    -f Create a flat component, i.e. all component
+
+  Worked Examples
+    If you need create a component in directory, so
+      vg prodep/uabc-research
+
+    If you need create a component in root, so
+      vg uabc-research
+
+    If you need create a flat component in directory
+      vg prodep/uabc-research -f
+
+  "
+  exit 1
+}
+
+[ ! -n "$1" ] && cli_help_deploy
+
+sub_path=$(echo "$1" | tr '[:upper:]' '[:lower:]')
+regex='\/([a-z\-]*)$'
+[[ "/$sub_path" =~ $regex ]]
+file="${BASH_REMATCH[-1]}"
+path=public_html/resources/js/"$sub_path"
+class=$(echo "$file" | sed -r 's/(^|_|-)([a-z])/\U\2/g')
+
+if [ -f "$path" ] || [ -d "$path" ]
+then
+  cli_log "Component already exists!"
+  exit 2
+fi
+
+create_vue_component() {
+  cp -r public_html/resources/etc/example-page "$path"
+  mv "$path/example.page.scss" "$path/$file.page.scss"
+  cli_log "$path/$file.page.scss created"
+  mv "$path/example.page.ts" "$path/$file.page.ts"
+  sed -i "s/Example/$class/" "$path/$file.page.ts"
+  cli_log "$path/$file.page.ts created"
+  sed -i "s/example/$file/" "$path/index.vue"
+  cli_log "$path/index.vue created"
+}
+
+create_vue_flat_component() {
+  path="$path.vue"
+  cp -r public_html/resources/etc/example.vue "$path"
+  sed -i "s/Example/$class/" "$path"
+  cli_log "$path.vue created"
+}
+
+cli_log "VG Begin"
+case "$2" in
+--flat | -f)
+  create_vue_flat_component "$1"
+  ;;
+*)
+  create_vue_component "$1"
+  ;;
+esac
+
+cli_log "VG Component created"
