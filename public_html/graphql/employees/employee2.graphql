@@ -1,0 +1,14 @@
+extend type Query {
+    employee2(id: ID! @where(operator: "=", key: "nempleado")): Employee2 @find
+    employees2(
+        terms: [String] @scope(name: "terms")
+        validity: String @scope(name: "validity")
+    ): [Employee2] @paginate(defaultCount: 100)
+}
+
+type Employee2 {
+    id: ID
+    cvu: String
+    curp: String
+    employee: Employee
+}

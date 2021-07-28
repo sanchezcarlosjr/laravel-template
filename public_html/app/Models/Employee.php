@@ -29,6 +29,11 @@ class Employee extends Model
     ];
     use HasFactory;
 
+    public function employee2()
+    {
+        return $this->hasOne(Employee2::class, 'nempleado');
+    }
+
     public function newQuery($excludeDeleted = true): Builder
     {
         return parent::newQuery($excludeDeleted);
