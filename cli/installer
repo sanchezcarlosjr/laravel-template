@@ -3,6 +3,9 @@
 git clone https://github.com/sanchezcarlosjr/SIIP.git SIIIP
 cd SIIIP || exit 1
 git checkout develop
+echo "What is your git branch?"
+read -r branch
+git checkout -b "$branch"
 docker-compose up -d
 cp public_html/.env.example public_html/.env
 sudo chmod -R o+w public_html/storage
