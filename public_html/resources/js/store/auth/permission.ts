@@ -4,6 +4,7 @@ export interface FormSchema {
     create?: any;
     edit?: any;
     read?: any;
+
     [key: string]: any;
 }
 

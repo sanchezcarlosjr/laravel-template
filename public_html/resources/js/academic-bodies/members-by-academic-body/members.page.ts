@@ -5,6 +5,7 @@ import {employees} from "../../@shared/repositories/employees/repository.ts";
 import {lgac} from "../../@shared/repositories/academic_bodies/lgac/repository.ts";
 import {campus, close_to_retirement} from "../../@shared/search-criteria/search-criteria.ts";
 import {Permission} from "../../store/auth/permission";
+import {membersForm} from "../members/members.page";
 
 let fields = [
     {key: 'is_leader', sortable: true},

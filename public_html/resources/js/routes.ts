@@ -9,7 +9,6 @@ import {SniRoutes} from "./sni/routes";
 import {ResearchRoutes} from "./researcher/routes";
 import {ActivityPitRoutes} from "./activities-pits/routes";
 import state from "./store/store";
-import {EmployeeRoutes} from "./employees/routes";
 
 Vue.use(VueRouter)
 
@@ -27,7 +26,6 @@ export const routes: RouteConfig[] = [
             SniRoutes,
             ResearchRoutes,
             ActivityPitRoutes,
-            EmployeeRoutes
         ]
     },
     {

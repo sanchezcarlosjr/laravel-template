@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\{AcademicUnit, ActivitiesPit, DES, Employee2, User};
+use App\Models\{AcademicUnit, ActivitiesPit, DES, User};
 use App\Models\AcademicBody;
 use App\Models\Employee;
 use App\Models\Evaluation;
@@ -30,9 +30,9 @@ class DatabaseSeeder extends ProductionSeeder
     public function run()
     {
         parent::run();
-        #DES::factory(10)->create();
+        DES::factory(10)->create();
         #AcademicUnit::factory(100)->create();
-        Employee::factory(10)->has(User::factory())->create();
+        #Employee::factory(10)->has(User::factory())->create();
         AcademicBody::factory(200)->create();
         Employee::factory(100)->has(LGAC::factory(), 'academic_bodies_lgacs')->create();
         Employee::factory(100)->has(AcademicBody::factory(), 'collaborator_academic_bodies')->create();
@@ -46,6 +46,5 @@ class DatabaseSeeder extends ProductionSeeder
         //        SNIArea::factory(50)->create();
         //        Network::factory(200)->create();
         //        ActivitiesPit::factory()->create();
-        Employee::factory(5)->has(Employee2::factory()->count(5), 'employee2')->create();
     }
 }
