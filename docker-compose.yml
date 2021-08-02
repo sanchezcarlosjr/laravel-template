@@ -50,7 +50,7 @@ services:
     image: composer
     volumes:
       - ./html/:/app
-    command: sh -c "composer install --ignore-platform-reqs && cp .env.example .env && php artisan key:generate"
+    command: sh -c "composer install --ignore-platform-reqs && php artisan key:generate"
 
   node:
     image: node
