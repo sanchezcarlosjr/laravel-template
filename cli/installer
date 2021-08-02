@@ -7,15 +7,15 @@ echo "What is your git branch?"
 read -r branch
 git checkout -b "$branch"
 docker-compose up -d
-cp public_html/.env.example public_html/.env
-sudo chmod -R o+w public_html/storage
-sudo chmod -R o+w public_html/bootstrap/cache
+cp html/.env.example html/.env
+sudo chmod -R o+w html/storage
+sudo chmod -R o+w html/bootstrap/cache
 echo "Waiting for composer and npm installation..."
 sleep 2
 echo -ne '#####                     (33%)\r'
-sleep 6
+sleep 10
 echo -ne '#############             (66%)\r'
-sleep 18
+sleep 50
 echo -ne '#######################   (100%)\r'
 echo -ne '\n'
 ./cli/siip populate 0

@@ -1,5 +1,5 @@
 # LARAVEL CHEATSHEET
-From public_html
+From html
 
 ## USING VUE
 ```

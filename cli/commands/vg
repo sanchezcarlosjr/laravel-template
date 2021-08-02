@@ -39,7 +39,7 @@ sub_path=$(echo "$1" | tr '[:upper:]' '[:lower:]')
 regex='\/([a-z\-]*)$'
 [[ "/$sub_path" =~ $regex ]]
 file="${BASH_REMATCH[-1]}"
-path=public_html/resources/js/"$sub_path"
+path=html/resources/js/"$sub_path"
 class=$(echo "$file" | sed -r 's/(^|_|-)([a-z])/\U\2/g')
 
 if [ -f "$path" ] || [ -d "$path" ]
@@ -49,7 +49,7 @@ then
 fi
 
 create_vue_component() {
-  cp -r public_html/resources/etc/example-page "$path"
+  cp -r html/resources/etc/example-page "$path"
   mv "$path/example.page.scss" "$path/$file.page.scss"
   cli_log "$path/$file.page.scss created"
   mv "$path/example.page.ts" "$path/$file.page.ts"
@@ -61,7 +61,7 @@ create_vue_component() {
 
 create_vue_flat_component() {
   path="$path.vue"
-  cp -r public_html/resources/etc/example.vue "$path"
+  cp -r html/resources/etc/example.vue "$path"
   sed -i "s/Example/$class/" "$path"
   cli_log "$path.vue created"
 }
