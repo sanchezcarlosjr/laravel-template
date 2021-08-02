@@ -6,7 +6,7 @@ extend type Query {
         gender: String @scope(name: "gender")
         campus: String @scope(name: "campus")
         terms: [String] @scope(name: "terms")
-    ): [User] @paginate(defaultCount: 10)
+    ): [User] @paginate(defaultCount: 10) @guard
 }
 
 extend type Mutation {

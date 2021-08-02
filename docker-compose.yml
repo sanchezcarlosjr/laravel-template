@@ -9,7 +9,7 @@ services:
     networks:
       - backend
     volumes:
-      - ./public_html:/var/www/html
+      - ./html:/var/www/html
       - ./apache2/log:/var/log/apache2
 
   apache:
@@ -25,7 +25,7 @@ services:
       - "8080:80"
       - "443:443"
     volumes:
-      - ./public_html:/var/www/html
+      - ./html:/var/www/html
       - ./apache2/log:/var/log/apache2
 
   pgsql:
@@ -34,7 +34,7 @@ services:
     working_dir: /data/pgsql
     volumes:
       - ./postgresql-data:/var/lib/postgresql/data
-      - ./public_html/database/legacy:/var/lib/postgresql
+      - ./html/database/legacy:/var/lib/postgresql
     environment:
       POSTGRES_USER: pguser
       PGPASSWORD: pgpwd
@@ -49,7 +49,7 @@ services:
     container_name: composer_installation
     image: composer
     volumes:
-      - ./public_html/:/app
+      - ./html/:/app
     command: sh -c "composer install --ignore-platform-reqs && cp .env.example .env && php artisan key:generate"
 
   node:
@@ -62,7 +62,7 @@ services:
     networks:
       - frontend
     volumes:
-      - ./public_html/:/usr/app
+      - ./html/:/usr/app
     command: sh -c "npm install -g cross-env && npm install"
 
 networks:
