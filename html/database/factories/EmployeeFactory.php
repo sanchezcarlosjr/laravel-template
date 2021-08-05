@@ -27,7 +27,7 @@ class EmployeeFactory extends Factory
             'nombre' => $this->faker->userName,
             'apaterno' => $this->faker->lastName,
             'amaterno' => $this->faker->lastName,
-            'correo1' => $this->faker->email,
+            'correo1' => $this->faker->numberBetween($min = 1000, $max = 3000).'@uabc.edu.mx',
             'sexo' => $this->faker->randomElement($array = array('M', 'F', 'NA')),
             'grado' => $this->faker->randomElement($array = array('A', 'B', 'C', 'D')),
             'nunidad' => $this->faker->randomElement($array = array(114, 122, 123, 175)),

@@ -23,14 +23,16 @@
                                                         label-for="input-1"
                                                         style="padding: 10px 0;"
                                                     >
+                                                    <b-input-group size="lg" append="@uabc.edu.mx">
                                                         <b-form-input
                                                             id="user"
                                                             required
                                                             size="lg"
                                                             autocomplete="current-email"
                                                             v-model="form.email"
-                                                            type="email"
                                                         ></b-form-input>
+                                                    </b-input-group>
+                                                        
                                                     </b-form-group>
                                                     <b-form-group
                                                         id="input-group-2"
