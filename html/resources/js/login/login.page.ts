@@ -60,7 +60,7 @@ export default class LoginPage extends Vue {
                     }
                 `,
                 variables: {
-                    email: this.form.email,
+                    email: this.form.email+"@uabc.edu.mx",
                     password: this.form.password
                 }
             });
