@@ -4,7 +4,7 @@
             <b-container class="card-title p-0">
                 <b-row align-h="between">
                     <b-col cols="4" style="padding: 0">
-                        Ligas de Interes
+                        Ligas de interés
                     </b-col>
                 </b-row>
                 <b-row align-h="between">
