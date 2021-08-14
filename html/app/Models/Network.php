@@ -8,30 +8,36 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Network extends Model
 {
-    protected $table = "academic_bodies_networks";
+    protected $table = "redes_cuerpos_academicos";
     use HasFactory;
     protected $fillable = [
-        'name',
+        'nombre',
         "id",
-        'type',
-        'class',
-        'cuerpo_academico_id',
-        'range',
-        'start_date',
-        'formation_url',
-        'finish_date',
-        'network_lead_id'
+        'tipo',
+        'clase',
+        'cuerpos_academico_id',
+        'rango',
+        'fecha_inicio',
+        'url_convenio',
+        'fecha_fin',
+        'lider_de_red_id'
     ];
     public function academic_body(): BelongsTo
     {
-        return $this->belongsTo(AcademicBody::class, 'cuerpo_academico_id');
+        return $this->belongsTo(AcademicBody::class, 'cuerpos_academico_id');
     }
     public function leader()
     {
-        return $this->hasOne(CollaboratorNetwork::class, "id", "network_lead_id");
+        return $this->hasOne(CollaboratorNetwork::class, "id", "lider_de_red_id");
     }
     public function collaborators()
     {
-        return $this->hasMany(CollaboratorNetwork::class, "academic_bodies_network_id");
+        return $this->hasMany(CollaboratorNetwork::class, "cuerpos_academico_id");
+    }
+    public function scopeTerms($query, $terms) {
+        if (empty($terms)) {
+          return $query;
+        }
+        return $query;
     }
 }
