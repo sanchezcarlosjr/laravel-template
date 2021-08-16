@@ -1,9 +1,10 @@
 extend type Query {
-    network(id: ID @eq): Network @find @guard
+    network(id: ID @eq): Network @find
     networks(
         filter: [String],
+        terms: [String],
         orderBy: String @orderBy(columns: ["created_at"])
-    ): [Network] @paginate(defaultCount: 100) @guard
+    ): [Network] @paginate(defaultCount: 100)
 }
 
 extend type Mutation {
@@ -21,14 +22,14 @@ extend type Mutation {
 type Network {
     id: ID!
     active: Boolean
-    name: String
-    type: String
-    class: String
-    start_date: Date
-    range: String
-    formation_url: String
-    finish_date: Date
-    academic_body_id: Int
+    name: String @rename(attribute: "nombre")
+    type: String @rename(attribute: "tipo")
+    class: String @rename(attribute: "clase")
+    start_date: Date @rename(attribute: "fecha_inicio")
+    range: String @rename(attribute: "rango")
+    formation_url: String @rename(attribute: "url_convenio")
+    finish_date: Date @rename(attribute: "fecha_fin")
+    academic_body_id: Int @rename(attribute: "cuerpos_academico_id")
     leader: CollaboratorNetwork
     collaborators: [CollaboratorNetwork]
     academic_body: AcademicBody @belongsTo(relation: "academic_body")
