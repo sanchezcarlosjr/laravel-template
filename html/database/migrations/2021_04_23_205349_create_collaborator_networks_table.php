@@ -18,7 +18,6 @@ class CreateCollaboratorNetworksTable extends Migration
             $table->string('nombre');
             $table->string('tipo');
             $table->integer('cuerpos_academicos_redes_id')->unsigned();
-            $table->timestamps();
         });
     }
 

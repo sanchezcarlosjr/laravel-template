@@ -24,7 +24,6 @@ class CreateProductivityBooksTable extends Migration
             $table->string('doi');
             $table->integer('nempleado')->unsigned();
             $table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
-            $table->timestamps();
         });
     }
 

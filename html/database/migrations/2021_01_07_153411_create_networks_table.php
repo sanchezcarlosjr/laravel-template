@@ -23,7 +23,6 @@ class CreateNetworksTable extends Migration
             $table->string('rango');
             $table->string('url_convenio')->nullable();
             $table->integer('lider_de_red_id')->unsigned()->nullable();
-            $table->timestamps();
             $table->integer('cuerpo_academico_id')->unsigned();
             $table->foreign('cuerpo_academico_id')->references('id')->on('cuerpos_academicos')->onDelete('cascade');
         });

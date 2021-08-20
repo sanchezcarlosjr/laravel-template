@@ -17,7 +17,6 @@ class CreateEducationalProgramNapsTable extends Migration
             $table->id();
             $table->integer('programa_educativo_id')->unsigned();
             $table->foreign('programa_educativo_id')->references('id')->on('programas_educativos')->onDelete('cascade');
-            $table->timestamps();
             $table->integer('nempleado')->unsigned();
             $table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
         });

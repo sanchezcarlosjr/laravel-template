@@ -20,7 +20,6 @@ class CreateUsersTable extends Migration
             $table->integer('rol_id')->unsigned();
             $table->foreign('rol_id')->references('id')->on('roles')->onDelete('cascade');
             $table->rememberToken();
-            $table->timestamps();
             $table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
         });
     }

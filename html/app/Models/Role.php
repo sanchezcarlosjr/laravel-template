@@ -11,10 +11,6 @@ class Role extends Model
     protected $fillable = [
         'rol'
     ];
-    protected $hidden = [
-        'created_at',
-        'updated_at'
-    ];
     public function permissions() {
         return $this->belongsToMany(
             Modulo::class,

@@ -24,7 +24,6 @@ class CreateRightPitsTable extends Migration
             $table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
             $table->integer('nunidad')->unsigned();
             $table->foreign('nunidad')->references('nunidad')->on('unidades')->onDelete('cascade');
-            $table->timestamps();
         });
     }
 

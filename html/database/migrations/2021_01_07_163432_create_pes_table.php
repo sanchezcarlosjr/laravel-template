@@ -25,7 +25,6 @@ class CreatePESTable extends Migration
             $table->string('plan_vigente');
             $table->string('estatus_uabc');
             $table->integer('sede_id')->unsigned();
-            $table->timestamps();
         });
     }
 

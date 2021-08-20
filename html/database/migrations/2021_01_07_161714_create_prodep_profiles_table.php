@@ -19,7 +19,6 @@ class CreateProdepProfilesTable extends Migration
             $table->date('fecha_fin');
             $table->integer('nempleado')->unsigned();
             $table->integer('prodep_area_id')->unsigned();
-            $table->timestamps();
             $table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
             $table->foreign('prodep_area_id')->references('id')->on('areas_prodep')->onDelete('cascade');
         });

@@ -18,7 +18,6 @@ class CreateProdepDisciplinesTable extends Migration
             $table->string('nombre');
             $table->integer('area_prodep_id')->unsigned();
             $table->foreign('area_prodep_id')->references('id')->on('areas_prodep')->onDelete('cascade');
-            $table->timestamps();
         });
     }
 

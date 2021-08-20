@@ -21,7 +21,6 @@ class Rubros extends Migration
             /** Polymorph */
             $table->integer('rubreable_id');
             $table->string('rubreable_tipo');
-            $table->timestamps();
         });
     }
 

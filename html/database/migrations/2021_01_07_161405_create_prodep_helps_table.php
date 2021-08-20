@@ -18,7 +18,6 @@ class CreateProdepHelpsTable extends Migration
             $table->decimal('monto');
             $table->tinyInteger('tipo');
             $table->date('fecha');
-            $table->timestamps();
             $table->integer('nempleado')->unsigned();
             $table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
         });

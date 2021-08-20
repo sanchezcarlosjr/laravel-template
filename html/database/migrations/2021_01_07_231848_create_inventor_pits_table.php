@@ -19,7 +19,6 @@ class CreateInventorPitsTable extends Migration
             $table->foreign('invencion_id')->references('id')->on('pit_invenciones')->onDelete('cascade');
             $table->integer('nempleado')->unsigned();
             $table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
-            $table->timestamps();
         });
     }
 

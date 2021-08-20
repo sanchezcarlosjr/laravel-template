@@ -22,7 +22,6 @@ class CreateActivitiesPitsTable extends Migration
             $table->date('fecha');
             $table->integer('nunidad')->unsigned();
             $table->foreign('nunidad')->references('nunidad')->on('unidades')->onDelete('cascade');
-            $table->timestamps();
         });
     }
 

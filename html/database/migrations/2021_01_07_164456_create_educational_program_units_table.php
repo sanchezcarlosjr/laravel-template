@@ -17,7 +17,6 @@ class CreateEducationalProgramUnitsTable extends Migration
             $table->id();
             $table->integer('programa_educativo_id')->unsigned();
             $table->foreign('programa_educativo_id')->references('id')->on('programas_educativos')->onDelete('cascade');
-            $table->timestamps();
             $table->integer('nunidad')->unsigned();
             $table->foreign('nunidad')->references('nunidad')->on('unidades')->onDelete('cascade');
         });

@@ -16,7 +16,6 @@ class CreateProdepAreasTable extends Migration
         Schema::create('areas_prodep', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->timestamps();
         });
     }
 

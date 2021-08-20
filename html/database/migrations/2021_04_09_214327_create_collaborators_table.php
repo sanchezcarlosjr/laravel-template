@@ -17,7 +17,6 @@ class CreateCollaboratorsTable extends Migration
             $table->id();
             $table->integer('cuerpo_academico_id')->unsigned();
             $table->integer('nempleado')->unsigned();
-            $table->timestamps();
             $table->foreign('cuerpo_academico_id')->references('id')->on('cuerpos_academicos')->onDelete('cascade');
             $table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
         });

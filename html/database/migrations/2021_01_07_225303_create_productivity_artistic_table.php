@@ -21,7 +21,6 @@ class CreateProductivityArtisticTable extends Migration
             $table->date('fecha_de_publicacion');
             $table->integer('nempleado')->unsigned();
             $table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
-            $table->timestamps();
         });
     }
 
