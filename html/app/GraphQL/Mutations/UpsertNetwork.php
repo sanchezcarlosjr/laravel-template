@@ -6,7 +6,7 @@ use App\Models\CollaboratorNetwork;
 use App\Models\Network;
 use Illuminate\Http\UploadedFile;
 
-class CreateNetwork
+class UpsertNetwork
 {
     /**
      * @param null $_
@@ -15,7 +15,14 @@ class CreateNetwork
     public function __invoke($_, array $args)
     {
         $args = $this->uploadFormation($args);
-        $network = Network::create($args);
+        $network = Network::firstOrCreate([
+            'nombre' => $args['nombre'],
+            'fecha_inicio' => $args['fecha_inicio'],
+            'fecha_fin' => $args['fecha_fin'],
+            'rango' => $args['rango'],
+            'url_convenio' => $args['url_convenio'],
+            'cuerpo_academico_id' => $args['cuerpos_academico_id']
+        ]);
         $this->createCollaborators($args, $network);
         return $network;
     }
@@ -26,10 +33,11 @@ class CreateNetwork
      */
     public function uploadFormation(array $args): array
     {
+        $args['url_convenio'] = null;
         if (isset($args['formation']) && $args['formation'][0]) {
             /** @var UploadedFile $file */
             $file = $args['formation'][0];
-            $args['formation_url'] = $file->storePublicly('public');
+            $args['url_convenio'] = $file->storePublicly('public');
         }
         return $args;
     }
@@ -47,12 +55,14 @@ class CreateNetwork
             if (!isset($collaborator["name"])) {
                 return;
             }
-            $collaborator["academic_bodies_network_id"] = $network->id;
             $is_leader = isset($collaborator["is_leader"]) && $collaborator['is_leader'];
-            unset($collaborator['is_leader']);
-            $collaborator = CollaboratorNetwork::firstOrCreate($collaborator);
+            $collaborator = CollaboratorNetwork::firstOrCreate([
+                'nombre' => $collaborator['name'],
+                'tipo' => $collaborator['type'],
+                'cuerpos_academicos_redes_id' => $network->id
+            ]);
             if ($is_leader) {
-                $network->network_lead_id = $collaborator->id;
+                $network->lider_de_red_id = $collaborator->id;
                 $network->save();
             }
         }

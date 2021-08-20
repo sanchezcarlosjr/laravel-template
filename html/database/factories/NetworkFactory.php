@@ -28,7 +28,7 @@ class NetworkFactory extends Factory
             'rango' => $this->faker->lastName,
             'fecha_inicio' => $this->faker->date,
             'fecha_fin' => $this->faker->date,
-            'cuerpos_academico_id' => $this->faker->numberBetween($min = 1, $max = 10)
+            'cuerpo_academico_id' => $this->faker->numberBetween($min = 1, $max = 10)
         ];
     }
 }
