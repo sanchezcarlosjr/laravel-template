@@ -3,12 +3,15 @@ extend type Query {
     prodep_areas(
       name_like: String @scope(name: "name")
     ): [ProdepArea]  @paginate(defaultCount: 200) @guard
+    prodep_discipline(id: ID @eq): ProdepDiscipline @find @guard
+    prodep_disciplines(
+        name_like: String @scope(name: "name")
+    ): [ProdepArea]  @paginate(defaultCount: 200) @guard
 }
 
 type ProdepArea {
     id: ID!
     name: String @rename(attribute: "nombre")
-    discipline: ProdepDiscipline
 }
 
 type ProdepDiscipline {

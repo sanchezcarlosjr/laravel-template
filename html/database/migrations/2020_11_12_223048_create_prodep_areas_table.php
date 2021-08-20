@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDisciplinaProdepTable extends Migration
+class CreateProdepAreasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateDisciplinaProdepTable extends Migration
      */
     public function up()
     {
-        Schema::create('disciplinas_prodep', function (Blueprint $table) {
+        Schema::create('areas_prodep', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->timestamps();

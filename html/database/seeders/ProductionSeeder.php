@@ -190,7 +190,7 @@ class ProductionSeeder extends Seeder
 
     private function insertProdepAreas()
     {
-        DB::table('disciplinas_prodep')->insert([
+        DB::table('areas_prodep')->insert([
             ['nombre' => 'Ciencias Agropecuarias'],
             ['nombre' => 'Ciencias Naturales y Exactas'],
             ['nombre' => 'Ciencias de la Salud'],
@@ -198,7 +198,7 @@ class ProductionSeeder extends Seeder
             ['nombre' => 'Educación, Humanidades y Arte'],
             ['nombre' => 'Ingeniería y Tecnología']
         ]);
-        $areas_prodep = $this->readCSV("database/legacy/areas_prodep.csv",array('delimiter' => ','));
-        DB::table('areas_prodep')->insert($areas_prodep->toArray());
+        $areas_prodep = $this->readCSV("database/legacy/disciplinas_prodep.csv",array('delimiter' => ','));
+        DB::table('disciplinas_prodep')->insert($areas_prodep->toArray());
     }
 }
