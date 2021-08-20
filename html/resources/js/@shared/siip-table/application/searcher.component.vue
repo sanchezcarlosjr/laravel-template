@@ -47,6 +47,9 @@ export default {
         }
     },
     mounted() {
+      if (this.$route.query.buscar) {
+        this.terms.push(...this.$route.query.buscar.split(','));
+      }
       this.filters.forEach((category) => {
         this.categories.push(category);
         category.criteria.forEach((option) => {

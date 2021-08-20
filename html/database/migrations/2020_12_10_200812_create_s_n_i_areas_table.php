@@ -16,7 +16,6 @@ class CreateSNIAreasTable extends Migration
         Schema::create('areas_sni', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->timestamps();
         });
     }
 

@@ -1,22 +1,18 @@
 extend type Query {
     network(id: ID @eq): Network @find
     networks(
+        academic_body_id: ID @scope(name: "academicBody"),
         filter: [String],
         terms: [String],
-        orderBy: String @orderBy(columns: ["created_at"])
+        orderBy: String @orderBy(columns: ["fecha_fin"])
     ): [Network] @paginate(defaultCount: 100)
 }
 
 extend type Mutation {
     destroyNetwork(data: destroyNetworkInput! @spread): Network @guard
-    createNetwork(
-        data: createNetworkInput
-        @spread
-    ): Network @guard
-    updateNetwork(
-        data: updateNetworkInput
-        @spread
-    ): Network @guard
+    upsert_network(
+        data: UpsertNetworkInput @spread
+    ): Network
 }
 
 type Network {
@@ -37,8 +33,8 @@ type Network {
 
 type CollaboratorNetwork {
     id: ID
-    name: String
-    type: String
+    name: String @rename(attribute: "nombre")
+    type: String @rename(attribute: "tipo")
     network: Network
     is_leader: Boolean
 }
@@ -50,30 +46,18 @@ input CollaboratorNetworkInput {
     is_leader: Boolean
 }
 
-input createNetworkInput {
-    name: String
-    type: String
-    class: String
-    start_date: Date
-    range: String
-    finish_date: Date
+input UpsertNetworkInput {
+    id: ID
+    name: String @rename(attribute: "nombre")
+    type: String @rename(attribute: "tipo")
+    class: String @rename(attribute: "clase")
+    start_date: Date @rename(attribute: "fecha_inicio")
+    range: String @rename(attribute: "rango")
+    formation_url: String
+    finish_date: Date @rename(attribute: "fecha_fin")
     formation: [Upload]
     collaborators: [CollaboratorNetworkInput]
-    academic_body_id: Int
-}
-
-input updateNetworkInput {
-    id: ID!
-    name: String
-    type: String
-    class: String
-    start_date: Date
-    range: String
-    formation: [Upload]
-    #collaborators: [Collaborator]
-    formation_url: String
-    finish_date: Date
-    academic_body_id: Int
+    academic_body_id: Int @rename(attribute: "cuerpos_academico_id")
 }
 
 input destroyNetworkInput {

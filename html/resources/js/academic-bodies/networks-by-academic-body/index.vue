@@ -1,8 +1,6 @@
 <template>
     <siip-table
-        :toolbar="toolbar"
-        :schema="schema"
-        :spanishResourceName="spanishResourceName"
+        :formSchemas="formSchemas"
         :fields="fields"
         :resource="apiResource"
     ></siip-table>

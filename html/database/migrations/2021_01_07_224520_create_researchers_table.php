@@ -19,7 +19,6 @@ class CreateResearchersTable extends Migration
             $table->date('probatorio');
             $table->integer('nempleado')->unsigned();
             $table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
-            $table->timestamps();
         });
     }
 

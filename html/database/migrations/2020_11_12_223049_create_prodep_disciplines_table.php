@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProdepAreasTable extends Migration
+class CreateProdepDisciplinesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateProdepAreasTable extends Migration
      */
     public function up()
     {
-        Schema::create('areas_prodep', function (Blueprint $table) {
+        Schema::create('disciplinas_prodep', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->integer('disciplina_prodep_id')->unsigned();
-            $table->foreign('disciplina_prodep_id')->references('id')->on('disciplinas_prodep')->onDelete('cascade');
-            $table->timestamps();
+            $table->integer('area_prodep_id')->unsigned();
+            $table->foreign('area_prodep_id')->references('id')->on('areas_prodep')->onDelete('cascade');
         });
     }
 

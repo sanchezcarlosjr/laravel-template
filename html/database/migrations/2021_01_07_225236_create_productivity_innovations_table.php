@@ -22,7 +22,6 @@ class CreateProductivityInnovationsTable extends Migration
             $table->string('numero_de_registro');
             $table->integer('nempleado')->unsigned();
             $table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
-            $table->timestamps();
         });
     }
 

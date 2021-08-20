@@ -5,13 +5,43 @@ import {Permission} from "../../store/auth/permission";
 
 const permission = new Permission('/cuerpos-academicos/redes', {
     read: {
-        legend: "Colaboradores de la red",
+        legend: "los colaboradores de la red",
         fields: [
             {
-                type: 'label',
-                label: 'Colaboradores',
-                model: 'collaborators {id}',
-                key: "colaborators"
+                type: "array",
+                label: "Colaboradores",
+                model: "collaborators",
+                selection: `
+                    collaborators {
+                        id
+                        name
+                        type
+                    }
+                `,
+                schema: {
+                    fields: [
+                        {
+                            type: 'input',
+                            id: "name2",
+                            inputType: 'text',
+                            label: 'Nombre',
+                            model: 'name'
+                        },
+                        {
+                            type: 'select',
+                            label: 'Tipo',
+                            model: 'type',
+                            values: ['Institución', 'Grupo', 'Cuerpo Académico']
+                        },
+                        {
+                            type: "switch2",
+                            label: "Liderazgo",
+                            model: "is_leader",
+                            textOn: "Es el líder de la red",
+                            textOff: "No es el líder de la red"
+                        }
+                    ]
+                }
             }
         ]
     }

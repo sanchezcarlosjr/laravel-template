@@ -21,7 +21,6 @@ class CreateProductivityReportsTable extends Migration
             $table->string('instituto');
             $table->integer('nempleado')->unsigned();
             $table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
-            $table->timestamps();
         });
     }
 

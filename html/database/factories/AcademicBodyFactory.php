@@ -25,7 +25,7 @@ class AcademicBodyFactory extends Factory
             'nombre' => $this->faker->word,
             'clave_prodep' => $this->faker->numberBetween($min = 1, $max = 100000000000),
             'vigente' => rand(0, 1) == 1,
-            'area_prodep_id' => $this->faker->numberBetween($min = 1, $max = 10),
+            'area_prodep_id' => $this->faker->numberBetween($min = 1, $max = 6),
             'disciplina' => $this->faker->word,
             'des_id' => $this->faker->numberBetween($min = 1, $max = 5),
         ];

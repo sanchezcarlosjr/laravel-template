@@ -19,9 +19,7 @@ class User extends Authenticatable implements HasApiTokensContract
         "contrasena"
     ];
     protected $hidden = [
-        "contrasena",
-        'created_at',
-        'updated_at'
+        "contrasena"
     ];
 
     public function roles()

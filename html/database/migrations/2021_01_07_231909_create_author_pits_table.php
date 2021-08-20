@@ -19,7 +19,6 @@ class CreateAuthorPitsTable extends Migration
             $table->foreign('derecho_id')->references('id')->on('pit_derechos')->onDelete('cascade');
             $table->integer('nempleado')->unsigned();
             $table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
-            $table->timestamps();
         });
     }
 

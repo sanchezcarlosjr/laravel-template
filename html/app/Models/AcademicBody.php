@@ -21,8 +21,7 @@ class AcademicBody extends Model
         'area_prodep_id',
         'nempleado_lider',
         'disciplina',
-        'des_id',
-        'created_at'
+        'des_id'
     ];
     protected $appends = [
         "grade",

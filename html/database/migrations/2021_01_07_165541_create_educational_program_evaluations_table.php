@@ -18,7 +18,6 @@ class CreateEducationalProgramEvaluationsTable extends Migration
             $table->date('vigente_hasta');
             $table->string('plan_proceso');
             $table->string('nivel_pnpc');
-            $table->timestamps();
             $table->integer('programa_educativo_id')->unsigned();
             $table->foreign('programa_educativo_id')->references('id')->on('programas_educativos')->onDelete('cascade');
         });

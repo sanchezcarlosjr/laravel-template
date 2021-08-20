@@ -38,6 +38,5 @@ export default class LGACPage extends Vue {
     {key: 'name', label: 'Nombre', sortable: true},
     {key: 'description', label: 'Descripción', sortable: true}
   ];
-  schema = schema;
   formSchemas = permission.hasPermissions();
 }

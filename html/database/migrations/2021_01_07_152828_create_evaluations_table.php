@@ -18,7 +18,6 @@ class CreateEvaluationsTable extends Migration
             $table->date('fecha_inicio');
             $table->date('fecha_fin')->nullable();
             $table->string('grado');
-            $table->timestamps();
             $table->integer('cuerpo_academico_id')->unsigned();
             $table->foreign('cuerpo_academico_id')->references('id')->on('cuerpos_academicos')->onDelete('cascade');
         });

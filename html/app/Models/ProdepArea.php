@@ -9,14 +9,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class ProdepArea extends Model
 {
     use HasFactory;
+
     protected $table = "areas_prodep";
+    protected $fillable = ['nombre'];
 
-    public function scopeName($query, $value) {
-      return $query->where("nombre", "ILIKE", "%".$value."%");
-    }
-
-    public function discipline(): BelongsTo
+    public function scopeName($query, $value)
     {
-        return $this->belongsTo(ProdepDiscipline::class, 'disciplina_prodep_id');
+        return $query->where("nombre", "ILIKE", "%" . $value . "%");
     }
 }
