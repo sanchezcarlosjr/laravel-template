@@ -72,7 +72,8 @@ class ProductionSeeder extends Seeder
             ['modulo' => '/prodep'],
             ['modulo' => '/prodep/apoyos'],
             ['modulo' => '/prodep/nptcs'],
-            ['modulo' => '/cuerpos-academicos/:academic_body_id/apoyos']
+            ['modulo' => '/cuerpos-academicos/:academic_body_id/apoyos'],
+            ['modulo' => '/cuerpos-academicos/:academic_body_id/detalles']
         ]);
         DB::table('permisos')->insert([
             ['modulo_id' => 1, 'rol_id' => 6, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
@@ -93,6 +94,7 @@ class ProductionSeeder extends Seeder
             ['modulo_id' => 17, 'rol_id' => 6, 'crear' => false, 'editar' => false, 'leer' => true, 'destruir' => false],
             ['modulo_id' => 18, 'rol_id' => 6, 'crear' => false, 'editar' => false, 'leer' => true, 'destruir' => false],
             ['modulo_id' => 19, 'rol_id' => 6, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
+            ['modulo_id' => 20, 'rol_id' => 6, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
             ['modulo_id' => 1, 'rol_id' => 4, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
             ['modulo_id' => 3, 'rol_id' => 4, 'crear' => false, 'editar' => false, 'leer' => true, 'destruir' => false],
             ['modulo_id' => 4, 'rol_id' => 4, 'crear' => false, 'editar' => false, 'leer' => true, 'destruir' => false],
@@ -111,6 +113,7 @@ class ProductionSeeder extends Seeder
             ['modulo_id' => 17, 'rol_id' => 4, 'crear' => false, 'editar' => false, 'leer' => true, 'destruir' => false],
             ['modulo_id' => 18, 'rol_id' => 4, 'crear' => false, 'editar' => false, 'leer' => true, 'destruir' => false],
             ['modulo_id' => 19, 'rol_id' => 4, 'crear' => false, 'editar' => false, 'leer' => true, 'destruir' => false],
+            ['modulo_id' => 20, 'rol_id' => 4, 'crear' => false, 'editar' => false, 'leer' => true, 'destruir' => false],
             ['modulo_id' => 1, 'rol_id' => 5, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
             ['modulo_id' => 3, 'rol_id' => 5, 'crear' => false, 'editar' => false, 'leer' => true, 'destruir' => false],
             ['modulo_id' => 4, 'rol_id' => 5, 'crear' => false, 'editar' => false, 'leer' => true, 'destruir' => false],
@@ -129,6 +132,7 @@ class ProductionSeeder extends Seeder
             ['modulo_id' => 17, 'rol_id' => 5, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
             ['modulo_id' => 18, 'rol_id' => 5, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
             ['modulo_id' => 19, 'rol_id' => 5, 'crear' => false, 'editar' => false, 'leer' => true, 'destruir' => false],
+            ['modulo_id' => 20, 'rol_id' => 5, 'crear' => false, 'editar' => false, 'leer' => false, 'destruir' => false],
             ['modulo_id' => 1, 'rol_id' => 1, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
             ['modulo_id' => 2, 'rol_id' => 1, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
             ['modulo_id' => 3, 'rol_id' => 1, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
@@ -148,6 +152,7 @@ class ProductionSeeder extends Seeder
             ['modulo_id' => 17, 'rol_id' => 1, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
             ['modulo_id' => 18, 'rol_id' => 1, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
             ['modulo_id' => 19, 'rol_id' => 1, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
+            ['modulo_id' => 20, 'rol_id' => 1, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
             ['modulo_id' => 1, 'rol_id' => 2, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
             ['modulo_id' => 3, 'rol_id' => 2, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
             ['modulo_id' => 4, 'rol_id' => 2, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
@@ -166,6 +171,7 @@ class ProductionSeeder extends Seeder
             ['modulo_id' => 17, 'rol_id' => 2, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
             ['modulo_id' => 18, 'rol_id' => 2, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
             ['modulo_id' => 19, 'rol_id' => 2, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
+            ['modulo_id' => 20, 'rol_id' => 2, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
             ['modulo_id' => 1, 'rol_id' => 3, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
             ['modulo_id' => 3, 'rol_id' => 3, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
             ['modulo_id' => 4, 'rol_id' => 3, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
@@ -184,6 +190,7 @@ class ProductionSeeder extends Seeder
             ['modulo_id' => 17, 'rol_id' => 3, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
             ['modulo_id' => 18, 'rol_id' => 3, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
             ['modulo_id' => 19, 'rol_id' => 3, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
+            ['modulo_id' => 20, 'rol_id' => 2, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
         ]);
     }
 
