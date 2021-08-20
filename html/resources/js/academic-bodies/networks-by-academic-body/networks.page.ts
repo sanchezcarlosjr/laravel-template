@@ -6,7 +6,7 @@ import {employees} from "../../@shared/repositories/employees/repository";
 
 const permission = new Permission('/cuerpos-academicos/:academic_body_id/redes', {
     create: {
-        legend: "Red",
+        legend: "nueva red",
         fields: [
             {
                 type: 'input',
@@ -67,7 +67,7 @@ const permission = new Permission('/cuerpos-academicos/:academic_body_id/redes',
         ]
     },
     read: {
-        legend: "Red",
+        legend: "la red",
         fields: [
             {
                 type: 'input',

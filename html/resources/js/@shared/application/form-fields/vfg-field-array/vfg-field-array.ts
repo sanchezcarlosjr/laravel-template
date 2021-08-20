@@ -4,20 +4,23 @@ const VueFormGenerator = require('vue-form-generator');
 
 @Component
 export default class VfgFieldArray extends Mixins(VueFormGenerator.abstractField) {
-    fields = [{}];
-    mounted() {
-        this.fields = [{}];
-        // @ts-ignore
-        this.value = this.fields;
-    }
-    load() {
-        // @ts-ignore
-        this.fields = this.value;
-    }
+
     createField() {
-        this.fields.push({});
+        // @ts-ignore
+        this.value.push({});
     }
+
+    updated() {
+
+        // @ts-ignore
+        if (this.value === undefined || this.value.length === 0) {
+            // @ts-ignore
+            this.value = [{}];
+        }
+    }
+
     remove(index: number) {
-        this.fields.splice(index,1);
+        // @ts-ignore
+        this.value.splice(index, 1);
     }
 }
