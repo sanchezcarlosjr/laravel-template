@@ -9,10 +9,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: executing remote ssh commands
-        uses: appleboy/ssh-action@master
+      - name: ls -a via ssh
+        uses: garygrossgarten/github-action-ssh@release
         with:
+          command: ls -a
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          script: echo "HELLO WORLD" >> temp.txt
+          password: ${{ secrets.PASSPHRASE }}
