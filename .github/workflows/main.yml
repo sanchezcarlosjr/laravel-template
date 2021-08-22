@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: T
+      - name: Deployment
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -17,4 +17,10 @@ jobs:
           key: ${{ secrets.KEY }}
           passphrase: ${{ secrets.PHRASE }}
           script: |
-             echo "A" >> temp.txt
+             cd /var/www/html/siiip
+             git pull
+             cd html
+             composer install --optimize-autoloader --no-dev
+             php artisan config:cache && php artisan route:cache && php artisan optimize:clear
+             npm i
+             export NODE_ENV=production && node_modules/webpack/bin/webpack.js --no-progress --config=node_modules/laravel-mix/setup/webpack.config.js
