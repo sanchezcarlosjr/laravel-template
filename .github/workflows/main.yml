@@ -9,11 +9,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: ls -a via ssh
+      - name: T
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
-          username: ffff
-          key: ffff
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
           script: |
              echo "A" >> temp.txt
