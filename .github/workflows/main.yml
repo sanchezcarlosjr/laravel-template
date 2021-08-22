@@ -11,5 +11,5 @@ jobs:
     steps:
       - name: Dump GitHub context
         env:
-          GITHUB_CONTEXT: "A"
+          GITHUB_CONTEXT: ${{ secrets.TEMP }}
         run: echo "$GITHUB_CONTEXT"
