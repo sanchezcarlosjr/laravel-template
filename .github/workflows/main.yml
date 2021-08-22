@@ -9,11 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: executing remote ssh commands using password
+      - name: executing remote ssh commands
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ lcc.HOST }}
-          username: ${{ lcc.USERNAME }}
-          password: ${{ lcc.PASSWORD }}
-          port: ${{ lcc.PORT }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
           script: echo "HELLO WORLD" >> temp.txt
