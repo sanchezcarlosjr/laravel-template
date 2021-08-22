@@ -1,31 +1,19 @@
-name: CI
+name: Continous Integration
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
     branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
-      - name: Auild the stack
-        run: mkdir postgresql-data && docker-compose up -d
-      - name: Copy .env
-        run: php -r "file_exists('html/.env') || copy('html/.env.example', '.env');"
-      - name: Directory Permissions
-        run: chmod -R 777 html/bootstrap/cache
-      - name: Compile assets
-        run: npm install --prefix html &&  npm run production --prefix html
-      - name: tests
-        run: docker-compose exec -u devuser php html/vendor/bin/phpunit
-        env:
-          DA_CONNECTION: pgsql
-          DA_HOST: pgsql
-          DA_PORT: 5432
-          DA_DATAAASE: pgdb
-          DA_USERNAME: pguser
-          DA_PASSWORD: pgpwd
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ lcc.HOST }}
+          username: ${{ lcc.USERNAME }}
+          password: ${{ lcc.PASSWORD }}
+          port: ${{ lcc.PORT }}
+          script: echo "HELLO WORLD" >> temp.txt
