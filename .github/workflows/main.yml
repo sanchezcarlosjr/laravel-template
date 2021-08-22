@@ -15,4 +15,4 @@ jobs:
           command: ls -a
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSPHRASE }}
+          password: ${{ secrets.PASSWORD}}
