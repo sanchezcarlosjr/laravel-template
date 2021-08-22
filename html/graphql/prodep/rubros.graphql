@@ -1,0 +1,30 @@
+# union Rubrable = ProdepNPTC | ProdepHelp
+
+type Rubro {
+  id: ID
+  amount: String
+  authorized: Boolean
+  name: String
+  # apoyo: Rubrable @morphTo
+}
+
+input UpsertRubroInput {
+  id: ID
+  amount: String
+  authorized: Boolean
+  name: String
+  #apoyo: UpsertRubrableMorphTo
+}
+#
+# input UpsertRubrableMorphTo {
+#   connect: ConnectRubrableInput
+# }
+#
+# input ConnectRubrableInput {
+#   type: String!
+#   id: ID!
+# }
+
+input UpsertRubroHasMany {
+  create: [UpsertRubroInput]
+}

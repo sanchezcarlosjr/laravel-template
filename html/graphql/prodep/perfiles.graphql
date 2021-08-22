@@ -1,0 +1,68 @@
+extend type Query {
+  prodep_profiles (
+    finish_date: Date @where(operator: ">="),
+    employee_id: ID @eq,
+    terms: [String] @scope(name: "terms")
+    campus: String @scope(name: "campus")
+    gender: String @scope(name: "gender")
+    close_to_retirement: String @scope(name: "closeToRetirement")
+    validity: String @scope(name: "validity")
+    name_like: String @scope(name: "name")
+  ): [ProdepProfile] @paginate(defaultCount: 1000)
+  prodep_profile (
+    id: ID @eq
+    employee_id: ID @eq @scope(name: "mostRecent")
+  ): ProdepProfile @first
+}
+
+extend type Mutation {
+  create_prodep_profile(
+    data: CreateProdepProfileInput
+    @spread
+  ): ProdepProfile @create
+  update_prodep_profile(
+    data: UpdateProdepProfileInput
+    @spread
+  ): ProdepProfile @update
+  destroy_prodep_profile(
+    id: ID!
+  ): ProdepProfile @delete
+  upsert_prodep_profile(
+    data: UpsertProdepProfileInput
+    @spread
+  ): ProdepProfile @upsert
+}
+
+type ProdepProfile {
+  id: ID!
+  is_active: Boolean
+  start_date: Date
+  finish_date: Date
+  years_to_finish: Int
+  employee: Employee
+  employee_id: Int
+  prodep_area: ProdepArea
+  prodep_area_id: Int
+}
+
+input CreateProdepProfileInput {
+  employee_id: Int,
+  prodep_area_id: Int,
+  start_date: Date,
+  years_to_finish: Int
+}
+input UpdateProdepProfileInput {
+  id: ID!,
+  employee_id: Int,
+  prodep_area_id: Int,
+  start_date: Date,
+  years_to_finish: Int
+}
+
+input UpsertProdepProfileInput {
+  id: ID,
+  employee_id: Int,
+  prodep_area_id: Int,
+  start_date: Date,
+  years_to_finish: Int
+}

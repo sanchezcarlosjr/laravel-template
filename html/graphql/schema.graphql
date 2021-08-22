@@ -1,0 +1,10 @@
+type Query
+type Mutation
+
+#import academic_bodies/*.graphql
+#import users/*.graphql
+#import employees/*.graphql
+#import prodep/*.graphql
+#import sni/*.graphql
+#import activities_pit/*.graphql
+#import scalar.graphql

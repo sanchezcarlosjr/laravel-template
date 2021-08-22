@@ -1,0 +1,40 @@
+extend type Query {
+    login(email: String! @trim, password: String! @trim) : User!
+    user(id: ID @eq): User @find @guard
+    me: User @auth
+    users(
+        gender: String @scope(name: "gender")
+        campus: String @scope(name: "campus")
+        terms: [String] @scope(name: "terms")
+    ): [User] @paginate(defaultCount: 10) @guard
+}
+
+extend type Mutation {
+    upsert_user(
+        data: UpsertUserInput @spread
+    )   : User @upsert @guard
+}
+
+type Permission {
+    module: String
+    create: Boolean
+    destroy: Boolean
+    read: Boolean
+    edit: Boolean
+}
+
+type User {
+    id: ID!
+    role: String
+    rol_id: Int
+    current_access_token: String
+    permissions: [Permission]
+    employee: Employee
+}
+
+input UpsertUserInput {
+    id: ID
+    contrasena: String @hash
+    nempleado: Int
+    rol_id: ID
+}

@@ -1,0 +1,8 @@
+extend type Query {
+    uabc_areas: [UABCArea] @paginate(defaultCount: 200) @guard
+}
+
+type UABCArea {
+    id: ID! @rename(attribute: "narea")
+    area: String
+}

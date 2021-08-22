@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+set -e
+export BAGCLI_WORKDIR=$(cd $(dirname $0) && pwd)
+# shellcheck source=common
+. "$BAGCLI_WORKDIR/common"
+
+cli_help() {
+  cli_name=${0##*/}
+  echo "
+$cli_name
+SIIP CLI
+Version: $(cat $BAGCLI_WORKDIR/VERSION)
+https://github.com/sanchezcarlosjr/SIIP
+
+Usage: $cli_name [command]
+
+Commands:
+  deploy    Deploy
+  generate  Generate a schematic
+  populate  Populate your local database
+  vg        Vue generator component
+  *         Help
+"
+  exit 1
+}
+
+cli_log "Exporting config ..."
+[ ! -f "$BAGCLI_WORKDIR/config" ] \
+  && echo "ERROR: No $BAGCLI_WORKDIR/config file found. " \
+  && echo "cp $BAGCLI_WORKDIR/config.template $BAGCLI_WORKDIR/config and adjust." \
+  && exit 1
+
+export $(cat "$BAGCLI_WORKDIR/config" | xargs)
+
+case "$1" in
+   start|s)
+    "$BAGCLI_WORKDIR/commands/start" "$2" | tee -ia "$BAGCLI_WORKDIR/logs/start${2}.log"
+    ;;
+  populate|p)
+    "$BAGCLI_WORKDIR/commands/populate" "$2" | tee -ia "$BAGCLI_WORKDIR/logs/populate_${2}.log"
+    ;;
+  deploy|d)
+    "$BAGCLI_WORKDIR/commands/deploy" "$2" | tee -ia "$BAGCLI_WORKDIR/logs/deploy_${2}.log"
+    ;;
+  generate|g)
+    "$BAGCLI_WORKDIR/commands/generate" "$2" | tee -ia "$BAGCLI_WORKDIR/logs/generate_${2}.log"
+    ;;
+  vue-generate | vg)
+   "$BAGCLI_WORKDIR/commands/vg" "$2" "$3" "$4" | tee -ia "$BAGCLI_WORKDIR/logs/generate_${2}.log"
+    ;;
+  *)
+    cli_help
+    ;;
+esac

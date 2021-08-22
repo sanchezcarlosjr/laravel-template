@@ -1,0 +1,1094 @@
+id,area_prodep_id,nombre
+0,1,Acuacultura
+1,2,Acústica
+2,3,Análisis Clínicos
+3,4,Administración
+4,5,Acordeón
+5,6,Acabados Textiles
+6,1,Agricultura de Zonas Tropicales
+7,2,Acústica Aplicada
+8,3,Anatomía Patológica
+9,4,Administración (Otros)
+10,5,Alfabetización y Sistemas de Escritura
+11,6,Aerodinámica
+12,1,Agricultura en Zonas Áridas
+13,2,Algebra
+14,3,Anestesiología
+15,4,Administración de Empresas
+16,5,Análisis del Discurso
+17,6,Aire Acondicionado y Refrigeración
+18,1,Agricultura en Zonas Templadas
+19,2,"Algebra, Geometría y Topología"
+20,3,Angiología
+21,4,Administración de Empresas Agropecuarias
+22,5,Arte Moderno y Contemporáneo
+23,6,Algoritmos
+24,1,Agroecología
+25,2,Ambiental
+26,3,Aprendizaje (Rehabilitación)
+27,4,Administración de Empresas Pecuarias
+28,5,Arte y Estética
+29,6,Aparatos y Dispositivos Térmicos
+30,1,Agronomía
+31,2,Análisis Instrumental
+32,3,Audición (Rehabilitación)
+33,4,Administración de Hospitales y de la Atención Médica
+34,5,Artes
+35,6,Arquitectura
+36,1,Agronomía (Otros)
+37,2,Análisis Numérico y Programación
+38,3,Audiología
+39,4,Administración de la Construcción
+40,5,Artes Plásticas
+41,6,Arquitectura (Otros)
+42,1,Agropecuaria
+43,2,Análisis y Análisis Funcional
+44,3,Bioingeniería
+45,4,Administración de la Educación
+46,5,Artes Visuales
+47,6,Arquitectura de Artes Plásticas
+48,1,Agroquímica
+49,2,Anatomía
+50,3,Biomedicina
+51,4,Administración de la Producción
+52,5,Asesoramiento y Orientación
+53,6,Arquitectura de Bienes Muebles
+54,1,Anestesiología Veterinaria
+55,2,Anatomía Vegetal
+56,3,Bioterio
+57,4,Administración de Obras
+58,5,Bellas Artes
+59,6,Arquitectura de Computadoras
+60,1,Apicultura
+61,2,Astrofísica
+62,3,Bromatología
+63,4,Administración de Proyectos
+64,5,Cantante
+65,6,Arquitectura del Diseño
+66,1,Avicultura
+67,2,Astronomía
+68,3,Cardiología
+69,4,Administración de Recursos Humanos
+70,5,Cerámica
+71,6,Arquitectura del Paisaje
+72,1,Biología Pesquera
+73,2,Astronomía Otros
+74,3,Ciencias de la Atención Médica
+75,4,Administracion de Recursos Marinos
+76,5,Ciencias de la Educación
+77,6,Automatización y Control
+78,1,Bovinocultura
+79,2,Bacteriología
+80,3,Ciencias de la Salud
+81,4,Administración de Sistemas Educativos
+82,5,Composición
+83,6,Bases de Datos
+84,1,Caprinocultura
+85,2,Bioambientales
+86,3,Ciencias de la Salud (Otros)
+87,4,Administración del Desarrollo Urbano
+88,5,Compositor
+89,6,Básicas
+90,1,Ciencias Agrarias
+91,2,Bioclimatología
+92,3,Ciencias de la Salud y Ambiente
+93,4,Administración Económica de México
+94,5,Cosmetología
+95,6,Biorremedación
+96,1,Ciencias Agrícolas
+97,2,Bioestadística
+98,3,Ciencias del Deporte
+99,4,Administración Financiera y Finanzas
+100,5,Creatividad Artística
+101,6,Biotecnología
+102,1,Ciencias Agronómico Forestales
+103,2,Biofísica
+104,3,Ciencias Médicas
+105,4,Administración Industrial
+106,5,Cultura y Educación
+107,6,Biotecnología (Otros)
+108,1,Ciencias Agropecuarias
+109,2,Biogeografía
+110,3,Ciencias y Servicios de Salud
+111,4,Administración Laboral
+112,5,Danza
+113,6,Biotecnología Agrícola
+114,1,Ciencias del Desarrollo Rural Regional
+115,2,Bioingeniería y Biomatemáticas
+116,3,Cirugía
+117,4,Administración Pecuaria
+118,5,Decoración
+119,6,Biotecnología Ambiental
+120,1,Ciencias Pecuarias
+121,2,Biología
+122,3,Cirugía Maxilo-Facial
+123,4,Administración Pública
+124,5,Dibujo
+125,6,Biotecnología de Alimentos
+126,1,Ciencias Veterinarias
+127,2,Biología (Otros)
+128,3,Cirugía Plástica
+129,4,Administración Rural
+130,5,Didáctica
+131,6,Biotecnología Marina
+132,1,Cirugía Veterinaria
+133,2,Biología Ambiental
+134,3,Clínica Médica
+135,4,Administración Turística
+136,5,Didáctica en Lengua Extranjeras
+137,6,Biotecnología Vegetal
+138,1,Cunicultura
+139,2,Biología Celular o Citología
+140,3,Dermatología
+141,4,Amparo
+142,5,Diseño y Proyecto
+143,6,Caracterización de Materiales
+144,1,Dasonomía (Producción Forestal)
+145,2,Biología de la Reproducción Humana
+146,3,Endocrinología y Nutriología
+147,4,Análisis Regional
+148,5,Docencia
+149,6,Ciencia de Alimentos
+150,1,Divulgación y Extensión Agrícola
+151,2,Biología Experimental
+152,3,Endodoncia
+153,4,Antropología
+154,5,Docencia de Calidad
+155,6,Ciencia de la Carne
+156,1,Empresas Agropecuarias
+157,2,Biología Marina
+158,3,Enf. Médico Quirúrgica
+159,4,Antropología (Otras)
+160,5,Docencia de Idiomas Extranjeros
+161,6,Ciencia del Pastizal
+162,1,Entomología Agrícola
+163,2,Biología Molecular
+164,3,Enfermedades Infecciosas
+165,4,Antropología Cultural
+166,5,Docencia de Investigación
+167,6,Ciencia e Ingeniería de Materiales (Otros)
+168,1,Entomología Vegetal
+169,2,Bioquímica
+170,3,Enfermedades Tropicales
+171,4,Antropología Ecológica
+172,5,Docencia del Idioma Inglés
+173,6,Ciencia Ingeniería de Materiales
+174,1,Extensión Agrícola
+175,2,Bioquímica Agronómica
+176,3,Enfermería
+177,4,Antropología Estructural
+178,5,Docencia Superior
+179,6,Ciencia Lechera
+180,1,Fitopatología en Agronomía
+181,2,Bioquímica Analítica
+182,3,Enfermería (Otros)
+183,4,Antropología Filosofía
+184,5,Educación
+185,6,Ciencia y Tecnología de Alimentos
+186,1,Fitotecnia
+187,2,Bioquímica Veterinaria
+188,3,Enfermería Comunitaria
+189,4,Antropología Física
+190,5,Educacion (Otros)
+191,6,Ciencias
+192,1,Forestal
+193,2,Biosíntesis Industrial
+194,3,Enfermería Obstetra
+195,4,Antropología Jurídica
+196,5,Educación Ambiental
+197,6,Ciencias de Ingeniería
+198,1,Forrajes
+199,2,Botánica
+200,3,Enfermería Psiquiátrica
+201,4,Antropología Médica
+202,5,Educación de Enfermería
+203,6,Ciencias de la Calidad
+204,1,Hemotología Veterinaria
+205,2,Botánica Agronómica
+206,3,Epidemiología
+207,4,Antropología Simbólica
+208,5,Educación en Ciencias Biológicas
+209,6,Ciencias de la Computación
+210,1,Higiene Veterinaria y Salud Pública
+211,2,Botánica Marina
+212,3,Epidemiología Clínica
+213,4,Antropología Social
+214,5,Educación en Matemáticas
+215,6,Ciencias de la Informática y Computación en Medicina
+216,1,Horticultura
+217,2,"Cálculo, Análisis y Ecuaciones Diferenciales "
+218,3,Estomatología
+219,4,Antropología Sociocultural
+220,5,Educación Especial
+221,6,Ciencias de Materiales
+222,1,Medicina Veterinaria
+223,2,Cartografía
+224,3,Evaluación Morfofuncional
+225,4,Antropología Urbana
+226,5,Educación Internacional
+227,6,Computación
+228,1,Medicina Veterinaria (Otros)
+229,2,Ciencia Animal
+230,3,Exodoncia
+231,4,Antropometría
+232,5,Educación No Formal
+233,6,Computación Matemática
+234,1,Medicina Veterinaria y Zootecnia
+235,2,Ciencia de Materiales
+236,3,Farmacia
+237,4,Archivística
+238,5,Educación Pedagógica
+239,6,Computación y Métodos Numéricos
+240,1,Medicina y Cirugía de Perros y Gatos
+241,2,Ciencias Atmosféricas
+242,3,Farmacobiología
+243,4,Archivonomía
+244,5,Educación Rural
+245,6,Comunicación Electrónica y Control
+246,1,Mejoramiento Genético
+247,2,Ciencias Biológicas
+248,3,Farmacología
+249,4,Archivos Económicos
+250,5,Educación Superior
+251,6,Comunicaciones
+252,1,Mejoramiento Genético Animal
+253,2,Ciencias Biomédicas
+254,3,Fisiología Médica
+255,4,Arqueología
+256,5,Educación Veterinaria
+257,6,Construcción
+258,1,Microbiología Veterinaria
+259,2,Ciencias de la Tierra
+260,3,Fisiología Vegetal
+261,4,Auditoría
+262,5,"Educación, Admón. de Sist. Educativos, Medios de Educación y Didáctica"
+263,6,Control
+264,1,Micropropagación de Plantas
+265,2,Ciencias del Mar
+266,3,Fisiología Veterinaria
+267,4,Bibliografía
+268,5,Ejecutante
+269,6,Corrosión
+270,1,Morfología Veterinaria
+271,2,Ciencias Exactas
+272,3,Fisiopatologia
+273,4,Bibliología
+274,5,Enseñanza de la Historia
+275,6,Dibujo Publicitario
+276,1,Nutrición Animal
+277,2,Ciencias Naturales
+278,3,Gastroenterología
+279,4,Bibliotecnia
+280,5,Enseñanza de la Literatura
+281,6,Diseño
+282,1,Nutrición de Rumiantes
+283,2,Ciencias Naturales y Exactas (Otros)
+284,3,Geriatría
+285,4,Bibliotecología
+286,5,Enseñanza de las Ciencias
+287,6,Diseño Aplicado
+288,1,Obstetricia Veterinaria
+289,2,Ciencias Nucleares
+290,3,Ginecología y Obstetricia
+291,4,Biblioteconomía y Archivonomía
+292,5,Enseñanza de las Matemáticas
+293,6,Diseño Arquitectónico
+294,1,Optimización de Procesos Agrícolas
+295,2,Ciencias Químicas
+296,3,Habla y Voz (Rehabilitacion)
+297,4,Calidad Total
+298,5,Enseñanza del Inglés
+299,6,Diseño de Componentes de Reactores Nucleares
+300,1,Ovinocultura
+301,2,Climatología
+302,3,Hematología
+303,4,Ciencia Económico-Administrativo
+304,5,Enseñanza Superior
+305,6,Diseño de Elementos de Máquinas
+306,1,Parasitologia Veterinaria
+307,2,Conservación y Manejo de Recursos Naturales
+308,3,Implantología
+309,4,Ciencia Política
+310,5,Epistemología
+311,6,Diseño de Experimentos
+312,1,Patología Animal
+313,2,Contaminación Ambiental
+314,3,Infectología
+315,4,Ciencia Política y Administración
+316,5,Epistemología Jurídica
+317,6,Diseño de Interiores
+318,1,Pesca
+319,2,Cosmología y Cosmogenia
+320,3,Investigación Cualitativa en Ciencias de la Salud
+321,4,Ciencias Administrativas
+322,5,Escultura
+323,6,Diseño del Mueble
+324,1,Pesca (Otros)
+325,2,Cultivos Básicos
+326,3,Laboratorio Clínico
+327,4,Ciencias Aplicadas
+328,5,Filología
+329,6,Diseño Gráfico
+330,1,Porcinocultura
+331,2,Dinámica de Población
+332,3,Materiales Dentales
+333,4,Ciencias Comunicación
+334,5,Filosofía
+335,6,Diseño Industrial
+336,1,Prospección de Recursos Agrícolas
+337,2,Dinámica de Sistemas Complejos
+338,3,Medicina
+339,4,Ciencias de la Información
+340,5,Filosofía (Otros)
+341,6,Diseño Mecánico
+342,1,Psicultura
+343,2,Diseño Estadístico
+344,3,Medicina (Otros)
+345,4,Ciencias de la Información y Comunicación en Medicina
+346,5,Filosofía Antigua
+347,6,Diseño y Comunicación
+348,1,Radiología Veterinaria
+349,2,Diseño Óptico y Análsis de Imagen
+350,3,Medicina de Rehabilitación
+351,4,Ciencias de la Planeación
+352,5,Filosofía Contemporánea
+353,6,Diseño y Proyecto Arquitectónico
+354,1,Reproducción Animal
+355,2,Ecología
+356,3,Medicina del Deporte
+357,4,Ciencias del Lenguaje
+358,5,Filosofia de la Ciencia
+359,6,Dosimetría
+360,1,Riegos y Drenajes
+361,2,Ecología (Conservación y Mantenimiento)
+362,3,Medicina del Trabajo
+363,4,Ciencias Económicas
+364,5,Filosofia de la Educación
+365,6,Edificación
+366,1,Veterinaria
+367,2,Ecología (Educación Ambiental)
+368,3,Medicina en Geriatria
+369,4,Ciencias Jurídicas
+370,5,Filosofía de la Historia
+371,6,Ejecución de la Obra Arquitectónica
+372,1,Zootecnia
+373,2,Ecología (Limnología)
+374,3,Medicina Familiar
+375,4,Ciencias Sociales
+376,5,Filosofía de las Religiones
+377,6,Ejecución de Obra
+378,1,Zootecnia (Otros)
+379,2,Ecología Animal
+380,3,Medicina Interna
+381,4,Ciencias Sociales (Otros)
+382,5,Filosofia del Conocimiento
+383,6,Eléctrica
+384,1,Zootecnia General
+385,2,Ecología de Áreas Protegidas
+386,3,Medicina Nuclear
+387,4,Ciencias Sociales en Medicina
+388,5,Filosofía del Derecho
+389,6,Electrónica
+390,2,Ecología Forestal
+391,3,Microbiologia Médica
+392,4,Ciencias Sociales y Humanidades
+393,5,Filosofía del Lenguaje
+394,6,"Electrónica, Instrumentación y Control"
+395,2,Ecología Humana
+396,3,Micromédicina
+397,4,Ciencias Sociales y Humanidades (Otros)
+398,5,Filosofía Medieval
+399,6,Elementos Combustibles para Reactores
+400,2,Ecología Marina
+401,3,Morfohistología
+402,4,Comercialización
+403,5,Filosofía Moderna
+404,6,Energética
+405,2,Ecología Tropical
+406,3,Morfología
+407,4,Comercio Exterior
+408,5,Filosofía Política
+409,6,Energía
+410,2,Edafología
+411,3,Nefrología
+412,4,Comercio Internacional
+413,5,Filosofía y Letras
+414,6,Envasado
+415,2,Electromagnetismo
+416,3,Neumología
+417,4,Comunicación
+418,5,"Filosofía, Literatura y Arte"
+419,6,Ergonomía
+420,2,Embriología
+421,3,Neurobiología
+422,4,Comunicación Humana
+423,5,Flauta
+424,6,Espacio Exterior
+425,2,Energía Solar
+426,3,Neurociencias
+427,4,Comunicación Masiva
+428,5,Fonética
+429,6,Estructura Electrónica
+430,2,Entomología
+431,3,Neurocirugía
+432,4,Comunicación Política
+433,5,Fotografía
+434,6,Estructuras
+435,2,Esafología
+436,3,Neurología
+437,4,Comunicación Social
+438,5,Grabado
+439,6,Exploración Geofísica
+440,2,Estadística
+441,3,Neuropsicología
+442,4,Contabilidad
+443,5,Guitarra
+444,6,Exploración Petrolera
+445,2,Estadística Agronómica
+446,3,Nutrición
+447,4,Contabilidad (Otros)
+448,5,Historia
+449,6,Explotación de Minas
+450,2,Estadística Aplicada A la Educación
+451,3,Nutrición y Alimentación
+452,4,Contabilidad Administrativa
+453,5,Historia Antigua
+454,6,Explotación Petrolera
+455,2,Estadística Aplicada A la Salud
+456,3,Oclusión
+457,4,Contabilidad Financiera
+458,5,Historia Contemporánea
+459,6,Fundición
+460,2,Estadística Demográfica
+461,3,Odontología
+462,4,Contabilidad Fiscal
+463,5,Historia Continental Regional
+464,6,Generación Eléctrica
+465,2,Estadística y Aplicaciones
+466,3,Odontología (Otros)
+467,4,Contabilidad Pública
+468,5,Historia Cultural
+469,6,Geología Estructural
+470,2,Estadística y Cálculo Aplicado
+471,3,Odontología Integral
+472,4,Contaduría
+473,5,Historia de América
+474,6,Gestión y Administracion del Desarrollo Urbano
+475,2,Estado Sólido
+476,3,Odontología Preventiva
+477,4,Contaduría Pública y Administración
+478,5,Historia de Europa
+479,6,HardwareHidráulica
+480,2,Estimación y Control de Procesos Estocásticos
+481,3,Odontopediatría
+482,4,Correduría P
+483,5,Historia de la Conservacion Arquitectonica y Urbana
+484,6,Hidráulica Ambiental
+485,2,Estratigrafía
+486,3,Oftalmología
+487,4,Costos
+488,5,Historia de la Educación
+489,6,Hidrología
+490,2,Evolución
+491,3,Oncologia
+492,4,Criminalística
+493,5,Historia de la Filosofia
+494,6,Hilaturas Textiles
+495,2,Física
+496,3,Operatoria Dental
+497,4,Demografía
+498,5,Historia de las Doctrinas Políticas
+499,6,Iconografía
+500,2,Física (Otros)
+501,3,Ortodoncia
+502,4,Demografía (Otros)
+503,5,Historia de las Etapas Coloniales
+504,6,Informática
+505,2,Física Aplicada
+506,3,Ortopedia y Rehabilitación
+507,4,Derecho
+508,5,"Historia de las Ideas, las Instituciones y las Religiones"
+509,6,Informática Administrativa
+510,2,Física Atómica y Molecular
+511,3,Otorrinolaringología
+512,4,Derecho Administrativo
+513,5,Historia de México
+514,6,Informática Aplicada
+515,2,Física de los Fluídos
+516,3,Paradoncia
+517,4,Derecho Aeronáutico y Espacial
+518,5,Historia del Arte
+519,6,Informática Médica
+520,2,Física del Espacio
+521,3,Parasitología Médica
+522,4,Derecho Agrario y Minero
+523,5,Historia del Arte de México
+524,6,Ingeniería
+525,2,Física del Estado Sólido
+526,3,Parodoncia
+527,4,Derecho Ambiental
+528,5,Historia del Derecho
+529,6,Ingeniería  Química - Termodinámica
+530,2,Física del Interior de la Tierra
+531,3,Patología
+532,4,Derecho Civil
+533,5,Historia Diplomática
+534,6,Ingeniería (Otros)
+535,2,Física Matemática y Gravitación
+536,3,Patología Bucal
+537,4,Derecho Comparado
+538,5,Historia Económica
+539,6,Ingeniería Aeronáutica
+540,2,Física Médica
+541,3,Patología Médica
+542,4,Derecho Constitucional
+543,5,Historia Literaria
+544,6,Ingeniería Aeronáutica (Otros)
+545,2,Física Nuclear
+546,3,Pediatría Médica
+547,4,Derecho del Transporte y Tránsito
+548,5,Historia Medieval
+549,6,Ingeniería Agroindustrial
+550,2,Física Teórica
+551,3,Periodoncia
+552,4,Derecho Económico
+553,5,Historia Militar
+554,6,Ingeniería Agronómica
+555,2,Física Térmica o Termofísica
+556,3,Prostodoncia
+557,4,Derecho Electoral
+558,5,Historia Moderna
+559,6,Ingenieria Ambiental
+560,2,Fisico-Matemáticas
+561,3,Prótesis Odontológicas
+562,4,Derecho Financiero
+563,5,Historia Nacional y Regionales
+564,6,Ingeniería Biomédica
+565,2,Fisicoquímica
+566,3,Psicoanálisis
+567,4,Derecho Fiscal
+568,5,Historia Social
+569,6,Ingeniería Bioquímica
+570,2,Fisiología
+571,3,Psicofisiología
+572,4,Derecho Internacional
+573,5,Historia y Antropología
+574,6,Ingeniería Civil
+575,2,Fisiotécnia
+576,3,Psicolingüística
+577,4,Derecho Internacional Privado
+578,5,Historia y Teoria de la Arquitectura
+579,6,Ingeniería Civil (Otros)
+580,2,Fitopatología
+581,3,Psiquiatría
+582,4,Derecho Laboral
+583,5,Historia y Teoría de la Sociología Rural
+584,6,Ingeniería Costera
+585,2,Fluídos Complejos y Soluciones Amorfas
+586,3,Quirúrgica
+587,4,Derecho Marítimo
+588,5,Hsitoria de las Ciencias
+589,6,Ingeniería de Aeródromos
+590,2,Fotografía y Cartografía
+591,3,Radiodiagnóstico
+592,4,Derecho Mercantil
+593,5,Humanidades
+594,6,Ingeniería de Alimentos
+595,2,Fotogrametría
+596,3,Rehabilitación Bucal
+597,4,Derecho Notarial
+598,5,Ieyc
+599,6,Ingeniería de Comunicación Electrónica y Control
+600,2,Fruticultura
+601,3,Reproducción
+602,4,Derecho Penal
+603,5,Inglés
+604,6,Ingeniería de Comunicación Electrónica y Control (Otros)
+605,2,Genética
+606,3,Reumatología
+607,4,Derecho Penal Constitucional
+608,5,Lengua y Literatura
+609,6,Ingeniería de Comunicaciones
+610,2,Genética Agronómica
+611,3,Salud
+612,4,Derecho Político
+613,5,Lenguaje y Comunicacion
+614,6,Ingeniería de Materiales
+615,2,Genética Agropecuaria
+616,3,Salud Comunitaria
+617,4,Derecho Privado
+618,5,Letras
+619,6,Ingeniería de Procesos
+620,2,Genética Animal
+621,3,Salud en El Trabajo
+622,4,Derecho Procesal Civil
+623,5,Letras Españolas e Iberoamericanas
+624,6,Ingeniería de Proyectos
+625,2,Genética Médica
+626,3,Salud Materno Infantil
+627,4,Derecho Romano
+628,5,Letras Hispánicas
+629,6,Ingenieria de Reactores Nucleares
+630,2,Genotecnia
+631,3,Salud Ocupacional
+632,4,Derecho Social
+633,5,Letras y Ciencias Humanas
+634,6,Ingeniería de Sistemas
+635,2,Geociencias
+636,3,Salud Pública
+637,4,Derecho y Jurisprudencia
+638,5,Ligüística (Otros)
+639,6,Ingeniería de Sistemas de Planeación
+640,2,Geodesia
+641,3,Salud Reproductiva
+642,4,Desarrollo Comunitario
+643,5,Ligüística Histórica y Comparada
+644,6,Ingeniería de Software
+645,2,Geodesia Aplicada
+646,3,Sexología
+647,4,Desarrollo de Negocios
+648,5,Lingüística
+649,6,Ingeniería de Transportes
+650,2,Geodesia Cósmica
+651,3,Terapia Intensiva
+652,4,Desarrollo Económico
+653,5,Lingüística Antropológica
+654,6,Ingeniería del Producto
+655,2,Geodesia Satelital
+656,3,Terapia Quirúrgica
+657,4,Desarrollo Económico Regional
+658,5,Lingüística Aplicada Al Francés
+659,6,Ingeniería Eléctrica
+660,2,Geodesia Superior
+661,3,Toxicología
+662,4,Desarrollo Humano
+663,5,Lingüística Aplicada Al Inglés
+664,6,Ingeniería Eléctrica (Otros)
+665,2,Geofísica
+666,3,Toxicología de Alimentos
+667,4,Desarrollo Organizacional
+668,5,Lingüística Descriptiva
+669,6,Ingeniería Electrónica
+670,2,Geofísica (Otros)
+671,3,Toxicología Médica
+672,4,Desarrollo Regional
+673,5,Lingüística Hispánica
+674,6,Ingeniería en Acuacultura
+675,2,Geofísica Marina
+676,3,Traumatología y Ortopedia
+677,4,Desarrollo Rural
+678,5,Lingüística y Literatura
+679,6,Ingeniería en Biotecnología
+680,2,Geografía
+681,3,Urología
+682,4,Diplomacia
+683,5,Literatura
+684,6,Ingeniería en Computación
+685,2,Geografía (Otros)
+686,4,Econometría
+687,5,Literatura Contemporanea
+688,6,Ingeniería en Control y Computación
+689,2,Geografía Económica
+690,4,Economía
+691,5,Literatura Iberoamericana
+692,6,Ingeniería en Pesquerías
+693,2,Geografía Física
+694,4,Economía (Otros)
+695,5,Literatura Mexicana
+696,6,Ingeniería en Sistemas Computacionales
+697,2,Geografía Humana
+698,4,Economía Agrícola
+699,5,"Literatura, Filosofía y Bellas Artes"
+700,6,Ingeniería Forestal
+701,2,Geohidrología
+702,4,Economía de la Educación
+703,5,"Literatura, Filosofia y Letras"
+704,6,Ingeniería Geológica
+705,2,Geología
+706,4,Economia de la Empresa
+707,5,Lógica
+708,6,Ingeniería Hidráulica y Sanitaria
+709,2,Geología (Otros)
+710,4,Economía del Sector Público
+711,5,Lógica y Filosofia del Lenguaje
+712,6,Ingeniería Industrial
+713,2,Geología Ambiental
+714,4,Economía del Trabajo
+715,5,Medios Educativos
+716,6,Ingeniería Industrial (Otros)
+717,2,Geología Básica
+718,4,Economía Forestal
+719,5,Metal
+720,6,Ingeniería Marina y Portuaria
+721,2,Geologia Económica
+722,4,Economía Industrial
+723,5,Metodología
+724,6,Ingeniería Mecánica
+725,2,Geología Histórica
+726,4,Economia Internacional
+727,5,Metodologia de Investigacion
+728,6,Ingeniería Mecánica (Otros)
+729,2,Geología Marina
+730,4,Economía Pesquera
+731,5,Metodología de la Ciencia
+732,6,Ingeniería Mecánica Administrador
+733,2,Geomagnetismo
+734,4,Economía Política
+735,5,Metodología de Métodos
+736,6,Ingeniería Mecánica de Fluídos
+737,2,Geometría
+738,4,Economia Regional
+739,5,Metodología y Técnicas de Investigación Arquitectónica y Urbana
+740,6,Ingenieria Mecánica y Eléctrica
+741,2,Geomorfología
+742,4,Eficiencia
+743,5,Métodos de Enseñanza y Educación
+744,6,Ingeniería Metalúrgico y Metalurgia
+745,2,Geoquímica
+746,4,Estética
+747,5,Música
+748,6,Ingeniería Minera
+749,2,Geotecnia
+750,4,Estudios de la Comunidad
+751,5,Música Escolar
+752,6,Ingeniería Minera (Otras)
+753,2,Gravedad
+754,4,Estudios de Mercado
+755,5,Musicólogo
+756,6,Ingeniería Naval
+757,2,Hidroagrícola
+758,4,Estudios Latinoamericanos
+759,5,Obra Plástica
+760,6,Ingeniería Nuclear
+761,2,Hidrobiologia
+762,4,Estudios Mesoamericanos
+763,5,Orientación Educativa
+764,6,Ingeniería Pesquera
+765,2,Histología
+766,4,Estudios Organizacionales
+767,5,Orientación Psicológica
+768,6,Ingenieria Petrolera
+769,2,Inmunología
+770,4,Estudios Regionales
+771,5,Otras
+772,6,Ingeniería Portuaria
+773,2,Inmunología Clínica y Alergias
+774,4,Etica
+775,5,Pedagogía
+776,6,Ingeniería Química
+777,2,Inmunología Veterinaria
+778,4,Etnoecología
+779,5,Pedagogía en Idiomas
+780,6,Ingenieria Química Metalurgia
+781,2,Investigación de Operaciones
+782,4,Etnografía
+783,5,Percusión
+784,6,Ingeniería Química Nuclear
+785,2,Levantamiento Geodésico
+786,4,Etnohistoria
+787,5,Pianista
+788,6,Ingeniería Química Petrolera
+789,2,Matemáticas
+790,4,Etnología
+791,5,Pintura
+792,6,Ingeniería Sanitaria
+793,2,Matemáticas (Otros)
+794,4,Evaluación de Proyectos
+795,5,Política Educativa
+796,6,Ingeniería Tecnológica
+797,2,Matemáticas Aplicadas
+798,4,Evaluación Educativa
+799,5,Políticas del Lenguaje
+800,6,Ingeniería Térmica
+801,2,Matemáticas Aplicadas A la Economía
+802,4,Finanzas
+803,5,Prehistoria
+804,6,Ingeniería Textil
+805,2,Matemáticas de la Utilización de Recursos
+806,4,Finanzas Públicas
+807,5,Restauración
+808,6,Ingeniería Textil (Otros)
+809,2,Matemáticas Discretas
+810,4,Fiscal
+811,5,Restauración de Sitios y Monumentos
+812,6,Ingeniero Geógrafo
+813,2,Matemáticas Educativas
+814,4,Garantías
+815,5,Retórica
+816,6,Ingeniero Hidrólogo
+817,2,Matematicas para Administracion y Finanzas
+818,4,Histografía
+819,5,Teatro
+820,6,Instalaciones Eléctricas e Iluminación
+821,2,Matemáticas Superiores
+822,4,Idiomas
+823,5,Teoría de Documentos
+824,6,Instrumentación
+825,2,Mecánica Celeste
+826,4,Impuestos
+827,5,Teoría de la Música
+828,6,Instrumentación Aeronáutica
+829,2,Mecánica Clásica
+830,4,Información
+831,5,Teoría y Crítica Literaria
+832,6,Instrumentación Astronómica
+833,2,Mecánica Cuántica
+834,4,Información (Otras)
+835,5,Textiles
+836,6,Instrumentación de Agronomía
+837,2,Mecánica de Fluídos
+838,4,Información Jurídica
+839,5,Traductología
+840,6,Instrumentación Geodésica
+841,2,Mecánica Estadística
+842,4,Innovación Administrativa
+843,5,Vidrio
+844,6,Instrumentación Nuclear
+845,2,Medio Ambiente
+846,4,Integración Comercial
+847,5,Violín
+848,6,Instrumentación y Control
+849,2,Metafisica
+850,4,Integracion Regional
+851,6,Inteligencia Artificial
+852,2,Meteorología
+853,4,Investigación Educativa
+854,6,Interfases y Superficies en Materiales
+855,2,Métodos Cuantitativos y Estadísitica
+856,4,Investigacion Juridica
+857,6,Manejo de Pastizales
+858,2,Métodos Numéricos y Computación
+859,4,Jurisprudencia
+860,6,Manejo de Recursos Naturales y Desarrollo Sustentable
+861,2,Micología
+862,4,Legislación Ambiental
+863,6,Manejo de Recursos Pesqueros
+864,2,Microbiología
+865,4,Legislación Arquitectónica y Urbana
+866,6,Manejo de Zonas Áridas
+867,2,Modelación de Números de la Atmósfera
+868,4,Mercadotecnia
+869,6,Manejo Forestal
+870,2,Modelos de Gestión en Salud
+871,4,Mercadotecnia Turística
+872,6,Manejo Post Cosecha
+873,2,Modelos Hidropónicos
+874,4,Mercadotecnia y Comercialización
+875,6,Mantenimiento de Máquinas
+876,2,Modelos y Teorías de Enfermería
+877,4,"Mortalidad, Natalidad y Nupcialidad"
+878,6,Máquinas Eléctricas
+879,2,Movimiento de la Tierra
+880,4,Negocios Internacionales
+881,6,Máquinas Térmicas
+882,2,Oceanografía
+883,4,No Psicológicas (Otros)
+884,6,Materiales Cerámicos
+885,2,Oceanografía (Otros)
+886,4,Organización Social
+887,6,Materiales o Componentes Compósitos
+888,2,Oceanografía Biológica
+889,4,Parasicología
+890,6,Materiales Poliméricos
+891,2,Oceanografía Descriptiva
+892,4,Periodismo
+893,6,Mecánica
+894,2,Oceanografía Física
+895,4,Plan Turístico
+896,6,Mecánica de Materiales
+897,2,Oceanografía Geológica
+898,4,Planeacion
+899,6,Mecánica de Rocas
+900,2,Oceanografía Química
+901,4,Planeación Agropecuaria
+902,6,Mecánica de Suelos
+903,2,OceanologíaOptica
+904,4,Planeación Económica
+905,6,Mecánica del Formado y Corte de Metales
+906,2,Optica No Lineal
+907,4,Planeación Económica Rural
+908,6,Mecánica Eléctrica
+909,2,Ordenamiento de Territorio
+910,4,Planeación Educativa
+911,6,Mecánica Industrial
+912,2,Paleografía
+913,4,Planeación Rural
+914,6,Mecanización Agraria
+915,2,Paleontología
+916,4,Planeación Urbana
+917,6,Metalurgia
+918,2,Parasitología
+919,4,Planeación y Desarrollo
+920,6,Metalurgia y Materiales
+921,2,Particulas Elementales
+922,4,Planeación y Sistemas en Ingeniería
+923,6,Metrología
+924,2,Pastizales
+925,4,Población
+926,6,Microbiología de Alimentos
+927,2,Persepción Remota
+928,4,Problemas de Economía Internacional
+929,6,Minas y Metalurgia
+930,2,Petrografía
+931,4,Promoción y Desarrollo de Organizaciones
+932,6,Mineralogía
+933,2,Petrología
+934,4,Proyectos de InversiónPsicología
+935,6,Minería
+936,2,Plasmas
+937,4,Psicología (Otros)
+938,6,Numismática
+939,2,Polímeros
+940,4,Psicología Aplicada
+941,6,Obras Hidráulicas
+942,2,Probabilidad
+943,4,Psicología Clínica
+944,6,Operación y Mantenimiento de Reactores Nucleares
+945,2,Programación Matemática y Optimización
+946,4,Psicología Criminal
+947,6,Optoelectrónica
+948,2,Química
+949,4,Psicología Cultural
+950,6,Pavimentos y Materiales
+951,2,Química (Otros)
+952,4,Psicología del Desarrollo
+953,6,Películas Delgadas y Superficie
+954,2,Química Agrícola
+955,4,Psicología del Lenguaje
+956,6,Planificación
+957,2,Química Analítica
+958,4,Psicología Educacional
+959,6,Planificacion de Asentamientos Humanos
+960,2,Química Aplicada A la Ingeniería
+961,4,Psicología Escolar
+962,6,Plantas Hidráulicas
+963,2,Química Biológica
+964,4,"Psicología Experimental, Comparada, Fisiológica y Conductista"
+965,6,Plantas Nucleares
+966,2,Química Clínica
+967,4,Psicología Industrial y Laboral
+968,6,Plantas Térmicas
+969,2,Quimica de Alimentos
+970,4,Psicología Médica
+971,6,Prefabricación e Industrialización en Construcción
+972,2,Química de Polímeros
+973,4,Psicología Organizacional
+974,6,Preparación para El Tejido
+975,2,Química de Suelos
+976,4,Psicología Salud
+977,6,Procesos
+978,2,Química Farmacéutica Biológica
+979,4,Psicología Social y Comunitaria
+980,6,Procesos de Fabricación
+981,2,Química Industrial
+982,4,Psicometría
+983,6,Procesos de Imagen Satelital
+984,2,Química Inorgánica
+985,4,Publicidad
+986,6,Procesos Fermentativo
+987,2,Química Nuclear
+988,4,Recursos Humanos
+989,6,Procesos Migratorios
+990,2,Química Orgánica
+991,4,Relaciones Comerciales
+992,6,Produccción y Transformación
+993,2,Química/Física
+994,4,Relaciones Internacionales
+995,6,Producción Agrícola
+996,2,Químico Ambiental
+997,4,Social
+998,6,Producción Animal
+999,2,Radiobiología
+1000,4,Socioeconomía
+1001,6,Producción de Ovinos
+1002,2,Radiogesia
+1003,4,Sociografía
+1004,6,Producción de Semillas
+1005,2,Recursos Naturales
+1006,4,Sociolingüística
+1007,6,Producción y Manufactura
+1008,2,Relatividad
+1009,4,Sociología
+1010,6,Programación y Disciplinas
+1011,2,Sedimentología
+1012,4,Sociología (Otros)
+1013,6,Prospección Minera
+1014,2,Sensoría Remota
+1015,4,Sociología de la Cultura
+1016,6,Redes de Computadoras
+1017,2,Silvicultura
+1018,4,Sociologia de la Educación
+1019,6,Refinación Petrolera
+1020,2,Sismología
+1021,4,Sociología Económica
+1022,6,Representación Grafica
+1023,2,Sistemas Dinámicos
+1024,4,Sociología Jurídica
+1025,6,Robótica
+1026,2,Suelos
+1027,4,Sociología Médica
+1028,6,Semiconductores
+1029,2,Taxonomía
+1030,4,Sociología Rural
+1031,6,Sigilografía
+1032,2,Tectónica
+1033,4,Sociología Urbana
+1034,6,Simulación de Yacimientos
+1035,2,Temática de Medio Ambiente
+1036,4,Teoria del Conocimiento
+1037,6,Síntesis de Materiales
+1038,2,Teoría de Números
+1039,4,Teoria Económica
+1040,6,Sistemas
+1041,2,Termofluídos
+1042,4,Teoría Macroeconómica
+1043,6,Sistemas Computacionales Administrativos
+1044,2,Topología
+1045,4,Teoría Microeconómica
+1046,6,Sistemas de Información
+1047,2,Virología
+1048,4,Teoría Monetaria y de Crédito
+1049,6,Sistemas de Información Geográfica
+1050,2,Yacimientos Minerales
+1051,4,Trabajo SocialTurismo
+1052,6,Sistemas de Manufactura
+1053,2,Zoología
+1054,4,Turismo Alternativo
+1055,6,Sistemas de Procedimientos
+1056,2,Zoología Marina
+1057,4,Valuación
+1058,6,Sistemas de Propulsión Aerodinámica
+1059,6,Sistemas de Salud
+1060,6,Sistemas de Transporte
+1061,6,Sistemas Dinámicos y Métodos Matemáticos de Física
+1062,6,Sistemas Eléctricos de Potencia
+1063,6,Sistemas Electrónicos
+1064,6,Sólidos
+1065,6,Suelo y Vivienda
+1066,6,Técnicas Biológicas
+1067,6,"Técnicas de Análisis, Conservación y Consolidación de Constructivos"
+1068,6,Tecnología
+1069,6,Tecnología (Otros)
+1070,6,Tecnología Agropecuaria
+1071,6,Tecnología de Alimentos
+1072,6,Tecnología de Enzimas
+1073,6,Tecnología de la Madera
+1074,6,"Tecnología de Petróleo, Petroquímica y Polímeros"
+1075,6,Tecnología de Productos Pecuarios
+1076,6,Tecnología Educativa
+1077,6,Tecnología Farmacéutica
+1078,6,Tecnología Mecánica
+1079,6,Tecnología y Ciencias Agrícolas
+1080,6,Tecnología y Ciencias Agropecuarias
+1081,6,Tecnología y Ciencias de la Ingeniería
+1082,6,Tecnologia y Ciencias Médicas
+1083,6,Tejido Plano
+1084,6,Teleinformática
+1085,6,Teoría de la Computación
+1086,6,Topografía
+1087,6,Topografía de Minas
+1088,6,Topografía y Geodesia
+1089,6,Transferencia Térmica en Reactores  Nucleares
+1090,6,Transporte Aéreo
+1091,6,Urbanismo
+1092,6,Vías Terrestres

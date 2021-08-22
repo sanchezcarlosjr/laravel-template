@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "strict": true,
+        "module": "esnext",
+        "skipLibCheck": true,
+        "moduleResolution": "node",
+        "experimentalDecorators": true
+    },
+    "include": [
+        "resources/js/**/*"
+    ],
+    "exclude": ["node_modules", "**/*.spec.ts"]
+}

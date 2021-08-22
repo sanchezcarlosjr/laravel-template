@@ -1,0 +1,49 @@
+extend type Query {
+  collaborator(id: ID! @where(operator: "=", key: "nempleado")): Employee @find(scopes:["collaborators"]) @guard
+  collaborators(
+    academic_body_id: ID @scope(name: "academicBodyCollaborators")
+    terms: [String] @scope(name: "terms")
+  ): [Employee] @paginate(defaultCount: 200, scopes:["collaborators"])
+}
+
+## ToDo: Custom CRUD, members-like. Parent Class? ##
+extend type Mutation {
+  # create_collaborator(
+  #   data: CreateCollaboratorInput @spread
+  # ): Employee @create(model: "App\\Models\\Collaborator")
+  # update_collaborator(
+  #   data: UpdateCollaboratorInput @spread
+  # ): Employee @update(model: "App\\Models\\Collaborator")
+  upsert_collaborator(
+    data: UpsertCollaboratorInput @spread
+  ): Employee @upsert(model: "App\\Models\\Collaborator") @guard
+  ##destroy_member: Employee
+}
+
+type Collaborator {
+    id: ID
+    academic_body: AcademicBody
+    academic_body_id: Int
+    employee: Employee
+    employee_id: Int
+}
+
+# input CreateCollaboratorInput {
+#     academic_body_id: ID!
+#     employees_id: ID!
+# }
+#
+# input UpdateCollaboratorInput {
+#     academic_body_id: ID!
+#     employees_id: ID!
+# }
+
+input UpsertCollaboratorInput {
+    academic_body_id: ID @rename(attribute:"cuerpo_academico_id")
+    employee_id: ID @rename(attribute:"nempleado")
+}
+
+input destroyCollaboratorInput {
+    id: ID
+    academic_body_id: ID
+}

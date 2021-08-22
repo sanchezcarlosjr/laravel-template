@@ -1,0 +1,100 @@
+extend type Query {
+    help(id: ID @eq): Help @find @guard
+    helps(
+        academic_body_id: ID @scope(name: "academicBody")
+        terms: [String] @scope(name: "terms")
+        # filter: [String],
+        # orderBy: String @orderBy(columns: ["created_at"])
+    ): [Help] @paginate(defaultCount: 200) @orderBy(column: "fecha", direction: "ASC") @guard
+}
+
+extend type Mutation {
+    create_help(
+        data: CreateHelpInput @spread
+    ): Help @field(resolver: "Help@upsert")
+    update_help(
+        data: UpdateHelpInput @spread
+    ): Help @field(resolver: "Help@upsert")
+    upsert_help(
+        data: UpsertHelpInput @spread
+    ): Help @upsertWithFiles
+}
+
+input CreateHelpInput {
+    academic_body_id: ID!
+    benefited_employee_id: ID!
+    amount: Float!
+    release: [Upload]
+    report: [Upload]
+    date: Date!
+    type: Int!
+}
+
+input UpdateHelpInput {
+    id: ID!
+    academic_body_id: ID!
+    benefited_employee_id: ID!
+    amount: Float!
+    release_url: String
+    report_url: String
+    release: [Upload]
+    report: [Upload]
+    date: Date!
+    type: Int!
+}
+
+input UpsertHelpInput {
+    id: ID
+    academic_body_id: ID! @rename(attribute: "cuerpo_academico_id")
+    benefited_employee_id: ID! @rename(attribute: "nempleado_beneficiado")
+    amount: Float! @rename(attribute: "monto")
+    reporte_url: String
+    liberacion_url: String
+    reporte: [Upload]
+    liberacion: [Upload]
+    date: Date! @rename(attribute: "fecha")
+    type: Int! @rename(attribute: "tipo")
+}
+
+
+type Help implements Apoyo {
+    id: ID!
+    type: Int @rename(attribute: "tipo")
+    type_name: String
+    date: Date @rename(attribute: "fecha")
+    amount: Float @rename(attribute: "monto")
+    reporte_url: String
+    liberacion_url: String
+    benefited_employee_id: Int @rename(attribute: "nempleado_beneficiado")
+    benefited_employee: Employee @belongsTo(relation: "benefited_employee")
+    academic_body: AcademicBody @belongsTo(relation: "academic_body"),
+    beneficiary: Employee @belongsTo(relation: "benefited_employee")
+    updated_at: DateTime
+}
+
+# input createHelpInput {
+#     academic_body_id: ID
+#     amount: Float
+#     benefited_employee_id: ID
+#     date: Date
+#     release: [Upload]
+#     report: [Upload]
+#     type: String
+# }
+#
+# input updateHelpInput {
+#     id: ID!
+#     academic_body_id: ID
+#     amount: Float
+#     benefited_employee_id: ID
+#     release_url: String
+#     report_url: String
+#     release: [Upload]
+#     report: [Upload]
+#     date: Date
+#     type: String
+# }
+#
+# input destroyHelpInput {
+#     id: ID!
+# }

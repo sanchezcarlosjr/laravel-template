@@ -1,0 +1,48 @@
+extend type Query {
+    prodep_nptc(
+      id: ID @eq
+    ): ProdepNPTC @find @guard
+    prodep_nptcs(
+      authorized: String @scope(name: authorized)
+      extended: String @scope(name: extended)
+      campus: String @scope(name: campus)
+      terms: [String] @scope(name: "terms")
+    ): [ProdepNPTC] @paginate(defaultCount: 200) @guard
+    apoyos: [Apoyo] @paginate(
+      builder: "App\\GraphQL\\Queries\\Apoyos"
+    ) @guard
+}
+
+extend type Mutation {
+  upsert_prodep_nptc(
+    data: UpsertProdepNptcInput @spread
+  ): ProdepNPTC @guard @upsert
+}
+
+type ProdepNPTC {
+  id: ID
+  employee_id: Int
+  employee: Employee
+  folio: String
+  rubros: [Rubro]
+  rubro1: [Rubro]
+  rubro2: [Rubro]
+  rubro3: [Rubro]
+  amount: String
+  start_date: Date
+  finish_date: Date
+  extension: Boolean
+  authorized: Boolean
+}
+
+input UpsertProdepNptcInput {
+  id: ID
+  employee_id: Int
+  folio: String
+  rubro1: UpsertRubroHasMany
+  rubro2: UpsertRubroHasMany
+  rubro3: UpsertRubroHasMany
+  start_date: Date
+  extension: Boolean
+  authorized: Boolean
+}

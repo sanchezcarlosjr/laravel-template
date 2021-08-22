@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -e
+. "$BAGCLI_WORKDIR/common"
+
+cli_help_deploy() {
+  echo "
+	Command: populate
+	Warning. This command factory fake data
+	Usage:
+  		populate
+	"
+  exit 1
+}
+
+[ ! -n "$1" ] && cli_help_deploy
+find html/database/migrations -name "*.php" -exec sed -i s/\$table\-\>foreign/\#\$table\-\>foreign/g {} +
+docker-compose exec php php artisan migrate:fresh
+find html/database/migrations -name "*.php" -exec sed -i s/\#\$table\-\>foreign/\$table\-\>foreign/g {} +
+docker exec -it laravel-pgsql psql -h pgsql -U pguser pgdb -f /var/lib/postgresql/cpi.sql
+find html/database/seeders -name "*.php" -exec sed -i s/\#//g {} +
+docker-compose exec php php artisan migrate:refresh --seed
+find html/database/seeders -name "*.php" -exec sed -i s/AcademicUnit::/\#AcademicUnit::/g {} +
+find html/database/seeders -name "*.php" -exec sed -i s/DES::/\#DES::/g {} +

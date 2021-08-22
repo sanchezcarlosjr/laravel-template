@@ -1,0 +1,34 @@
+extend type Query {
+    activities_pits: [ActivitiesPit] @paginate(defaultCount: 10) @guard
+}
+
+extend type Mutation {
+    deleteActivitiesPit(id: ID!): ActivitiesPit @delete @guard
+    createActivitiesPit(
+        kind_of_applicant: String
+        name_event: String
+        asistence: String
+        goal: String
+        date: Date
+        academic_unit_id: Int): ActivitiesPit @create @guard
+    updateActivitiesPit(
+        id: ID!
+        kind_of_applicant: String
+        name_event: String
+        asistence: String
+        goal: String
+        date: Date
+        academic_unit_id: Int): ActivitiesPit @update @guard
+}
+
+type ActivitiesPit {
+    kind_of_applicant: String
+    name_event: String
+    asistence: String
+    goal: String
+    date: Date
+    academic_unit_id: Int
+    academic_unit: AcademicUnit
+    id: ID
+    active: Boolean
+}

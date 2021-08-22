@@ -1,0 +1,53 @@
+extend type Query {
+    employee(id: ID! @where(operator: "=", key: "nempleado")): Employee @find @guard
+    employees(
+        free: String @scope(name: "free")
+        candidates_for: ID @scope(name: "candidatesFor")
+        filter: [String] @builder(
+            method: "App\\GraphQL\\Queries\\Employee@filter"
+        )
+        name: String @scope(name: "name")
+        id: String @scope(name: "id")
+        name_or_id: String @scope(name: "nameOrId")
+    ): [Employee] @paginate(defaultCount: 100) @guard
+}
+
+type Employee {
+    id: ID @rename(attribute: "nempleado")
+    lead_employee_id: ID! @rename(attribute: "nempleado")
+    name: String @rename(attribute: "full_name")
+    sexo: String
+    age: Int
+    nombre: String
+    apaterno: String
+    correo1: String
+    amaterno: String
+    grado: String
+    academic_body: AcademicBody
+    academic_unit: AcademicUnit @belongsTo(relation: "academic_unit")
+    academic_bodies_lgacs: [LGAC]
+    collaborator_academic_bodies: [AcademicBody]
+    active: Boolean
+    is_leader: Boolean
+    is_ptc: Boolean
+    is_researcher: Boolean
+    has_active_prodep_profile: Boolean
+    has_active_sni: Boolean
+    prodep_profiles: [ProdepProfile]
+    snis: [Sni],
+    benefits: [Apoyo]
+}
+
+interface Apoyo {
+  id: ID!
+  beneficiary: Employee
+  amount: Float
+  type: String
+  date: Date
+}
+
+type AcademicUnit {
+    id: ID! @rename(attribute: "nunidad")
+    name: String @rename(attribute: "unidad")
+    campus: String
+}

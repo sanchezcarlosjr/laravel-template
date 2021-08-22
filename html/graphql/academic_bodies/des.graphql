@@ -1,0 +1,11 @@
+extend type Query {
+  des(id: ID @where(operator: "=", key: "cdes")): DES @find @guard
+  des_all(
+    name_like: String @scope(name: "nameLike")
+  ): [DES] @paginate(defaultCount: 200) @guard
+}
+
+type DES {
+    id: ID! @rename(attribute: "cdes")
+    name: String @rename(attribute: "des")
+}

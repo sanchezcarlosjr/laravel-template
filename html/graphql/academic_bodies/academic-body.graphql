@@ -1,0 +1,99 @@
+extend type Query {
+    academic_body(id: ID @eq): AcademicBody @find
+    academic_bodies (
+      terms: [String] @scope(name: "terms")
+      validity: String @scope(name: "validity")
+      campus: String @scope(name: "campus")
+      grade: [String] @scope(name: "grade")
+      orderBy: String @orderBy(columns: ["created_at"])
+    ): [AcademicBody] @paginate(
+        defaultCount: 200,
+        #builder: "App\\GraphQL\\Queries\\AcademicBodyFilter"
+    )
+    academic_body_statistics(
+      terms: [String]
+      validity: String
+      campus: String
+      grade: [String]
+    ): AcademicBodyStatistics
+}
+
+extend type Mutation {
+    destroyAcademicBody(id: ID!): AcademicBody @delete @guard
+    updateAcademicBody(
+        data: updateAcademicBodyInput
+        @spread
+    ): AcademicBody @update @guard
+    createAcademicBody(
+        data: createAcademicBodyInput
+        @spread
+    ): AcademicBody @create @guard
+    upsert_academic_body(
+      data: UpsertAcademicBodyInput @spread
+    ): AcademicBody @upsert @guard
+}
+
+type AcademicBody {
+    id: ID!
+    name: String @rename(attribute: "nombre")
+    active: Boolean @rename(attribute: "vigente")
+    discipline: String @rename(attribute: "disciplina")
+    lead_employee_id: Int @rename(attribute: "nempleado_lider")
+    prodep_area_id: Int @rename(attribute: "area_prodep_id")
+    collaborators: [Employee]
+    des: DES
+    des_id: Int
+    helps: [Help]
+    last_evaluation: Evaluation
+    leader: Employee
+    prodep_key: String @rename(attribute: "clave_prodep")
+    prodep_area: ProdepArea
+    evaluations: [Evaluation]
+    employees: [Employee]
+    lgacs: [LGAC]
+    created_at: Date
+    networks: [Network]
+    grade: String
+}
+
+type AcademicBodyStatistics {
+    total: Int
+    professorsWithSNIOrProdep: Int
+    professorsInAcademicBody: Int
+    ptcsAreNotAcademicBody: Int
+    inTraining: Int
+    inConsolidation: Int
+    consolidated: Int
+}
+
+input createAcademicBodyInput {
+    name: String
+    prodep_key: String,
+    active: Boolean,
+    prodep_area_id: Int,
+    lead_employee_id: Int,
+    discipline: String,
+    des_id: Int
+}
+
+input updateAcademicBodyInput {
+    id: String,
+    name: String,
+    prodep_key: String,
+    active: Boolean,
+    prodep_area_id: Int,
+    lead_employee_id: Int,
+    discipline: String,
+    des_id: Int
+}
+
+input UpsertAcademicBodyInput {
+    id: String
+    name: String @rename(attribute: "nombre")
+    prodep_key: String @rename(attribute: "clave_prodep")
+    active: Boolean @rename(attribute: "vigente")
+    prodep_area_id: Int @rename(attribute: "area_prodep_id")
+    lead_employee_id: Int @rename(attribute: "nempleado_lider")
+    discipline: String @rename(attribute: "disciplina")
+    des_id: Int
+}

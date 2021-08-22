@@ -1,0 +1,56 @@
+extend type Query {
+    lgac(id: ID @eq): LGAC @find @guard
+    lgacs(
+      academic_body_id: ID @scope(name: "academicBody")
+      terms: [String] @scope(name: "terms")
+    ): [LGAC] @paginate(defaultCount: 200)
+}
+
+extend type Mutation {
+    destroyLgac(
+        data: destroyLgacInput!
+        @spread
+    ):LGAC @delete
+    updateLgac(
+        data: updateLgacInput
+        @spread
+    ): LGAC @update
+    createLgac(
+        data: createLgacInput
+        @spread
+    ): LGAC @create
+    upsert_lgac(
+      data: UpsertLgacInput
+      @spread
+    ): LGAC @upsert
+}
+
+type LGAC {
+    id: ID!
+    name: String! @rename(attribute: "nombre")
+    description: String @rename(attribute: "descripcion")
+    employees: [Employee]
+    academic_body: AcademicBody! @belongsTo(relation: "academic_body")
+    academic_body_id: Int @rename(attribute: "cuerpo_academico_id")
+}
+
+input destroyLgacInput {
+    id: ID!
+}
+
+input updateLgacInput {
+    id: ID!
+    name: String
+    description: String
+}
+
+input createLgacInput {
+    academic_body_id: ID
+}
+
+input UpsertLgacInput {
+  id: ID
+  name: String @rename(attribute: "nombre")
+  description: String @rename(attribute: "descripcion")
+  academic_body_id: ID @rename(attribute: "cuerpo_academico_id")
+}

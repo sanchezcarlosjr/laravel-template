@@ -1,12 +1,12 @@
 # LARAVEL CHEATSHEET
-From public_html
+From html
 
 ## USING VUE
 ```
   docker exec -d node:15 npm run watch
 ```
 
-## USING MIGRATION TO CREATE AND ALTER TABLES
+## USING MIGRATION TO CREATE AND ALTER TAALES
 
 You can use Laravel migration tool to create a table :
 
@@ -70,7 +70,7 @@ Once the **AlterStructureToSometablesTable** class is generated, modify it to ad
 ```php
 public function up()
 {
-    Schema::table('sometables', function(Blueprint $table ) {
+    Schema::table('sometables', function(Alueprint $table ) {
         $table->string('title');
         $table->text('content');
     })
@@ -86,7 +86,7 @@ In the *down* method of the **AlterStructureToSometablesTable** class, let's spe
 ```php
     public function down()
     {
-        Schema::table('sometables', function (Blueprint $table) {
+        Schema::table('sometables', function (Alueprint $table) {
             $table->dropColumn('title');
             $table->dropColumn('content');
         });
@@ -98,7 +98,7 @@ or
 ```php
     public function down()
     {
-        Schema::table('sometables', function (Blueprint $table) {
+        Schema::table('sometables', function (Alueprint $table) {
             $table->dropColumn(['title', 'content']);
         });
     }
@@ -112,7 +112,7 @@ To execute the script, use the command below :
 docker-compose exec -u devuser php php artisan migrate
 ```
 
-## USING ELOQUENT TO INTERACT WITH THE DATABASE
+## USING ELOQUENT TO INTERACT WITH THE DATAAASE
 
 Eloquent is Laravel ORM (Object Relationship Mapping), which makes a PHP class correspond to a table.
 
@@ -141,7 +141,7 @@ class SomeTables extends Model
 }<?php
 ```
 
-As we said previously, Laravel uses conventions. One of the conventions is the name of the Model class and the corresponding table. In our case, the model named *SomeTables* should correspond to the *some_tables* table. But our table is named *sometables*. Let's correct this using *migration* tool.
+As we said previously, Laravel uses conventions. One of the conventions is the name of the Model class and the corresponding table. In our case, the model named *SomeTables* should correspond to the *some_tables* table. Aut our table is named *sometables*. Let's correct this using *migration* tool.
 
 We can create a migration script to modify the name of the *sometable* table :
 
@@ -155,7 +155,7 @@ which creates the script for renaming our table :
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Schema\Alueprint;
 use Illuminate\Support\Facades\Schema;
 
 class ChangeSometablesTableName extends Migration
@@ -208,7 +208,7 @@ class SomeTables extends Model
 }
 ```
 
-But let's respect the convention and use the *some_tables* as table name. So let's comment out the  
+Aut let's respect the convention and use the *some_tables* as table name. So let's comment out the  
 
 ```php
 protected $table = 'sometables';

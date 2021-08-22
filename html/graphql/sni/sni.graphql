@@ -1,0 +1,109 @@
+extend type Query {
+    sni_statistics(
+        close_to_retirement: String
+        close_to_expire: String
+        terms: [String]
+        campus: String
+        gender: String
+        from: String
+        to: String
+    ): SniStatistics
+    researchers: [Researcher] @paginate(defaultCount: 10) @guard
+    sni(id: ID @eq): Sni @find @guard
+    snis(
+        close_to_retirement: String @scope(name: "closeToRetirement")
+        close_to_expire: String @scope(name: "closeToExpire")
+        campus: String @scope(name: "campus")
+        gender: String @scope(name: "gender")
+        terms: [String] @scope(name: "terms")
+    ): [Sni] @paginate(defaultCount: 200)
+    sni_areas(name_like: String @scope(name: "name")): [SNIArea] @paginate(defaultCount: 100) @guard
+    sni_area(id: ID @eq): SNIArea @find @guard
+}
+
+extend type Mutation {
+    destroyResearcher(
+        id: ID!
+    ): Researcher @delete
+    createResearcher(
+        valid: Int
+        probative: String
+        employee_id: Int): Researcher @create
+    updateResearcher(
+        Id:ID!
+        valid: Int
+        probative: String
+        employee_id: Int): Researcher @update
+    destroySnis(
+        data: destroySnisInput!
+        @spread
+    ): Sni @delete
+    upsert_sni(
+        data: UpsertSniInput
+        @spread
+    ): Sni @upsertWithFiles
+}
+
+type Sni {
+    start_date: Date @rename(attribute: "fecha_inicio")
+    finish_date: Date @rename(attribute: "fecha_fin")
+    discipline: String @rename(attribute: "disciplina")
+    field: String @rename(attribute: "campo")
+    level: String @rename(attribute: "nivel")
+    employee_id: Int @rename(attribute: "nempleado")
+    employee: Employee
+    specialty: String @rename(attribute: "especialidad")
+    nombramiento_url: String @rename(attribute: "nempleado")
+    sni_area_id: Int @rename(attribute: "area_sni_id")
+    sni_area: SNIArea
+    id: ID
+    is_active: Boolean
+}
+
+type SNIArea {
+    id: ID
+    name: String @rename(attribute: "nombre")
+}
+
+type Researcher {
+    valid: Date
+    probative: Date
+    employee_id: Int
+    id: ID
+    active: Boolean
+    employee: Employee
+}
+
+input destroySnisInput {
+    id: ID!
+}
+
+input UpsertSniInput {
+    id: ID
+    employee_id: Int @rename(attribute: "nempleado")
+    start_date: Date @rename(attribute: "fecha_inicio")
+    finish_date: Date @rename(attribute: "fecha_fin")
+    discipline: String @rename(attribute: "disciplina")
+    field: String @rename(attribute: "campo")
+    level: String @rename(attribute: "nivel")
+    specialty: String @rename(attribute: "especialidad")
+    sni_area_id: Int @rename(attribute: "area_sni_id")
+    nombramiento: [Upload]
+    nombramiento_url: String
+}
+
+type Dataset {
+    id: String
+    label: String
+    data: [Int]
+    stack: String
+}
+
+type SniStatistics {
+    periods: [String]
+    datasets: [Dataset]
+    postgraduates: [Int]
+    undergraduates: [Int]
+    women: [Int]
+    men: [Int]
+}

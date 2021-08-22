@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -e
+. "$BAGCLI_WORKDIR/common"
+
+cli_help_deploy() {
+  echo "
+Command: generate
+
+Usage: 
+  generate schematic [options]"
+  exit 1
+}
+
+[ ! -n "$1" ] && cli_help_deploy
+
+SCHEMATIC_NAME=$1
+
+cli_log "$SCHEMATIC_NAME"
+cli_log "Generating a graphql mutation"
+cli_log "Generating a mutation resolver"
+cli_log "Add fillable by migration"
