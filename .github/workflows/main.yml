@@ -9,7 +9,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ secrets.TEMP }}
-        run: echo "$GITHUB_CONTEXT"
+      - name: ls -a via ssh
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
