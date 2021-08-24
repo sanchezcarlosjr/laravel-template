@@ -8,7 +8,7 @@ trait Production
 {
     public function upInLocalOrProduction($name, $create, $update = null)
     {
-        if (App::environment('production') && isset($create)) {
+        if (App::environment('production') && isset($update)) {
             Schema::table($name, $update);
         } else if(isset($update)) {
             Schema::create($name, $create);
