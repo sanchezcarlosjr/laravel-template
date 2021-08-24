@@ -26,6 +26,6 @@ class CreateProdepAreasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('disciplinas_prodep');
+        Schema::dropIfExists('areas_prodep');
     }
 }
