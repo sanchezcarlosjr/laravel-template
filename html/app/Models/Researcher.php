@@ -9,6 +9,7 @@ class Researcher extends Model
 {
     use HasFactory;
     protected $table = "profesores_investigadores";
+    public $timestamps = false;
 
     protected $fillable = ["vigenteHasta", "probatorio", "nempleado"];
 

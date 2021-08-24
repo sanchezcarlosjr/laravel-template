@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateRolesTable extends Migration
 {
-    use Production;
+    use Database\Migrations\Production;
 
     /**
      * Run the migrations.

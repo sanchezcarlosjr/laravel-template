@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 class LGAC extends Model
 {
     use HasFactory;
+    public $timestamps = false;
     protected $table = 'lgac_cuerpos_academicos';
     protected $fillable = [
         'nombre',

@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class InventionPit extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 }

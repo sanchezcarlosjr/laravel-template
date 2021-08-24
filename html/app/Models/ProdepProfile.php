@@ -12,6 +12,7 @@ class ProdepProfile extends Model
 {
     use HasFactory;
     use ActiveEmployee;
+    public $timestamps = false;
     protected $table = "prodep_perfiles";
 
     protected $fillable = [

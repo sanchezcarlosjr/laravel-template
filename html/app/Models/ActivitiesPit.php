@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ActivitiesPit extends Model
 {
+    public $timestamps = false;
     use HasFactory;
 
     protected $fillable = ["kind_of_applicant", "name_event", "asistence", "goal", "date", "academic_unit_id"];
