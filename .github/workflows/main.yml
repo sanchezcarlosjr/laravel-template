@@ -20,7 +20,7 @@ jobs:
              cd /var/www/html/siiip
              git pull
              cd html
-             php artisan migrate:refresh && php artisan db:seed --class=ProductionSeeder
+             php artisan migrate:refresh --force && php artisan db:seed --class=ProductionSeeder
              composer install --optimize-autoloader --no-dev
              php artisan optimize:clear
              npm i
