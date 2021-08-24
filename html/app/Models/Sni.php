@@ -13,6 +13,7 @@ class Sni extends Model
 {
     use HasFactory;
     use ActiveEmployee;
+    public $timestamps = false;
 
     protected $fillable = [
         "fecha_inicio",

@@ -11,6 +11,7 @@ use Illuminate\Support\Str;
 class Help extends Model
 {
     protected $table = "apoyos_cuerpos_academicos";
+    public $timestamps = false;
     protected $fillable = [
         'monto',
         'tipo',

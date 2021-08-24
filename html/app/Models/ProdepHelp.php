@@ -10,6 +10,8 @@ class ProdepHelp extends Model
 {
     use HasFactory;
     protected $table = "apoyos_prodep";
+    public $timestamps = false;
+
 
     protected $fillable = ["monto", "tipo", "fecha", "nempleado"];
 

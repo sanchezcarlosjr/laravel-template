@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class SNIArea extends Model
 {
     protected $table = 'areas_sni';
+    public $timestamps = false;
     protected $fillable = [
         "nombre"
     ];

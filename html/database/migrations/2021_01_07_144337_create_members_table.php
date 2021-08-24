@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateMembersTable extends Migration
 {
-    use Production;
+    use Database\Migrations\Production;
 
     /**
      * Run the migrations.
@@ -20,6 +20,7 @@ class CreateMembersTable extends Migration
             $table->integer('lgac_cuerpos_academicos_id')->unsigned();
             $table->integer('nempleado')->unsigned();
             $table->softDeletes();
+            $table->timestamps();
             $table->foreign('lgac_cuerpos_academicos_id')->references('id')->on('lgac_cuerpos_academicos')->onDelete('cascade');
             $table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
         });

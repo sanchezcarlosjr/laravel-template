@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 class Evaluation extends Model
 {
     protected $table = 'evaluaciones_cuerpos_academicos';
+    public $timestamps = false;
     protected $fillable = [
       'grado',
       'fecha_inicio',

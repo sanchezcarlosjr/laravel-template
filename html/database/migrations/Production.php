@@ -1,5 +1,6 @@
 <?php
 
+namespace Database\Migrations;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Schema;
 

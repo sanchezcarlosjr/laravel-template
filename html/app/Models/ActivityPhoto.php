@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class ActivityPhoto extends Model
 {
+    public $timestamps = false;
     use HasFactory;
 }

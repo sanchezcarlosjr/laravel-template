@@ -12,6 +12,7 @@ class ProdepArea extends Model
 
     protected $table = "areas_prodep";
     protected $fillable = ['nombre'];
+    public $timestamps = false;
 
     public function scopeName($query, $value)
     {

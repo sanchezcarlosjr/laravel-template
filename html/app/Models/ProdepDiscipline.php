@@ -9,6 +9,7 @@ class ProdepArea extends Model
 {
     use HasFactory;
     protected $table = "disciplinas_prodep";
+    public $timestamps = false;
 
     public function scopeName($query, $value) {
         return $query->where("nombre", "ILIKE", "%".$value."%");

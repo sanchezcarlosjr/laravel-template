@@ -10,6 +10,7 @@ class Network extends Model
 {
     protected $table = "redes_cuerpos_academicos";
     use HasFactory;
+    public $timestamps = false;
 
     protected $fillable = [
         'nombre',

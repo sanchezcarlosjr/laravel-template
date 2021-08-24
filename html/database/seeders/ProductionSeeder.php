@@ -2,8 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\ProdepArea;
+use App\Models\SNIArea;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class ProductionSeeder extends Seeder
 {
@@ -21,7 +24,7 @@ class ProductionSeeder extends Seeder
     }
 
     private function insertAreasSni() {
-        if (Schema::hasTable('areas_sni')) {
+        if (SNIArea::count() > 9) {
             return;
         }
         DB::table('areas_sni')->insert([
@@ -200,7 +203,7 @@ class ProductionSeeder extends Seeder
 
     private function insertProdepAreas()
     {
-        if (Schema::hasTable('areas_prodep')) {
+        if (ProdepArea::count() > 6) {
             return;
         }
         DB::table('areas_prodep')->insert([
