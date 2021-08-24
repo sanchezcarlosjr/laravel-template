@@ -6,14 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateEducationalProgramEvaluationsTable extends Migration
 {
-use Production;    /**
+    use Production;
+
+    /**
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('evaluaciones_programas_educativos', function (Blueprint $table) {
+        $this->upInLocalOrProduction('evaluaciones_programas_educativos', function (Blueprint $table) {
             $table->id();
             $table->date('vigente_hasta');
             $table->string('plan_proceso');
@@ -30,6 +32,6 @@ use Production;    /**
      */
     public function down()
     {
-        Schema::dropIfExists('evaluaciones_programas_educativos');
+        $this->dropInLocalNoProduction('evaluaciones_programas_educativos');
     }
 }

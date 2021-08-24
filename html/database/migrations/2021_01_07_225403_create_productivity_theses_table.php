@@ -6,14 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateProductivityThesesTable extends Migration
 {
-use Production;    /**
+    use Production;
+
+    /**
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('productividad_tesis', function (Blueprint $table) {
+        $this->upInLocalOrProduction('productividad_tesis', function (Blueprint $table) {
             $table->id();
             $table->string('titulo');
             $table->string('estudiante');
@@ -32,6 +34,6 @@ use Production;    /**
      */
     public function down()
     {
-        Schema::dropIfExists('productividad_tesis');
+        $this->dropInLocalNoProduction('productividad_tesis');
     }
 }

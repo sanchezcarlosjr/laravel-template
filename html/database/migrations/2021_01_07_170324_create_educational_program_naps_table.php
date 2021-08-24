@@ -6,14 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateEducationalProgramNapsTable extends Migration
 {
-use Production;    /**
+    use Production;
+
+    /**
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('programas_educativos_naps', function (Blueprint $table) {
+        $this->upInLocalOrProduction('programas_educativos_naps', function (Blueprint $table) {
             $table->id();
             $table->integer('programa_educativo_id')->unsigned();
             $table->foreign('programa_educativo_id')->references('id')->on('programas_educativos')->onDelete('cascade');
@@ -29,6 +31,6 @@ use Production;    /**
      */
     public function down()
     {
-        Schema::dropIfExists('programas_educativos_naps');
+        $this->dropInLocalNoProduction('programas_educativos_naps');
     }
 }

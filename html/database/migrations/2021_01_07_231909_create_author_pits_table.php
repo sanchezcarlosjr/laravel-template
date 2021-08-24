@@ -6,14 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateAuthorPitsTable extends Migration
 {
-use Production;    /**
+    use Production;
+
+    /**
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('pit_autores', function (Blueprint $table) {
+        $this->upInLocalOrProduction('pit_autores', function (Blueprint $table) {
             $table->id();
             $table->integer('derecho_id')->unsigned();
             $table->foreign('derecho_id')->references('id')->on('pit_derechos')->onDelete('cascade');
@@ -29,6 +31,6 @@ use Production;    /**
      */
     public function down()
     {
-        Schema::dropIfExists('pit_autores');
+        $this->dropInLocalNoProduction('pit_autores');
     }
 }

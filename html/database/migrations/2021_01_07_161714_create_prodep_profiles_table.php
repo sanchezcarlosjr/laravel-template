@@ -6,14 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateProdepProfilesTable extends Migration
 {
-use Production;    /**
+    use Production;
+
+    /**
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('prodep_perfiles', function (Blueprint $table) {
+        $this->upInLocalOrProduction('prodep_perfiles', function (Blueprint $table) {
             $table->id();
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
@@ -31,6 +33,6 @@ use Production;    /**
      */
     public function down()
     {
-        Schema::dropIfExists('prodep_perfiles');
+        $this->dropInLocalNoProduction('prodep_perfiles');
     }
 }

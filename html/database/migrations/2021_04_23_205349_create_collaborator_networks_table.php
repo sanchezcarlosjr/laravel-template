@@ -6,14 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateCollaboratorNetworksTable extends Migration
 {
-use Production;    /**
+    use Production;
+
+    /**
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('colaboradores_redes', function (Blueprint $table) {
+        $this->upInLocalOrProduction('colaboradores_redes', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->string('tipo');

@@ -6,14 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateActivitiesPitsTable extends Migration
 {
-use Production;    /**
+    use Production;
+
+    /**
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('pit_actividades', function (Blueprint $table) {
+        $this->upInLocalOrProduction('pit_actividades', function (Blueprint $table) {
             $table->id();
             $table->string('tipo_de_solicitante');
             $table->string('nombre_del_evento');
@@ -32,6 +34,6 @@ use Production;    /**
      */
     public function down()
     {
-        Schema::dropIfExists('pit_actividades');
+        $this->dropInLocalNoProduction('pit_actividades');
     }
 }

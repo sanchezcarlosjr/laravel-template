@@ -6,14 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateNetworksTable extends Migration
 {
-use Production;    /**
+    use Production;
+
+    /**
      * Run the migrations.
      *
      * @return void
      */
     public function up()
-   {
-        Schema::create('redes_cuerpos_academicos', function (Blueprint $table) {
+    {
+        $this->upInLocalOrProduction('redes_cuerpos_academicos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->string('tipo')->nullable();
@@ -35,10 +37,12 @@ use Production;    /**
      */
     public function down()
     {
-        Schema::disableForeignKeyConstraints();
-        Schema::dropColumns('redes_cuerpos_academicos', ['lider_de_red_id']);
-        Schema::dropColumns('colaboradores_redes', ['cuerpos_academicos_redes_id']);
-        Schema::dropIfExists('redes_cuerpos_academicos');
-        Schema::dropIfExists('colaboradores_redes');
+        $this->downInLocalOrProduction(function () {
+            Schema::disableForeignKeyConstraints();
+            Schema::dropColumns('redes_cuerpos_academicos', ['lider_de_red_id']);
+            Schema::dropColumns('colaboradores_redes', ['cuerpos_academicos_redes_id']);
+            Schema::dropIfExists('redes_cuerpos_academicos');
+            Schema::dropIfExists('colaboradores_redes');
+        });
     }
 }

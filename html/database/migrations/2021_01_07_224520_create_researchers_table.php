@@ -6,14 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateResearchersTable extends Migration
 {
-use Production;    /**
+    use Production;
+
+    /**
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('profesores_investigadores', function (Blueprint $table) {
+        $this->upInLocalOrProduction('profesores_investigadores', function (Blueprint $table) {
             $table->id();
             $table->date('vigenteHasta');
             $table->date('probatorio');
@@ -29,6 +31,6 @@ use Production;    /**
      */
     public function down()
     {
-        Schema::dropIfExists('profesores_investigadores');
+        $this->dropInLocalNoProduction('profesores_investigadores');
     }
 }

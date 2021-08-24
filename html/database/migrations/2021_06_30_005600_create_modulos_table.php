@@ -6,7 +6,9 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateModulosTable extends Migration
 {
-use Production;    /**
+    use Production;
+
+    /**
      * Run the migrations.
      *
      * @return void
@@ -26,6 +28,6 @@ use Production;    /**
      */
     public function down()
     {
-        Schema::dropIfExists('modulos');
+       Schema::dropIfExists('modulos');
     }
 }

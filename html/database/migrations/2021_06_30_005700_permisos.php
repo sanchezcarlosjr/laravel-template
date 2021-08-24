@@ -6,7 +6,9 @@ use Illuminate\Support\Facades\Schema;
 
 class Permisos extends Migration
 {
-use Production;    /**
+    use Production;
+
+    /**
      * Run the migrations.
      *
      * @return void

@@ -21,6 +21,9 @@ class ProductionSeeder extends Seeder
     }
 
     private function insertAreasSni() {
+        if (Schema::hasTable('areas_sni')) {
+            return;
+        }
         DB::table('areas_sni')->insert([
             ['nombre' => 'Área I Físico-matemáticas y ciencias de la tierra'],
             ['nombre' => 'Área II Biología y química'],
@@ -197,6 +200,9 @@ class ProductionSeeder extends Seeder
 
     private function insertProdepAreas()
     {
+        if (Schema::hasTable('areas_prodep')) {
+            return;
+        }
         DB::table('areas_prodep')->insert([
             ['nombre' => 'Ciencias Agropecuarias'],
             ['nombre' => 'Ciencias Naturales y Exactas'],

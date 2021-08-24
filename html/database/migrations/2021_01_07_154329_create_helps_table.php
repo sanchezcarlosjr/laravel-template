@@ -6,14 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateHelpsTable extends Migration
 {
-use Production;    /**
+    use Production;
+
+    /**
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('apoyos_cuerpos_academicos', function (Blueprint $table) {
+        $this->upInLocalOrProduction('apoyos_cuerpos_academicos', function (Blueprint $table) {
             $table->id();
             $table->float('monto');
             $table->string('tipo');
@@ -35,6 +37,6 @@ use Production;    /**
      */
     public function down()
     {
-        Schema::dropIfExists('apoyos_cuerpos_academicos');
+        $this->dropInLocalNoProduction('apoyos_cuerpos_academicos');
     }
 }

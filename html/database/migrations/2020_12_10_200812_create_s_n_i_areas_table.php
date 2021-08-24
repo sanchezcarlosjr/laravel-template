@@ -6,14 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateSNIAreasTable extends Migration
 {
-use Production;    /**
+    use Production;
+
+    /**
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('areas_sni', function (Blueprint $table) {
+        $this->upInLocalOrProduction('areas_sni', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
         });
@@ -26,6 +28,6 @@ use Production;    /**
      */
     public function down()
     {
-        Schema::dropIfExists('areas_sni');
+        $this->dropInLocalNoProduction('areas_sni');
     }
 }
