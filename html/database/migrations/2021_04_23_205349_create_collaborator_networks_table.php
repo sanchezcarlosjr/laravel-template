@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateCollaboratorNetworksTable extends Migration
 {
-    /**
+use Production;    /**
      * Run the migrations.
      *
      * @return void

@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateProdepAreasTable extends Migration
 {
+    use Production;
+
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateProdepAreasTable extends Migration
      */
     public function up()
     {
-        Schema::create('areas_prodep', function (Blueprint $table) {
+        $this->upInLocalOrProduction('areas_prodep', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
         });
@@ -26,6 +28,6 @@ class CreateProdepAreasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('areas_prodep');
+        $this->dropInLocalNoProduction('areas_prodep');
     }
 }
