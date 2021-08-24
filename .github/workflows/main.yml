@@ -21,7 +21,7 @@ jobs:
              git pull
              cd html
              composer install --optimize-autoloader --no-dev
-             php artisan migrate:refresh --force && php artisan db:seed --class=ProductionSeeder
+             php artisan migrate:refresh --force && php artisan db:seed --force --class=ProductionSeeder
              php artisan optimize:clear
              npm i
              export NODE_ENV=production && node_modules/webpack/bin/webpack.js --no-progress --config=node_modules/laravel-mix/setup/webpack.config.js
