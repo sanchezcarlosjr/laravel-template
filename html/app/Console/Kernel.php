@@ -13,10 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        Commands\GeneratePageCommand::class,
-        Commands\SchematicMakeCommand::class,
-        Commands\SedCommentCommand::class,
-        Commands\SedUncommentCommand::class
+        Commands\SchematicMakeCommand::class
     ];
 
     /**
