@@ -13,6 +13,9 @@ class CreateCollaboratorNetworksRelationshipTable extends Migration
      */
     public function up()
     {
+        if (Shema::hasTable('colaboradores_redes') || Schema::hasTable('redes_cuerpos_academicos')) {
+            return;
+        }
         Schema::table('colaboradores_redes', function (Blueprint $table) {
             $table->foreign('cuerpos_academicos_redes_id')->references('id')->on('redes_cuerpos_academicos');
         });
