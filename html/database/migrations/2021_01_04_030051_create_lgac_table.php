@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateLGACTable extends Migration
 {
+    use Production;
+
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateLGACTable extends Migration
      */
     public function up()
     {
-        Schema::create('lgac_cuerpos_academicos', function (Blueprint $table) {
+        $this->upInLocalOrProduction('lgac_cuerpos_academicos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->string('descripcion')->nullable();
@@ -29,6 +31,6 @@ class CreateLGACTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lgac_cuerpos_academicos');
+        $this->dropInLocalNoProduction('lgac_cuerpos_academicos');
     }
 }

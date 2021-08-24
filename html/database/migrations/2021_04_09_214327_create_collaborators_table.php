@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateCollaboratorsTable extends Migration
 {
+    use Production;
+
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateCollaboratorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('colaboradores', function (Blueprint $table) {
+        $this->upInLocalOrProduction('colaboradores', function (Blueprint $table) {
             $table->id();
             $table->integer('cuerpo_academico_id')->unsigned();
             $table->integer('nempleado')->unsigned();
@@ -29,6 +31,6 @@ class CreateCollaboratorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('colaboradores');
+        $this->dropInLocalNoProduction('colaboradores');
     }
 }

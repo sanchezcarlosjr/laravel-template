@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateMembersTable extends Migration
 {
+    use Production;
+
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateMembersTable extends Migration
      */
     public function up()
     {
-        Schema::create('miembros_cuerpos_academicos', function (Blueprint $table) {
+        $this->upInLocalOrProduction('miembros_cuerpos_academicos', function (Blueprint $table) {
             $table->id();
             $table->integer('lgac_cuerpos_academicos_id')->unsigned();
             $table->integer('nempleado')->unsigned();
@@ -30,6 +32,6 @@ class CreateMembersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('miembros_cuerpos_academicos');
+        $this->dropInLocalNoProduction('miembros_cuerpos_academicos');
     }
 }

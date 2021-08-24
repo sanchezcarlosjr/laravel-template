@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreatePESTable extends Migration
 {
+    use Production;
+
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreatePESTable extends Migration
      */
     public function up()
     {
-        Schema::create('programas_educativos', function (Blueprint $table) {
+        $this->upInLocalOrProduction('programas_educativos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->string('grado');
@@ -35,6 +37,6 @@ class CreatePESTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('programas_educativos');
+        $this->dropInLocalNoProduction('programas_educativos');
     }
 }

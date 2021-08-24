@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateProductivityInnovationsTable extends Migration
 {
+    use Production;
+
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateProductivityInnovationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('productividad_innovacion', function (Blueprint $table) {
+        $this->upInLocalOrProduction('productividad_innovacion', function (Blueprint $table) {
             $table->id();
             $table->string('titulo');
             $table->string('autores');
@@ -32,6 +34,6 @@ class CreateProductivityInnovationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('productividad_innovacion');
+        $this->dropInLocalNoProduction('productividad_innovacion');
     }
 }

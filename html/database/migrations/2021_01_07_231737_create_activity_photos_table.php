@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateActivityPhotosTable extends Migration
 {
+    use Production;
+
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateActivityPhotosTable extends Migration
      */
     public function up()
     {
-        Schema::create('pit_actividades_fotos', function (Blueprint $table) {
+        $this->upInLocalOrProduction('pit_actividades_fotos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->string('url');
@@ -29,6 +31,6 @@ class CreateActivityPhotosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pit_actividades_fotos');
+        $this->dropInLocalNoProduction('pit_actividades_fotos');
     }
 }

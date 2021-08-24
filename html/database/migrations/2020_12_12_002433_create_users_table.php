@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateUsersTable extends Migration
 {
+    use Production;
+
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('siiip_usuarios', function (Blueprint $table) {
+        $this->upInLocalOrProduction('siiip_usuarios', function (Blueprint $table) {
             $table->id();
             $table->integer('nempleado')->unsigned();
             $table->string('contrasena');
@@ -31,6 +33,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('siiip_usuarios');
+        $this->dropInLocalNoProduction('siiip_usuarios');
     }
 }

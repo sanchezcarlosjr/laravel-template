@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateAcademicBodiesTable extends Migration
 {
+    use Production;
+
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateAcademicBodiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('cuerpos_academicos', function (Blueprint $table) {
+        $this->upInLocalOrProduction('cuerpos_academicos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->string('clave_prodep')->unique();
@@ -36,6 +38,6 @@ class CreateAcademicBodiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cuerpos_academicos');
+        $this->dropInLocalNoProduction('cuerpos_academicos');
     }
 }

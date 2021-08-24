@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateProdepHelpsTable extends Migration
 {
+    use Production;
+
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateProdepHelpsTable extends Migration
      */
     public function up()
     {
-        Schema::create('apoyos_prodep', function (Blueprint $table) {
+        $this->upInLocalOrProduction('apoyos_prodep', function (Blueprint $table) {
             $table->id();
             $table->decimal('monto');
             $table->tinyInteger('tipo');
@@ -30,6 +32,6 @@ class CreateProdepHelpsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('apoyos_prodep');
+        $this->dropInLocalNoProduction('apoyos_prodep');
     }
 }

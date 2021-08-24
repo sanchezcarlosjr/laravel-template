@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateProdepDisciplinesTable extends Migration
 {
+    use Production;
+
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateProdepDisciplinesTable extends Migration
      */
     public function up()
     {
-        Schema::create('disciplinas_prodep', function (Blueprint $table) {
+        $this->upInLocalOrProduction('disciplinas_prodep', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->integer('area_prodep_id')->unsigned();
@@ -28,6 +30,6 @@ class CreateProdepDisciplinesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('disciplinas_prodep');
+        $this->dropInLocalNoProduction('disciplinas_prodep');
     }
 }

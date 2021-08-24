@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateConsultancyPitsTable extends Migration
 {
+    use Production;
+
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateConsultancyPitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pit_asesorias', function (Blueprint $table) {
+        $this->upInLocalOrProduction('pit_asesorias', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_aplicacion');
             $table->string('tipo_de_aplicacion');
@@ -31,6 +33,6 @@ class CreateConsultancyPitsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pit_asesorias');
+        $this->dropInLocalNoProduction('pit_asesorias');
     }
 }

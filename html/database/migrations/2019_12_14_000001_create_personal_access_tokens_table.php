@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreatePersonalAccessTokensTable extends Migration
 {
+    use Production;
+
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreatePersonalAccessTokensTable extends Migration
      */
     public function up()
     {
-        Schema::create('personal_access_tokens', function (Blueprint $table) {
+        $this->upInLocalOrProduction('personal_access_tokens', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->morphs('tokenable');
             $table->string('name');
@@ -31,6 +33,6 @@ class CreatePersonalAccessTokensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('personal_access_tokens');
+        $this->dropInLocalNoProduction('personal_access_tokens');
     }
 }

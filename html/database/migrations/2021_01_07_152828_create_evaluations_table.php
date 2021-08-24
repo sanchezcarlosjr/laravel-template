@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateEvaluationsTable extends Migration
 {
+    use Production;
+
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateEvaluationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('evaluaciones_cuerpos_academicos', function (Blueprint $table) {
+        $this->upInLocalOrProduction('evaluaciones_cuerpos_academicos', function (Blueprint $table) {
             $table->id();
             $table->date('fecha_inicio');
             $table->date('fecha_fin')->nullable();
@@ -30,6 +32,6 @@ class CreateEvaluationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('evaluaciones_cuerpos_academicos');
+        $this->dropInLocalNoProduction('evaluaciones_cuerpos_academicos');
     }
 }

@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateProductivityArtisticTable extends Migration
 {
+    use Production;
+
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateProductivityArtisticTable extends Migration
      */
     public function up()
     {
-        Schema::create('productividad_artistica', function (Blueprint $table) {
+        $this->upInLocalOrProduction('productividad_artistica', function (Blueprint $table) {
             $table->id();
             $table->string('titulo');
             $table->string('autores');
@@ -31,6 +33,6 @@ class CreateProductivityArtisticTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('productividad_artistica');
+        $this->dropInLocalNoProduction('productividad_artistica');
     }
 }

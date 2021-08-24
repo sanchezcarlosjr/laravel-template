@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateSnisTable extends Migration
 {
+    use Production;
+
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateSnisTable extends Migration
      */
     public function up()
     {
-        Schema::create('snis', function (Blueprint $table) {
+        $this->upInLocalOrProduction('snis', function (Blueprint $table) {
             $table->id();
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
@@ -36,6 +38,6 @@ class CreateSnisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('snis');
+        $this->dropInLocalNoProduction('snis');
     }
 }

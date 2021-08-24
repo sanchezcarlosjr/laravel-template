@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateProdepNPTCTable extends Migration
 {
+    use Production;
+
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateProdepNPTCTable extends Migration
      */
     public function up()
     {
-        Schema::create('nptc_prodep', function (Blueprint $table) {
+        $this->upInLocalOrProduction('nptc_prodep', function (Blueprint $table) {
             $table->id();
             //$table->float('cantidad');
             //$table->string('tipo');
@@ -32,6 +34,6 @@ class CreateProdepNPTCTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nptc_prodep');
+        $this->dropInLocalNoProduction('nptc_prodep');
     }
 }

@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateRightPitsTable extends Migration
 {
+    use Production;
+
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateRightPitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pit_derechos', function (Blueprint $table) {
+        $this->upInLocalOrProduction('pit_derechos', function (Blueprint $table) {
             $table->id();
             $table->string('titulo');
             $table->string('estado_invencion');
@@ -34,6 +36,6 @@ class CreateRightPitsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pit_derechos');
+        $this->dropInLocalNoProduction('pit_derechos');
     }
 }

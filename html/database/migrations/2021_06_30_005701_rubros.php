@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class Rubros extends Migration
 {
+    use Production;
+
     /**
      * Run the migrations.
      *

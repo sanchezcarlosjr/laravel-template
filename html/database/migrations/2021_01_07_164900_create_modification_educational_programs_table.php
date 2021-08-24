@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateModificationEducationalProgramsTable extends Migration
 {
+    use Production;
+
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateModificationEducationalProgramsTable extends Migration
      */
     public function up()
     {
-        Schema::create('modificaciones_programas_educativos', function (Blueprint $table) {
+        $this->upInLocalOrProduction('modificaciones_programas_educativos', function (Blueprint $table) {
             $table->id();
             $table->date('fecha');
             $table->string('estatus_actual');
@@ -30,6 +32,6 @@ class CreateModificationEducationalProgramsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modificaciones_programas_educativos');
+        $this->dropInLocalNoProduction('modificaciones_programas_educativos');
     }
 }
