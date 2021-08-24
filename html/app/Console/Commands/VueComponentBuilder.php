@@ -2,26 +2,26 @@
 
 namespace App\Console\Commands;
 
+use Exception;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
 
-class SedCommentCommand extends Command
+class VueComponentBuilder extends Command
 {
-    private $projectPath;
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'sed:comment {directory} {regex}';
-
+    protected $signature = 'make:vg {name}';
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Comment files of a directory';
+    protected $description = 'Create a new vue component';
+
     /**
      * Create a new command instance.
      *
@@ -30,7 +30,6 @@ class SedCommentCommand extends Command
     public function __construct()
     {
         parent::__construct();
-        $this->projectPath = new ProjectPath();
     }
 
     /**
@@ -40,8 +39,13 @@ class SedCommentCommand extends Command
      */
     public function handle()
     {
-        $path = $this->projectPath[$this->argument('directory')];
-        Sed::commentIn($path, $this->argument('regex'));
+        $name = $this->argument('name');
+        $sub_path = strtolower($name);
+        $pattern = "/([0-9a-z-]*)?\/$/";
+        preg_match($pattern, $sub_path, $matches);
+        $file = $matches[1];
+        dd($file);
         return 0;
     }
+
 }
