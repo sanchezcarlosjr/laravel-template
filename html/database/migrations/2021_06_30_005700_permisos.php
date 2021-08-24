@@ -15,7 +15,7 @@ class Permisos extends Migration
      */
     public function up()
     {
-        Schema::create('permisos', function (Blueprint $table) {
+        $this->upInLocalOrProduction('permisos', function (Blueprint $table) {
             $table->id();
             $table->integer('modulo_id')->unsigned();
             $table->integer('rol_id')->unsigned();
@@ -35,6 +35,6 @@ class Permisos extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('permisos');
+        $this->dropInLocalNoProduction('permisos');
     }
 }

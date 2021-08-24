@@ -15,7 +15,7 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
+        $this->upInLocalOrProduction('roles', function (Blueprint $table) {
             $table->id();
             $table->string('rol');
         });
@@ -28,6 +28,6 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        $this->dropInLocalNoProduction('roles');
     }
 }
