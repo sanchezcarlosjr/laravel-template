@@ -2,11 +2,14 @@
 
 namespace Database\Seeders;
 
+use App\Models\Modulo;
 use App\Models\ProdepArea;
+use App\Models\Role;
 use App\Models\SNIArea;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Permisos;
 
 class ProductionSeeder extends Seeder
 {
@@ -42,6 +45,9 @@ class ProductionSeeder extends Seeder
 
     private function insertRoles()
     {
+        if (Role::count() > 15) {
+            return;
+        }
         DB::table('roles')->insert([
             ['rol' => 'Admnistrador'],
             ['rol' => 'Coordinador general'],
