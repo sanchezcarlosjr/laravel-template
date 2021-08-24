@@ -10,7 +10,7 @@ trait Production
     {
         if (App::environment('production')) {
             Schema::table($name, $update);
-        } else {
+        } else if(isset($update)) {
             Schema::create($name, $create);
         }
     }
