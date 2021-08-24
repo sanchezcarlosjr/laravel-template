@@ -28,6 +28,6 @@ class CreateProdepDisciplinesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('areas_prodep');
+        Schema::dropIfExists('disciplinas_prodep');
     }
 }
