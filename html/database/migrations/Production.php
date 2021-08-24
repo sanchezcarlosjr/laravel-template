@@ -8,18 +8,12 @@ trait Production
 {
     public function upInLocalOrProduction($name, $create, $update = null)
     {
-        if (App::environment('production') && isset($update)) {
-            Schema::table($name, $update);
-        } else if(isset($update)) {
-            Schema::create($name, $create);
-        }
+        Schema::create($name, $create);
     }
 
     public function dropInLocalNoProduction($name)
     {
-        if (!App::environment('production')) {
-            Schema::dropIfExists($name);
-        }
+        Schema::dropIfExists($name);
     }
 
     public function downInLocalOrProduction($destroy, $update = null)
