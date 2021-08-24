@@ -13,7 +13,7 @@ class CreateCollaboratorNetworksRelationshipTable extends Migration
      */
     public function up()
     {
-        if (Shema::hasTable('colaboradores_redes') || Schema::hasTable('redes_cuerpos_academicos')) {
+        if (Schema::hasTable('colaboradores_redes') || Schema::hasTable('redes_cuerpos_academicos')) {
             return;
         }
         Schema::table('colaboradores_redes', function (Blueprint $table) {
