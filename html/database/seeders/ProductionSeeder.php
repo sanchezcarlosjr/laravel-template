@@ -27,9 +27,6 @@ class ProductionSeeder extends Seeder
     }
 
     private function insertAreasSni() {
-        if (SNIArea::count() > 9) {
-            return;
-        }
         DB::table('areas_sni')->insert([
             ['nombre' => 'Área I Físico-matemáticas y ciencias de la tierra'],
             ['nombre' => 'Área II Biología y química'],
@@ -45,9 +42,6 @@ class ProductionSeeder extends Seeder
 
     private function insertRoles()
     {
-        if (Role::count() > 15) {
-            return;
-        }
         DB::table('roles')->insert([
             ['rol' => 'Admnistrador'],
             ['rol' => 'Coordinador general'],
@@ -209,9 +203,6 @@ class ProductionSeeder extends Seeder
 
     private function insertProdepAreas()
     {
-        if (ProdepArea::count() > 6) {
-            return;
-        }
         DB::table('areas_prodep')->insert([
             ['nombre' => 'Ciencias Agropecuarias'],
             ['nombre' => 'Ciencias Naturales y Exactas'],
