@@ -11,7 +11,6 @@ class Member extends Model
     use HasFactory;
     use SoftDeletes;
 
-    public $timestamps = false;
     protected $table = 'miembros_cuerpos_academicos';
     protected $fillable = [
         'lgac_cuerpos_academicos_id',

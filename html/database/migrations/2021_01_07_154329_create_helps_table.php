@@ -22,7 +22,6 @@ class CreateHelpsTable extends Migration
             $table->string('reporte_url')->nullable();
             $table->string('liberacion_url')->nullable();
             $table->date('fecha');
-            $table->timestamps();
             $table->integer('cuerpo_academico_id')->unsigned();
             $table->foreign('cuerpo_academico_id')->references('id')->on('cuerpos_academicos')->onDelete('cascade');
             $table->integer('nempleado_beneficiado')->unsigned();

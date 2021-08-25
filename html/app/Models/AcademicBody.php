@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\DB;
 class AcademicBody extends Model
 {
     use HasFactory;
-    public $timestamps = false;
     protected $table = 'cuerpos_academicos';
     protected $fillable = [
         'nombre',
