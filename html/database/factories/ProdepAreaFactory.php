@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\ProdepArea;
+use App\Models\ProdepDiscipline;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ProdepAreaFactory extends Factory
@@ -12,7 +12,7 @@ class ProdepAreaFactory extends Factory
      *
      * @var string
      */
-    protected $model = ProdepArea::class;
+    protected $model = ProdepDiscipline::class;
 
     /**
      * Define the model's default state.

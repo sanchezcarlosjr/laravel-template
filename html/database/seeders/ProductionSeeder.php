@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Modulo;
-use App\Models\ProdepArea;
+use App\Models\ProdepDiscipline;
 use App\Models\Role;
 use App\Models\SNIArea;
 use Illuminate\Database\Seeder;
@@ -209,6 +209,9 @@ class ProductionSeeder extends Seeder
 
     private function insertProdepAreas()
     {
+        if (Schema::hasTable('areas_prodep') && ProdepDiscipline::count() > 0) {
+            return;
+        }
         DB::table('areas_prodep')->insert([
             ['nombre' => 'Ciencias Agropecuarias'],
             ['nombre' => 'Ciencias Naturales y Exactas'],
