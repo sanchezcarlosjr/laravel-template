@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Migrations;
+
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Schema;
 
@@ -18,10 +19,6 @@ trait Production
 
     public function downInLocalOrProduction($destroy, $update = null)
     {
-        if (!App::environment('production') && isset($destroy)) {
-            $destroy();
-        } else if (isset($update)) {
-            $update();
-        }
+        $destroy();
     }
 }
