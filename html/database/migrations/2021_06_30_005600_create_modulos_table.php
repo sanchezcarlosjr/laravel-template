@@ -15,7 +15,7 @@ class CreateModulosTable extends Migration
      */
     public function up()
     {
-        Schema::create('modulos', function (Blueprint $table) {
+        $this->upInLocalOrProduction('modulos', function (Blueprint $table) {
             $table->id();
             $table->string('modulo');
         });
@@ -28,6 +28,6 @@ class CreateModulosTable extends Migration
      */
     public function down()
     {
-       Schema::dropIfExists('modulos');
+        $this->dropInLocalNoProduction('modulos');
     }
 }
