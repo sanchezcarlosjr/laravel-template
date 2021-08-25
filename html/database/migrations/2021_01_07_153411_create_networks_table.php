@@ -39,8 +39,6 @@ class CreateNetworksTable extends Migration
     {
         $this->downInLocalOrProduction(function () {
             Schema::disableForeignKeyConstraints();
-            Schema::dropColumns('redes_cuerpos_academicos', ['lider_de_red_id']);
-            Schema::dropColumns('colaboradores_redes', ['cuerpos_academicos_redes_id']);
             Schema::dropIfExists('redes_cuerpos_academicos');
             Schema::dropIfExists('colaboradores_redes');
         });
