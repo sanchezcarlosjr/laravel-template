@@ -14,7 +14,7 @@ class AcademicBodyController extends Controller
      */
     public function index()
     {
-        return AcademicBody::orderBy('created_at', 'asc')->get();
+        //
     }
 
     /**
