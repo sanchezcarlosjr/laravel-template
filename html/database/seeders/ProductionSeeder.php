@@ -27,6 +27,9 @@ class ProductionSeeder extends Seeder
     }
 
     private function insertAreasSni() {
+        if (Schema::hasTable('areas_sni') && SNIArea::count() > 0) {
+            return;
+        }
         DB::table('areas_sni')->insert([
             ['nombre' => 'Área I Físico-matemáticas y ciencias de la tierra'],
             ['nombre' => 'Área II Biología y química'],
@@ -42,6 +45,9 @@ class ProductionSeeder extends Seeder
 
     private function insertRoles()
     {
+        if (Schema::hasTable('roles') && Role::count() > 0) {
+            return;
+        }
         DB::table('roles')->insert([
             ['rol' => 'Admnistrador'],
             ['rol' => 'Coordinador general'],
