@@ -2,6 +2,7 @@ extend type Query {
     login(email: String! @trim, password: String! @trim) : User!
     user(id: ID @eq): User @find @guard
     me: User @auth
+    roles: [Role] @paginate(defaultCount: 20)
     users(
         gender: String @scope(name: "gender")
         campus: String @scope(name: "campus")
@@ -21,6 +22,10 @@ type Permission {
     destroy: Boolean
     read: Boolean
     edit: Boolean
+}
+
+type Role {
+    rol: String
 }
 
 type User {

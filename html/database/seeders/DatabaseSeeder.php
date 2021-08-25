@@ -9,7 +9,7 @@ use App\Models\Evaluation;
 use App\Models\Help;
 use App\Models\LGAC;
 use App\Models\Network;
-use App\Models\ProdepArea;
+use App\Models\ProdepDiscipline;
 use App\Models\ProdepHelp;
 use App\Models\ProdepNPTC;
 use App\Models\ProdepProfile;

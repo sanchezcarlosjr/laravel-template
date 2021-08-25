@@ -14,7 +14,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return Role::all()->get();
+        return Role::orderBy('id', 'asc')->get();
     }
 
     /**
