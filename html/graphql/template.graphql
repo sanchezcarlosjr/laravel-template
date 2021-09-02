@@ -1,0 +1,23 @@
+extend type Query {
+    SINGULAR_SNAKE(id: ID @eq): SINGULAR_STUDLY @find @guard
+    PLURAL_SNAKE(
+        terms: [String] @scope(name: "terms")
+    ): [SINGULAR_STUDLY] @paginate(defaultCount: 200)
+}
+
+extend type Mutation {
+    upsert_SINGULAR_SNAKE(
+        data: UpsertSINGULAR_STUDLYInput
+        @spread
+    ): SINGULAR_STUDLY @upsert
+}
+
+type SINGULAR_STUDLY {
+    id: ID!
+    TYPES
+}
+
+input UpsertSINGULAR_STUDLYInput {
+    id: ID
+    TYPES
+}
