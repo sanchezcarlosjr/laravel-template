@@ -1,7 +1,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 import VueFormGenerator from 'vue-form-generator';
 import { helps } from "../../@shared/repositories/academic_bodies/helps/repository.ts";
-import {Permission} from "../../store/auth/permission";
+import {Permission} from "../../@shared/application/auth/permission";
 
 const permission = new Permission('/cuerpos-academicos/apoyos', {
     read: {

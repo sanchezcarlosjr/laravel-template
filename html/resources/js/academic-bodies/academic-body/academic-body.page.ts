@@ -1,6 +1,6 @@
 import {Component, Ref, Vue} from 'vue-property-decorator';
 import {schema} from "../academic-body-management/academic-body-management.page";
-import {Permission} from "../../store/auth/permission";
+import {Permission} from "../../@shared/application/auth/permission";
 import {academic_bodies} from "../../@shared/repositories/academic_bodies/repository";
 
 @Component

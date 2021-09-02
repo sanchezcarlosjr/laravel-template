@@ -20,6 +20,12 @@ mix.webpackConfig(webpack => {
         output: {
             publicPath: process.env.VUE_PUBLIC_PATH
         },
+        resolve: {
+            extensions: [".vue", ".ts"],
+            alias: {
+                '@shared': path.resolve(__dirname, 'resources/js/@shared')
+            }
+        },
         plugins: [
             new webpack.EnvironmentPlugin (
                 {

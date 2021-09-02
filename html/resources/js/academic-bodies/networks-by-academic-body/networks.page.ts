@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import {networks} from "../../@shared/repositories/academic_bodies/networks/repository";
-import {Permission} from "../../store/auth/permission";
+import {Permission} from "../../@shared/application/auth/permission";
 import {employees} from "../../@shared/repositories/employees/repository";
 
 const permission = new Permission('/cuerpos-academicos/:academic_body_id/redes', {

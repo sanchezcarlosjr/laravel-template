@@ -1,4 +1,4 @@
-import state from "../store";
+import state from "../../../store/store";
 
 export interface FormSchema {
     create?: any;

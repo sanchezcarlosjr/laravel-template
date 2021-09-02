@@ -4,7 +4,7 @@ import {validator as GraphQLSelectIdValidator} from "../../@shared/application/f
 import {prodep_nptcs} from "../../@shared/repositories/prodep/repository.ts";
 import {employees} from "../../@shared/repositories/employees/repository.ts";
 import {authorized, campus, extended} from "../../@shared/search-criteria/search-criteria.ts";
-import {Permission} from "../../store/auth/permission";
+import {Permission} from "../../@shared/application/auth/permission";
 
 let schema = {
     legend: "Apoyo a NPTC",

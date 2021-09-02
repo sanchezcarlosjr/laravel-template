@@ -1,7 +1,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 import VueFormGenerator from 'vue-form-generator';
 import { lgac } from "../../@shared/repositories/academic_bodies/lgac/repository.ts";
-import {Permission} from "../../store/auth/permission";
+import {Permission} from "../../@shared/application/auth/permission";
 
 const schema = {
   legend: "LGAC",

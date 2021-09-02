@@ -2,10 +2,10 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import {employees} from "../../@shared/repositories/employees/repository";
 import {validator as GraphQLSelectIdValidator} from "../../@shared/application/form-fields/vfg-field-select-graphql-id/vfg-field-select-graphql-id";
-import {sni_areas, snis} from "../../@shared/repositories/sni/repository";
+import {sni_areas, snis} from "@shared/repositories/sni/repository";
 import {campus, close_to_expire, close_to_retirement, gender} from "../../@shared/search-criteria/search-criteria";
 import SniStatistics from "./statistics/index.vue";
-import {Permission} from "../../store/auth/permission";
+import {Permission} from "../../@shared/application/auth/permission";
 
 const schema = {
     legend: "SNI",

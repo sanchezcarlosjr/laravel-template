@@ -1,7 +1,7 @@
 import {Component, Vue} from 'vue-property-decorator';
 import {collaborators} from "../../@shared/repositories/academic_bodies/collaborators/repository.ts";
 import {membersForm} from "../members/members.page";
-import {Permission} from "../../store/auth/permission";
+import {Permission} from "../../@shared/application/auth/permission";
 import {employees} from "../../@shared/repositories/employees/repository.ts";
 import {validator as GraphQLSelectIdValidator} from "../../@shared/application/form-fields/vfg-field-select-graphql-id/vfg-field-select-graphql-id"
 
