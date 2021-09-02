@@ -1,0 +1,4 @@
+#!/usr/bin/zsh
+alias artisan="docker-compose exec php php artisan"
+alias psql="docker exec -it laravel-pgsql psql -h pgsql -U pguser pgdb"
+# source cli/alias

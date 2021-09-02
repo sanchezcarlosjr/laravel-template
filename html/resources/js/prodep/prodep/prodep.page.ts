@@ -4,7 +4,7 @@ import {validator as GraphQLSelectIdValidator} from "../../@shared/application/f
 import {prodep_areas, prodep_profiles} from "../../@shared/repositories/prodep/repository.ts";
 import {employees} from "../../@shared/repositories/employees/repository.ts";
 import {campus, close_to_retirement, gender, validity} from "../../@shared/search-criteria/search-criteria.ts";
-import {Permission} from "../../store/auth/permission";
+import {Permission} from "../../@shared/application/auth/permission";
 
 let fields = [
     {key: 'employee.name', label: 'Nombre', sortable: true, class: "vw-20"},

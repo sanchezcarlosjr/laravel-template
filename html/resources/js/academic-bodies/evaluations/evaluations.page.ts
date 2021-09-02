@@ -1,7 +1,7 @@
 import {Component, Vue} from 'vue-property-decorator';
 import {campus, grade, validity} from "../../@shared/search-criteria/search-criteria.ts";
 import {academic_bodies} from "../../@shared/repositories/academic_bodies/repository.ts";
-import {Permission} from "../../store/auth/permission";
+import {Permission} from "../../@shared/application/auth/permission";
 
 const permission = new Permission('/cuerpos-academicos/evaluaciones', {
     read: {

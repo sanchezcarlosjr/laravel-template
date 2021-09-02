@@ -7,7 +7,7 @@ import {
     leaders,
     members as members_criteria
 } from "../../@shared/search-criteria/search-criteria.ts";
-import {Permission} from "../../store/auth/permission";
+import {Permission} from "../../@shared/application/auth/permission";
 
 export const membersForm = {
     legend: "Empleado",
