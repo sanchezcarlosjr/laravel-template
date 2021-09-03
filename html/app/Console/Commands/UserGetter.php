@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class UserGetter extends Command
 {
@@ -47,11 +48,11 @@ class UserGetter extends Command
         $array = collect([]);
         $users = User::distinct('rol_id')->get()->loadMissing(['employee']);
         foreach ($users as $user) {
-            $array->push(['role' => $user->role, 'email' => $user->employee->correo1]);
+            $array->push(['role' => $user->role, 'email' => $user->employee->correo1, 'user' => Str::of($user->employee->correo1)->replace('@uabc.edu.mx', '')]);
         }
         $this->info("Users for testing");
         $this->table(
-            ['Role', 'Email'],
+            ['Role', 'Email', 'User'],
             $array->toArray()
         );
         return 0;
