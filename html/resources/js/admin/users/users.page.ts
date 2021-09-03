@@ -3,7 +3,7 @@ import Component from "vue-class-component";
 import {users} from "../../@shared/repositories/users/repository";
 import {employees} from "../../@shared/repositories/employees/repository";
 import {campus, gender} from "../../@shared/search-criteria/search-criteria";
-import {Permission} from "../../store/auth/permission";
+import {Permission} from "../../@shared/application/auth/permission";
 
 const words = [
     'Erg0',
@@ -104,8 +104,6 @@ export default class UsersPage extends Vue {
         {key: 'employee.academic_unit.campus', label: 'Campus', sortable: true},
         {key: 'role', label: "Rol", sortable: true}
     ];
-    tableTitle = 'Gestión de usuarios';
     resource = users;
-    spanishResourceName = 'usuario';
 }
 

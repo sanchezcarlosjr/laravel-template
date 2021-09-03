@@ -37,7 +37,7 @@
                                                     <b-form-group
                                                         id="input-group-2"
                                                         label="Contraseña"
-                                                        label-for="input-1"
+                                                        label-for="contraseña-1"
                                                         style="padding: 10px 0;"
                                                     >
                                                         <b-input-group class="mt-3">

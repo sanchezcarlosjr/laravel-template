@@ -5,7 +5,11 @@
         "module": "esnext",
         "skipLibCheck": true,
         "moduleResolution": "node",
-        "experimentalDecorators": true
+        "experimentalDecorators": true,
+        "baseUrl": "./",
+        "paths": {
+            "@shared/*": ["resources/js/@shared/*"]
+        }
     },
     "include": [
         "resources/js/**/*"

@@ -1,7 +1,7 @@
 import {Component, Vue} from 'vue-property-decorator';
 import {grade} from "../../@shared/search-criteria/search-criteria.ts";
 import {evaluations} from "../../@shared/repositories/academic_bodies/evaluations/repository.ts";
-import {Permission} from "../../store/auth/permission";
+import {Permission} from "../../@shared/application/auth/permission";
 
 
 const schema = {

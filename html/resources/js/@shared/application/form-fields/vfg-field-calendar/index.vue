@@ -2,6 +2,9 @@
    <b-form-datepicker
       block
       :readonly="schema.readonly"
+      label-calendar="Calendario"
+      label-help="Usa los cursores para navegar"
+      label-next-month="Siguiente mes"
       v-model="value"
     ></b-form-datepicker>
 </template>

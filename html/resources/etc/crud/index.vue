@@ -7,5 +7,5 @@
     />
 </template>
 
-<script src="./researcher.ts" lang="ts"></script>
-<style src="./researcher.scss" scoped lang="scss"></style>
+<script src="./example.ts" lang="ts"></script>
+<style src="./example.scss" scoped lang="scss"></style>
