@@ -15,10 +15,10 @@ class CreateResearchersTable extends Migration
      */
     public function up()
     {
-        $this->upInLocalOrProduction('profesores_investigadores', function (Blueprint $table) {
+        Schema::create('profesores_investigadores', function (Blueprint $table) {
             $table->id();
             $table->date('vigenteHasta');
-            $table->date('probatorio');
+            $table->smallInteger('probatorio');
             $table->integer('nempleado')->unsigned();
             $table->foreign('nempleado')->references('nempleado')->on('empleados')->onDelete('cascade');
         });
@@ -31,6 +31,6 @@ class CreateResearchersTable extends Migration
      */
     public function down()
     {
-        $this->dropInLocalNoProduction('profesores_investigadores');
+        Schema::dropIfExists('profesores_investigadores');
     }
 }

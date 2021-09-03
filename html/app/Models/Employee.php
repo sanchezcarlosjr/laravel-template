@@ -198,7 +198,7 @@ class Employee extends Model
 
     public function getIsResearcherAttribute(): bool
     {
-        return $this->researchers->where('valid', '>', Carbon::now())->count() > 0;
+        return $this->researchers->where('vigenteHasta', '>', Carbon::now())->count() > 0;
     }
 
     /*public function getBenefitsAttribute() {

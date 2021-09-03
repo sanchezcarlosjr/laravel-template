@@ -41,6 +41,7 @@ class DatabaseSeeder extends ProductionSeeder
         Employee::factory(5)->has(ProdepHelp::factory()->count(3), 'prodep_helps')->create();
         Employee::factory(5)->has(ProdepNPTC::factory()->count(3), 'prodep_nptcs')->create();
         Employee::factory(5)->has(Sni::factory()->count(5), 'snis')->create();
+        Employee::factory(5)->has(Researcher::factory()->count(5), 'researchers')->create();
         LGAC::factory(200)->create();
         Evaluation::factory(200)->create();
         Network::factory(200)->create();

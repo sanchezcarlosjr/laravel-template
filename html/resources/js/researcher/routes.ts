@@ -1,5 +1,5 @@
 export const ResearchRoutes = {
-    path: 'investigadores',
+    path: '/investigadores',
     name: 'Profesor-Investigador',
     icon: 'fa-microscope',
     meta: {title: 'Profesor-Investigador'},

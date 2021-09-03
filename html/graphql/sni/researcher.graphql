@@ -1,0 +1,31 @@
+extend type Query {
+    researcher(id: ID @eq): Researcher @find @guard
+    researchers(
+        campus: String @scope(name: "campus")
+        gender: String @scope(name: "gender")
+        validity: String @scope(name: "validity")
+        terms: [String] @scope(name: "terms")
+    ): [Researcher] @paginate(defaultCount: 200)
+}
+
+extend type Mutation {
+    upsert_researcher(
+        data: UpsertResearcherInput
+        @spread
+    ): Researcher @upsert
+}
+
+type Researcher {
+    id: ID!
+    vigenteHasta: Date
+    probatorio: Int # 0: PROMEP, 1: SNI, 2: SNCA
+    employee: Employee
+    employee_id: Int @rename(attribute: "nempleado")
+}
+
+input UpsertResearcherInput {
+    id: ID
+    vigenteHasta: Date
+    probatorio: Int
+    employee_id: Int @rename(attribute: "nempleado")
+}

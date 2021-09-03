@@ -8,7 +8,6 @@ extend type Query {
         from: String
         to: String
     ): SniStatistics
-    researchers: [Researcher] @paginate(defaultCount: 10) @guard
     sni(id: ID @eq): Sni @find @guard
     snis(
         close_to_retirement: String @scope(name: "closeToRetirement")
@@ -63,15 +62,6 @@ type Sni {
 type SNIArea {
     id: ID
     name: String @rename(attribute: "nombre")
-}
-
-type Researcher {
-    valid: Date
-    probative: Date
-    employee_id: Int
-    id: ID
-    active: Boolean
-    employee: Employee
 }
 
 input destroySnisInput {
