@@ -8,13 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Researcher extends Model
 {
     use HasFactory;
-    protected $table = "profesores_investigadores";
-    public $timestamps = false;
 
+    public $timestamps = false;
+    protected $table = "profesores_investigadores";
     protected $fillable = ["vigenteHasta", "probatorio", "nempleado"];
 
     public function employee()
     {
         return $this->belongsTo(Employee::class, "nempleado");
+    }
+
+    public function scopeTerms($query, $terms)
+    {
+        return $query;
     }
 }

@@ -14,6 +14,7 @@ use Permisos;
 class ProductionSeeder extends Seeder
 {
     use Csv;
+
     /**
      * Run the database seeds.
      *
@@ -26,26 +27,21 @@ class ProductionSeeder extends Seeder
         $this->insertProdepAreas();
     }
 
-    private function insertAreasSni() {
-        if (Schema::hasTable('areas_sni') && SNIArea::count() > 0) {
-            return;
-        }
-        DB::table('areas_sni')->insert([
-            ['nombre' => 'Área I Físico-matemáticas y ciencias de la tierra'],
-            ['nombre' => 'Área II Biología y química'],
-            ['nombre' => 'Área III Medicina y ciencias de la salud'],
-            ['nombre' => 'Área IV Ciencias de la conducta y la educación'],
-            ['nombre' => 'Área V Humanidades'],
-            ['nombre' => 'Área VI Ciencias sociales'],
-            ['nombre' => 'Área VII Ciencias de agricultura, agropecuarias, forestales y de ecosistemas'],
-            ['nombre' => 'Área VIII Ingenierías y desarrollo tecnológico'],
-            ['nombre' => 'Área IX Interdisciplinaria']
-        ]);
-    }
-
     private function insertRoles()
     {
         if (Schema::hasTable('roles') && Role::count() > 0) {
+            DB::table('modulos')->insert([
+                    ['modulo' => '/investigadores']
+                ]
+            );
+            DB::table('permisos')->insert([
+                ['modulo_id' => 21, 'rol_id' => 1, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
+                ['modulo_id' => 21, 'rol_id' => 2, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
+                ['modulo_id' => 21, 'rol_id' => 3, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
+                ['modulo_id' => 21, 'rol_id' => 4, 'crear' => false, 'editar' => false, 'leer' => false, 'destruir' => false],
+                ['modulo_id' => 21, 'rol_id' => 5, 'crear' => false, 'editar' => false, 'leer' => false, 'destruir' => false],
+                ['modulo_id' => 21, 'rol_id' => 6, 'crear' => false, 'editar' => false, 'leer' => false, 'destruir' => false]
+            ]);
             return;
         }
         DB::table('roles')->insert([
@@ -85,7 +81,8 @@ class ProductionSeeder extends Seeder
             ['modulo' => '/prodep/apoyos'],
             ['modulo' => '/prodep/nptcs'],
             ['modulo' => '/cuerpos-academicos/:academic_body_id/apoyos'],
-            ['modulo' => '/cuerpos-academicos/:academic_body_id/detalles']
+            ['modulo' => '/cuerpos-academicos/:academic_body_id/detalles'],
+            ['modulo' => '/investigadores']
         ]);
         DB::table('permisos')->insert([
             ['modulo_id' => 1, 'rol_id' => 6, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
@@ -203,9 +200,32 @@ class ProductionSeeder extends Seeder
             ['modulo_id' => 18, 'rol_id' => 3, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
             ['modulo_id' => 19, 'rol_id' => 3, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
             ['modulo_id' => 20, 'rol_id' => 2, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
+            ['modulo_id' => 21, 'rol_id' => 1, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
+            ['modulo_id' => 21, 'rol_id' => 2, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
+            ['modulo_id' => 21, 'rol_id' => 3, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
+            ['modulo_id' => 21, 'rol_id' => 4, 'crear' => false, 'editar' => false, 'leer' => false, 'destruir' => false],
+            ['modulo_id' => 21, 'rol_id' => 5, 'crear' => false, 'editar' => false, 'leer' => false, 'destruir' => false],
+            ['modulo_id' => 21, 'rol_id' => 6, 'crear' => false, 'editar' => false, 'leer' => false, 'destruir' => false]
         ]);
     }
 
+    private function insertAreasSni()
+    {
+        if (Schema::hasTable('areas_sni') && SNIArea::count() > 0) {
+            return;
+        }
+        DB::table('areas_sni')->insert([
+            ['nombre' => 'Área I Físico-matemáticas y ciencias de la tierra'],
+            ['nombre' => 'Área II Biología y química'],
+            ['nombre' => 'Área III Medicina y ciencias de la salud'],
+            ['nombre' => 'Área IV Ciencias de la conducta y la educación'],
+            ['nombre' => 'Área V Humanidades'],
+            ['nombre' => 'Área VI Ciencias sociales'],
+            ['nombre' => 'Área VII Ciencias de agricultura, agropecuarias, forestales y de ecosistemas'],
+            ['nombre' => 'Área VIII Ingenierías y desarrollo tecnológico'],
+            ['nombre' => 'Área IX Interdisciplinaria']
+        ]);
+    }
 
     private function insertProdepAreas()
     {
@@ -220,7 +240,7 @@ class ProductionSeeder extends Seeder
             ['nombre' => 'Educación, Humanidades y Arte'],
             ['nombre' => 'Ingeniería y Tecnología']
         ]);
-        $areas_prodep = $this->readCSV("database/legacy/disciplinas_prodep.csv",array('delimiter' => ','));
+        $areas_prodep = $this->readCSV("database/legacy/disciplinas_prodep.csv", array('delimiter' => ','));
         DB::table('disciplinas_prodep')->insert($areas_prodep->toArray());
     }
 }

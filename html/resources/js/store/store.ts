@@ -116,7 +116,14 @@ const state = Vue.observable({
                 "edit": false,
                 "read": false,
                 "destroy": false
-            }
+            },
+            "/investigadores": {
+                "module": "/investigadores",
+                "create": false,
+                "edit": false,
+                "read": false,
+                "destroy": false
+            },
         }
     }  as any
 });

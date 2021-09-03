@@ -34,7 +34,7 @@ type Employee {
     has_active_prodep_profile: Boolean
     has_active_sni: Boolean
     prodep_profiles: [ProdepProfile]
-    snis: [Sni],
+    snis: [Sni]
     benefits: [Apoyo]
 }
 
