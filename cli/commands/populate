@@ -22,3 +22,4 @@ docker-compose exec php php artisan migrate:refresh --seed
 find html/database/seeders -name "*.php" -exec sed -i s/AcademicUnit::/\#AcademicUnit::/g {} +
 find html/database/seeders -name "*.php" -exec sed -i s/DES::/\#DES::/g {} +
 docker-compose exec php php artisan migrate:refresh --seed
+docker-compose exec php php artisan list:users
