@@ -12,16 +12,10 @@ extend type Mutation {
     ): Researcher @upsert
 }
 
-enum Probatorio {
-    PROMEP @enum(value: 0)
-    SNI @enum(value: 1)
-    SNCA @enum(value: 2)
-}
-
 type Researcher {
     id: ID!
     vigenteHasta: Date
-    probatorio: Probatorio
+    probatorio: Int # 0: PROMEP, 1: SNI, 2: SNCA
     employee: Employee
     employee_id: Int @rename(attribute: "nempleado")
 }

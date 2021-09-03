@@ -32,19 +32,19 @@ const schema = {
             type: 'select',
             label: 'Probatorio',
             model: 'probatorio',
-            values: [
-                {
-                    value: 0,
-                    text: "SNI"
-                }
-            ]
+            values: function () {
+                return [
+                    {id: 0, name: "PROMEP"},
+                    {id: 1, name: "SNI"},
+                    {id: 2, name: "SNCA"}
+                ]
+            },
         },
         {
             type: 'calendar',
             label: 'Vigente Hasta',
-            model: "vigenteHasta",
-            default: new Date('1-1-2021')
-        },
+            model: "vigenteHasta"
+        }
     ]
 };
 

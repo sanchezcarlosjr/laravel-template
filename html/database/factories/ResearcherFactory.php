@@ -23,7 +23,7 @@ class ResearcherFactory extends Factory
     {
         return [
             "vigenteHasta" => $this->faker->date,
-            "probatorio" => $this->faker->numberBetween(1,5)
+            "probatorio" => $this->faker->numberBetween(0,2)
         ];
     }
 }
