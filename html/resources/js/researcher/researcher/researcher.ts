@@ -4,6 +4,7 @@ import GraphQLResourceRepository from "@shared/infraestructure/communication/gra
 import {Permission} from "@shared/application/auth/permission";
 import {employees} from "@shared/repositories/employees/repository";
 import {validator as GraphQLSelectIdValidator} from "@shared/application/form-fields/vfg-field-select-graphql-id/vfg-field-select-graphql-id";
+import {campus, gender, validity} from "@shared/search-criteria/search-criteria";
 
 const schema = {
     legend: "profesor-investigador",
@@ -55,7 +56,11 @@ const formSchema = new Permission('/investigadores', {
 
 @Component
 export default class Researcher extends Vue {
-    criteria = [];
+    criteria = [
+        validity,
+        gender,
+        campus
+    ];
     formSchemas = formSchema.hasPermissions();
     fields = [
         {key: 'employee.name', label: 'Nombre', sortable: true, class: "vw-20"},

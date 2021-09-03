@@ -1,6 +1,9 @@
 extend type Query {
     researcher(id: ID @eq): Researcher @find @guard
     researchers(
+        campus: String @scope(name: "campus")
+        gender: String @scope(name: "gender")
+        validity: String @scope(name: "validity")
         terms: [String] @scope(name: "terms")
     ): [Researcher] @paginate(defaultCount: 200)
 }
