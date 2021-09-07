@@ -18,7 +18,7 @@ class CreateHelpsTable extends Migration
         $this->upInLocalOrProduction('apoyos_cuerpos_academicos', function (Blueprint $table) {
             $table->id();
             $table->float('monto');
-            $table->string('tipo');
+            $table->smallInteger('tipo');
             $table->string('reporte_url')->nullable();
             $table->string('liberacion_url')->nullable();
             $table->date('fecha');
@@ -26,6 +26,8 @@ class CreateHelpsTable extends Migration
             $table->foreign('cuerpo_academico_id')->references('id')->on('cuerpos_academicos')->onDelete('cascade');
             $table->integer('nempleado_beneficiado')->unsigned();
             $table->foreign('nempleado_beneficiado')->references('nempleado')->on('empleados')->onDelete('cascade');
+        }, function (Blueprint $table) {
+            $table->smallInteger('tipo')->charset(null)->collation(null)->change();
         });
     }
 

@@ -19,23 +19,23 @@ export default class HelpsPage extends Vue {
                 values: [
                     {
                         name: 'Estancias cortas',
-                        id: "0"
+                        id: 0
                     },
                     {
                         name: 'Apoyo a publicación',
-                        id: "1"
+                        id: 1
                     },
                     {
                         name: 'Convocatoria redes',
-                        id: "2"
+                        id: 2
                     },
                     {
                         name: 'Convocatoria fortalecimiento de CA',
-                        id: "3"
+                        id: 3
                     },
                     {
                         name: 'Becas posdoctorado',
-                        id: "4"
+                        id: 4
                     }
                 ]
             },

@@ -30,18 +30,6 @@ class ProductionSeeder extends Seeder
     private function insertRoles()
     {
         if (Schema::hasTable('roles') && Role::count() > 0) {
-            DB::table('modulos')->insert([
-                    ['modulo' => '/investigadores']
-                ]
-            );
-            DB::table('permisos')->insert([
-                ['modulo_id' => 21, 'rol_id' => 1, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
-                ['modulo_id' => 21, 'rol_id' => 2, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
-                ['modulo_id' => 21, 'rol_id' => 3, 'crear' => true, 'editar' => true, 'leer' => true, 'destruir' => true],
-                ['modulo_id' => 21, 'rol_id' => 4, 'crear' => false, 'editar' => false, 'leer' => false, 'destruir' => false],
-                ['modulo_id' => 21, 'rol_id' => 5, 'crear' => false, 'editar' => false, 'leer' => false, 'destruir' => false],
-                ['modulo_id' => 21, 'rol_id' => 6, 'crear' => false, 'editar' => false, 'leer' => false, 'destruir' => false]
-            ]);
             return;
         }
         DB::table('roles')->insert([

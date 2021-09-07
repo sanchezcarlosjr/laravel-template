@@ -24,7 +24,7 @@ class HelpFactory extends Factory
     {
         return [
             'monto' =>$this->faker->numberBetween($min = 1000, $max = 10000000),
-            'tipo' => $this->faker->userName,
+            'tipo' => $this->faker->numberBetween($min = 0, $max = 4),
             'fecha' => $this->faker->date,
             'cuerpo_academico_id' => $this->faker->numberBetween($min = 1, $max = 10)
         ];

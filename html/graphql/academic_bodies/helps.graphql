@@ -5,7 +5,7 @@ extend type Query {
         terms: [String] @scope(name: "terms")
         # filter: [String],
         # orderBy: String @orderBy(columns: ["created_at"])
-    ): [Help] @paginate(defaultCount: 200) @orderBy(column: "fecha", direction: "ASC") @guard
+    ): [Help] @paginate(defaultCount: 200) @orderBy(column: "fecha", direction: "ASC")
 }
 
 extend type Mutation {
