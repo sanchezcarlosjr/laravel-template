@@ -28,9 +28,12 @@ class CreateNetworksTable extends Migration
             $table->integer('cuerpo_academico_id')->unsigned();
             $table->foreign('cuerpo_academico_id')->references('id')->on('cuerpos_academicos')->onDelete('cascade');
         }, function (Blueprint $table) {
-            $table->smallInteger('tipo')->charset(null)->collation(null)->change();
-            $table->smallInteger('clase')->charset(null)->collation(null)->change();
-            $table->smallInteger('rango')->charset(null)->collation(null)->change();
+            $table->dropColumn('tipo');
+            $table->dropColumn('clase');
+            $table->dropColumn('rango');
+            $table->smallInteger('tipo');
+            $table->smallInteger('clase');
+            $table->smallInteger('rango');
         });
     }
 
