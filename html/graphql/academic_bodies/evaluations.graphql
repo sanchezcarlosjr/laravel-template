@@ -25,7 +25,7 @@ input UpsertEvaluationInput {
 type Evaluation {
     id: ID
     active: Boolean
-    grade: String
+    grade: String @rename(attribute: "grado")
     grade_name: String
     start_date: Date  @rename(attribute: "fecha_inicio")
     finish_date: Date @rename(attribute: "fecha_fin")
