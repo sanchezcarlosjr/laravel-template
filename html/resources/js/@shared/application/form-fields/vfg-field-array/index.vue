@@ -1,6 +1,5 @@
 <template>
     <div>
-        <b-table striped hover :items="items"></b-table>
         <div v-for="(field, index) in value" :key="index">
             <vue-form-generator :schema="schema.schema" :model="field"></vue-form-generator>
         </div>

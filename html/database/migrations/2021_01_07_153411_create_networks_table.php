@@ -18,15 +18,19 @@ class CreateNetworksTable extends Migration
         $this->upInLocalOrProduction('redes_cuerpos_academicos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('tipo')->nullable();
-            $table->string('clase')->nullable();
+            $table->smallInteger('tipo')->nullable();
+            $table->smallInteger('clase')->nullable();
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
-            $table->string('rango');
+            $table->smallInteger('rango');
             $table->string('url_convenio')->nullable();
             $table->integer('lider_de_red_id')->unsigned()->nullable();
             $table->integer('cuerpo_academico_id')->unsigned();
             $table->foreign('cuerpo_academico_id')->references('id')->on('cuerpos_academicos')->onDelete('cascade');
+        }, function (Blueprint $table) {
+            $table->smallInteger('tipo')->charset(null)->collation(null)->change();
+            $table->smallInteger('clase')->charset(null)->collation(null)->change();
+            $table->smallInteger('rango')->charset(null)->collation(null)->change();
         });
     }
 

@@ -23,9 +23,7 @@ class NetworkFactory extends Factory
     {
         return [
             'nombre' => $this->faker->country,
-            'tipo' => $this->faker->creditCardType,
-            'clase' => $this->faker->firstName,
-            'rango' => $this->faker->lastName,
+            'rango' => $this->faker->numberBetween($min = 0, $max = 3),
             'fecha_inicio' => $this->faker->date,
             'fecha_fin' => $this->faker->date,
             'cuerpo_academico_id' => $this->faker->numberBetween($min = 1, $max = 10)
