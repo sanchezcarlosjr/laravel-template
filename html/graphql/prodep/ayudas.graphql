@@ -1,58 +1,53 @@
 extend type Query {
-  prodep_help(
-    id: ID @eq
-  ): ProdepHelp @find @guard
-  prodep_helps(
-    terms: [String] @scope(name: "terms")
-    campus: String @scope(name: "campus")
-    gender: String @scope(name: "gender")
-    close_to_retirement: String @scope(name: "closeToRetirement")
-  ): [ProdepHelp] @paginate(defaultCount: 100) @guard
+    prodep_help(
+        id: ID @eq
+    ): ProdepHelp @find @guard
+    prodep_helps(
+        terms: [String] @scope(name: "terms")
+        campus: String @scope(name: "campus")
+        gender: String @scope(name: "gender")
+        close_to_retirement: String @scope(name: "closeToRetirement")
+    ): [ProdepHelp] @paginate(defaultCount: 100) @guard
 }
 
 extend type Mutation {
-  create_prodep_help(
-    data: CreateProdepHelpInput @spread
-  ): ProdepHelp @create
-  update_prodep_help(
-    data: UpdateProdepHelpInput @spread
-  ): ProdepHelp @update
-  upsert_prodep_help(
+    destroy_prodep_help(id: ID!): ProdepHelp @delete @guard
+    upsert_prodep_help(
     data: UpsertProdepHelpInput @spread
-  ): ProdepHelp @upsert
+    ): ProdepHelp @upsert @guard
 }
 
 type ProdepHelp {
-  id: ID!
-  active: Boolean
-  amount: Float
-  type: Int
-  type_name: String
-  date: Date
-  employee_id: Int
-  employee: Employee
-  beneficiary: Employee
+    id: ID!
+    active: Boolean
+    amount: Float
+    type: Int
+    type_name: String
+    date: Date
+    employee_id: Int
+    employee: Employee
+    beneficiary: Employee
 }
 
 input CreateProdepHelpInput {
-  amount: Float
-  type: Int
-  date: Date
-  employee_id: Int
+    amount: Float
+    type: Int
+    date: Date
+    employee_id: Int
 }
 
 input UpdateProdepHelpInput {
-  id: ID!
-  amount: Float
-  type: Int
-  date: Date
-  employee_id: Int
+    id: ID!
+    amount: Float
+    type: Int
+    date: Date
+    employee_id: Int
 }
 
 input UpsertProdepHelpInput {
-  id: ID
-  amount: Float
-  type: Int
-  date: Date
-  employee_id: Int
+    id: ID
+    amount: Float
+    type: Int
+    date: Date
+    employee_id: Int
 }
