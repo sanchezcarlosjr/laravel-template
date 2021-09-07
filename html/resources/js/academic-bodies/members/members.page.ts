@@ -1,13 +1,13 @@
 import {Component, Vue} from 'vue-property-decorator';
-import {members} from "../../@shared/repositories/academic_bodies/members/repository.ts";
+import {members} from "@shared/repositories/academic_bodies/members/repository.ts";
 import {
     campus,
     close_to_retirement,
     gender,
     leaders,
     members as members_criteria
-} from "../../@shared/search-criteria/search-criteria.ts";
-import {Permission} from "../../@shared/application/auth/permission";
+} from "@shared/search-criteria/search-criteria.ts";
+import {Permission} from "@shared/application/auth/permission";
 
 export const membersForm = {
     legend: "Empleado",

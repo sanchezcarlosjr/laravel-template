@@ -1,11 +1,10 @@
 import {Component, Vue} from 'vue-property-decorator';
-import {validator as GraphQLSelectIdValidator} from "../../@shared/application/form-fields/vfg-field-select-graphql-id/vfg-field-select-graphql-id"
-import {members} from "../../@shared/repositories/academic_bodies/members/repository.ts";
-import {employees} from "../../@shared/repositories/employees/repository.ts";
-import {lgac} from "../../@shared/repositories/academic_bodies/lgac/repository.ts";
-import {campus, close_to_retirement} from "../../@shared/search-criteria/search-criteria.ts";
-import {Permission} from "../../@shared/application/auth/permission";
-import {membersForm} from "../members/members.page";
+import {validator as GraphQLSelectIdValidator} from "@shared/application/form-fields/vfg-field-select-graphql-id/vfg-field-select-graphql-id"
+import {members} from "@shared/repositories/academic_bodies/members/repository.ts";
+import {employees} from "@shared/repositories/employees/repository.ts";
+import {lgac} from "@shared/repositories/academic_bodies/lgac/repository.ts";
+import {campus, close_to_retirement} from "@shared/search-criteria/search-criteria.ts";
+import {Permission} from "@shared/application/auth/permission";
 
 let fields = [
     {key: 'is_leader', sortable: true},
@@ -72,6 +71,17 @@ export default class MembersPage extends Vue {
                     model: "is_leader",
                     textOn: "Es el líder del cuerpo académico",
                     textOff: "No es el líder del cuerpo académico"
+                }
+            ]
+        },
+        destroy: {
+            legend: "Miembro",
+            fields: [
+                {
+                    type: "label",
+                    label: "¿Desea remover a este miembro de este cuerpo académico?",
+                    hint: "Acción irreversible.",
+                    model: "name"
                 }
             ]
         },

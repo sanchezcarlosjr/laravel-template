@@ -9,7 +9,7 @@ extend type Query {
 }
 
 extend type Mutation {
-    destroyNetwork(data: destroyNetworkInput! @spread): Network @guard
+    destroy_network(data: destroyNetworkInput! @spread): Network @guard
     upsert_network(
         data: UpsertNetworkInput @spread
     ): Network

@@ -1,6 +1,6 @@
 <template>
     <siip-table
-        :formSchemas="formSchemas"
+        :crudSchema="formSchemas"
         :fields="fields"
         :resource="apiResource"
     ></siip-table>

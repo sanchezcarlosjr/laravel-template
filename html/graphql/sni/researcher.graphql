@@ -9,6 +9,7 @@ extend type Query {
 }
 
 extend type Mutation {
+    destroy_researcher(id: ID!): Researcher @delete @guard
     upsert_researcher(
         data: UpsertResearcherInput
         @spread

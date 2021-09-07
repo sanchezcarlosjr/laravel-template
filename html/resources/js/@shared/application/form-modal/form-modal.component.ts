@@ -1,14 +1,15 @@
 import {Component, Prop, Ref, Vue} from 'vue-property-decorator';
 import {FormType} from "../form-type";
+import GraphQLResourceRepository from "@shared/infraestructure/communication/graphql/test";
+import {FormSchema} from "@shared/application/form-schema";
 
 @Component
 export default class FormModal extends Vue {
     public static Type = FormType;
     @Prop({default: FormType.Read}) type?: FormType;
     @Prop({default: "md"}) size!: string;
-    @Prop() schema!: any;
-    /** Todo lol */
-    @Prop() resource: any;
+    @Prop() schema!: FormSchema;
+    @Prop() resource!: GraphQLResourceRepository;
     @Ref() form!: Vue & {
         submit: () => boolean;
         reset: () => void;
@@ -33,7 +34,7 @@ export default class FormModal extends Vue {
                 return `Añadir`;
             case FormType.Update:
                 return `Guardar`;
-            case FormType.Delete:
+            case FormType.Destroy:
                 return `Eliminar`;
             case FormType.Archive:
                 return `Archivar`;
@@ -55,7 +56,7 @@ export default class FormModal extends Vue {
                 return `Detalles de ${this.schema.legend}`;
             case FormType.Update:
                 return `Editar ${this.schema.legend}`;
-            case FormType.Delete:
+            case FormType.Destroy:
                 return `Eliminar ${this.schema.legend}`;
             case FormType.Archive:
                 return `Archivar ${this.schema.legend}`;

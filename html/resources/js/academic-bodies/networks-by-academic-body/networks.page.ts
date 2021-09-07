@@ -1,8 +1,7 @@
 import Vue from "vue";
 import Component from "vue-class-component";
-import {networks} from "../../@shared/repositories/academic_bodies/networks/repository";
-import {Permission} from "../../@shared/application/auth/permission";
-import {employees} from "../../@shared/repositories/employees/repository";
+import {networks} from "@shared/repositories/academic_bodies/networks/repository";
+import {Permission} from "@shared/application/auth/permission";
 
 const permission = new Permission('/cuerpos-academicos/:academic_body_id/redes', {
     create: {
@@ -63,6 +62,17 @@ const permission = new Permission('/cuerpos-academicos/:academic_body_id/redes',
                         }
                     ]
                 }
+            }
+        ]
+    },
+    destroy: {
+        legend: "la red",
+        fields: [
+            {
+                type: "label",
+                label: "¿Desea eliminar esta red?",
+                hint: "Acción irreversible.",
+                model: "name"
             }
         ]
     },

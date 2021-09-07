@@ -1,9 +1,8 @@
 import {Component, Vue} from 'vue-property-decorator';
-import {validator as GraphQLSelectIdValidator} from "../../@shared/application/form-fields/vfg-field-select-graphql-id/vfg-field-select-graphql-id"
-import {helps} from "../../@shared/repositories/academic_bodies/helps/repository.ts";
-import {members} from "../../@shared/repositories/academic_bodies/members/repository.ts";
-import {Permission} from "../../@shared/application/auth/permission";
-
+import {validator as GraphQLSelectIdValidator} from "@shared/application/form-fields/vfg-field-select-graphql-id/vfg-field-select-graphql-id"
+import {helps} from "@shared/repositories/academic_bodies/helps/repository.ts";
+import {members} from "@shared/repositories/academic_bodies/members/repository.ts";
+import {Permission} from "@shared/application/auth/permission";
 
 @Component
 export default class HelpsPage extends Vue {
@@ -100,6 +99,17 @@ export default class HelpsPage extends Vue {
     formSchemas = new Permission('/cuerpos-academicos/:academic_body_id/apoyos', {
         create: this._schema,
         edit: this._schema,
+        destroy: {
+            legend: this._schema.legend,
+            fields: [
+                {
+                    type: "label",
+                    label: "¿Desea eliminar este apoyo?",
+                    hint: "Acción irreversible.",
+                    model: "benefited_employee.name"
+                }
+            ]
+        },
         read: {
             legend: "Apoyo",
             fields: [

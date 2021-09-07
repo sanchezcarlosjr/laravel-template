@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Component from "vue-class-component";
-import {GraphqlResourceRepository} from "../../@shared/infraestructure/communication/graphql/graphql-resource-repository";
+import {GraphqlResourceRepository} from "@shared/infraestructure/communication/graphql/graphql-resource-repository";
 
 @Component
 export default class ActivitiesPitsPage extends Vue {

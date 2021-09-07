@@ -1,7 +1,6 @@
-import { Component, Vue } from 'vue-property-decorator';
-import VueFormGenerator from 'vue-form-generator';
-import { helps } from "../../@shared/repositories/academic_bodies/helps/repository.ts";
-import {Permission} from "../../@shared/application/auth/permission";
+import {Component, Vue} from 'vue-property-decorator';
+import {helps} from "@shared/repositories/academic_bodies/helps/repository.ts";
+import {Permission} from "@shared/application/auth/permission";
 
 const permission = new Permission('/cuerpos-academicos/apoyos', {
     read: {
@@ -45,16 +44,16 @@ const permission = new Permission('/cuerpos-academicos/apoyos', {
 
 @Component
 export default class HelpsPage extends Vue {
-  resource = helps;
-  criteria = [];
-  fields = [
-    {key: 'type_name', label: 'Tipo', sortable: true},
-    {key: 'date', label: 'Fecha', sortable: true},
-    {key: 'amount', label: 'Cantidad', sortable: true},
-    {key: 'benefited_employee.name', label: 'Beneficiario', sortable: true},
-    {key: 'academic_body.name', label: 'Cuerpos académicos', sortable: true},
-    {key: 'academic_body.leader.academic_unit.name', label: 'Unidad académica', sortable: true},
-    {key: 'academic_body.leader.academic_unit.campus', label: 'Campus', sortable: true},
-  ];
-  formSchemas = permission.hasPermissions();
+    resource = helps;
+    criteria = [];
+    fields = [
+        {key: 'type_name', label: 'Tipo', sortable: true},
+        {key: 'date', label: 'Fecha', sortable: true},
+        {key: 'amount', label: 'Cantidad', sortable: true},
+        {key: 'benefited_employee.name', label: 'Beneficiario', sortable: true},
+        {key: 'academic_body.name', label: 'Cuerpos académicos', sortable: true},
+        {key: 'academic_body.leader.academic_unit.name', label: 'Unidad académica', sortable: true},
+        {key: 'academic_body.leader.academic_unit.campus', label: 'Campus', sortable: true},
+    ];
+    formSchemas = permission.hasPermissions();
 }

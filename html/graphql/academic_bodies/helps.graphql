@@ -9,12 +9,7 @@ extend type Query {
 }
 
 extend type Mutation {
-    create_help(
-        data: CreateHelpInput @spread
-    ): Help @field(resolver: "Help@upsert")
-    update_help(
-        data: UpdateHelpInput @spread
-    ): Help @field(resolver: "Help@upsert")
+    destroy_help(id: ID!): Help @delete @guard
     upsert_help(
         data: UpsertHelpInput @spread
     ): Help @upsertWithFiles

@@ -7,18 +7,7 @@ extend type Query {
 }
 
 extend type Mutation {
-    destroyLgac(
-        data: destroyLgacInput!
-        @spread
-    ):LGAC @delete
-    updateLgac(
-        data: updateLgacInput
-        @spread
-    ): LGAC @update
-    createLgac(
-        data: createLgacInput
-        @spread
-    ): LGAC @create
+    destroy_lgac(id: ID!): LGAC @delete @guard
     upsert_lgac(
       data: UpsertLgacInput
       @spread

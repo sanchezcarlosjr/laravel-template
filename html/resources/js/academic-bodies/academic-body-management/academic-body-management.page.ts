@@ -1,13 +1,13 @@
 import {Component, Vue} from 'vue-property-decorator';
 import VueFormGenerator from 'vue-form-generator';
-import {validator as GraphQLSelectIdValidator} from "../../@shared/application/form-fields/vfg-field-select-graphql-id/vfg-field-select-graphql-id"
+import {validator as GraphQLSelectIdValidator} from "@shared/application/form-fields/vfg-field-select-graphql-id/vfg-field-select-graphql-id"
 
-import {academic_bodies, des} from "../../@shared/repositories/academic_bodies/repository";
-import {prodep_areas} from "../../@shared/repositories/prodep/repository";
-import {campus, grade, validity} from "../../@shared/search-criteria/search-criteria";
+import {academic_bodies, des} from "@shared/repositories/academic_bodies/repository";
+import {prodep_areas} from "@shared/repositories/prodep/repository";
+import {campus, grade, validity} from "@shared/search-criteria/search-criteria";
 
 import AcademicBodyStatistics from './statistics/index.vue';
-import {Permission} from "../../@shared/application/auth/permission";
+import {Permission} from "@shared/application/auth/permission";
 
 export const schema = {
     legend: "Cuerpo Académico",
@@ -142,7 +142,18 @@ export default class AcademicBodyManagementPage extends Vue {
         {key: 'prodep_area.name', label: 'Area PRODEP', sortable: true, editable: false, visible: false}
     ];
     formSchemas = new Permission('/cuerpos-academicos', {
-        create: schema
+        create: schema,
+        destroy: {
+            legend: schema.legend,
+            fields: [
+                {
+                    type: "label",
+                    label: "¿Desea eliminar este cuerpo académico?",
+                    hint: "Acción irreversible. Todas las LGAC, miembros (solo la relación), redes, ... serán destruidos.",
+                    model: "name"
+                }
+            ]
+        }
     }).hasPermissions();
 
     createdElement(item: any) {
