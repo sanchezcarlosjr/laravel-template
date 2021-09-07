@@ -8,9 +8,6 @@ extend type Query {
       campus: String @scope(name: campus)
       terms: [String] @scope(name: "terms")
     ): [ProdepNPTC] @paginate(defaultCount: 200) @guard
-    apoyos: [Apoyo] @paginate(
-      builder: "App\\GraphQL\\Queries\\Apoyos"
-    ) @guard
 }
 
 extend type Mutation {

@@ -6,7 +6,7 @@ import LineChart from "./chart/LineChart";
 import BarChart from "./chart/BarChart";
 import SniStatisticsTable from "./table.presenter.vue";
 import {Prop} from "vue-property-decorator";
-import {snis} from "../../../@shared/repositories/sni/repository";
+import {snis} from "@shared/repositories/sni/repository";
 
 interface SniStatisticsQuery {
     periods: string[];

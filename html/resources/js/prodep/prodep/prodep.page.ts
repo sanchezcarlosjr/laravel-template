@@ -1,10 +1,10 @@
 import {Component, Vue} from 'vue-property-decorator';
 import VueFormGenerator from 'vue-form-generator';
-import {validator as GraphQLSelectIdValidator} from "../../@shared/application/form-fields/vfg-field-select-graphql-id/vfg-field-select-graphql-id"
-import {prodep_areas, prodep_profiles} from "../../@shared/repositories/prodep/repository.ts";
-import {employees} from "../../@shared/repositories/employees/repository.ts";
-import {campus, close_to_retirement, gender, validity} from "../../@shared/search-criteria/search-criteria.ts";
-import {Permission} from "../../@shared/application/auth/permission";
+import {validator as GraphQLSelectIdValidator} from "@shared/application/form-fields/vfg-field-select-graphql-id/vfg-field-select-graphql-id"
+import {prodep_areas, prodep_profiles} from "@shared/repositories/prodep/repository.ts";
+import {employees} from "@shared/repositories/employees/repository.ts";
+import {campus, close_to_retirement, gender, validity} from "@shared/search-criteria/search-criteria.ts";
+import {Permission} from "@shared/application/auth/permission";
 
 let fields = [
     {key: 'employee.name', label: 'Nombre', sortable: true, class: "vw-20"},
@@ -84,13 +84,18 @@ let schema = {
 
 const permission = new Permission('/prodep/apoyos', {
     create: schema,
-    edit: schema
-    /**read: {
+    edit: schema,
+    destroy: {
         legend: schema.legend,
-        fields: schema.fields.map((field: any)=>Object.assign({}, field, {
-          type: "label"
-        }))
-      }*/
+        fields: [
+            {
+                type: "label",
+                label: "¿Desea remover este apoyo?",
+                hint: "Acción irreversible.",
+                model: "employee.name"
+            }
+        ]
+    }
 });
 
 @Component

@@ -3,7 +3,7 @@
         :resource="resource"
         :fields="fields"
         :filter="criteria"
-        :formSchemas="formSchemas"
+        :crudSchema="formSchemas"
     />
 </template>
 

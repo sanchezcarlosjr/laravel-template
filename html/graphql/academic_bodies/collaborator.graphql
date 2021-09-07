@@ -1,23 +1,24 @@
 extend type Query {
-  collaborator(id: ID! @where(operator: "=", key: "nempleado")): Employee @find(scopes:["collaborators"]) @guard
-  collaborators(
-    academic_body_id: ID @scope(name: "academicBodyCollaborators")
-    terms: [String] @scope(name: "terms")
-  ): [Employee] @paginate(defaultCount: 200, scopes:["collaborators"])
+    collaborator(id: ID! @where(operator: "=", key: "nempleado")): Employee @find(scopes:["collaborators"]) @guard
+    collaborators(
+        academic_body_id: ID @scope(name: "academicBodyCollaborators")
+        terms: [String] @scope(name: "terms")
+    ): [Employee] @paginate(defaultCount: 200, scopes:["collaborators"])
 }
 
 ## ToDo: Custom CRUD, members-like. Parent Class? ##
 extend type Mutation {
-  # create_collaborator(
-  #   data: CreateCollaboratorInput @spread
-  # ): Employee @create(model: "App\\Models\\Collaborator")
-  # update_collaborator(
-  #   data: UpdateCollaboratorInput @spread
-  # ): Employee @update(model: "App\\Models\\Collaborator")
-  upsert_collaborator(
-    data: UpsertCollaboratorInput @spread
-  ): Employee @upsert(model: "App\\Models\\Collaborator") @guard
-  ##destroy_member: Employee
+    # create_collaborator(
+    #   data: CreateCollaboratorInput @spread
+    # ): Employee @create(model: "App\\Models\\Collaborator")
+    # update_collaborator(
+    #   data: UpdateCollaboratorInput @spread
+    # ): Employee @update(model: "App\\Models\\Collaborator")
+    destroy_collaborator(id: ID!): Employee @guard
+    upsert_collaborator(
+        data: UpsertCollaboratorInput @spread
+    ): Employee @upsert(model: "App\\Models\\Collaborator") @guard
+    ##destroy_member: Employee
 }
 
 type Collaborator {

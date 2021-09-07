@@ -13,7 +13,7 @@ class DestroyNetwork
     public function __invoke($_, array $args)
     {
         $network = Network::find($args["id"]);
-        $network->network_lead_id = null;
+        $network->lider_de_red_id = null;
         $network->save();
         $network->collaborators->each(function ($key, $value) use ($network) {
             if (isset($key["id"])) {

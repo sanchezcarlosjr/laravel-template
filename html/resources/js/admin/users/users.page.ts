@@ -1,9 +1,9 @@
 import Vue from "vue";
 import Component from "vue-class-component";
-import {users} from "../../@shared/repositories/users/repository";
-import {employees} from "../../@shared/repositories/employees/repository";
-import {campus, gender} from "../../@shared/search-criteria/search-criteria";
-import {Permission} from "../../@shared/application/auth/permission";
+import {users} from "@shared/repositories/users/repository";
+import {employees} from "@shared/repositories/employees/repository";
+import {campus, gender} from "@shared/search-criteria/search-criteria";
+import {Permission} from "@shared/application/auth/permission";
 
 const words = [
     'Erg0',
@@ -70,6 +70,17 @@ const schema = {
 };
 
 const formSchema = new Permission('/usuarios', {
+    destroy: {
+        legend: schema.legend,
+        fields: [
+            {
+                type: "label",
+                label: "¿Desea eliminar a este usuario?",
+                hint: "Acción irreversible",
+                model: "employee.name"
+            }
+        ]
+    },
     edit: schema,
     create: {
         legend: schema.legend,

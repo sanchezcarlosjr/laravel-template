@@ -4,6 +4,7 @@
 namespace App\GraphQL\Mutations;
 
 
+use App\Models\Collaborator;
 use App\Models\Employee;
 
 class DestroyCollaborator
@@ -14,8 +15,10 @@ class DestroyCollaborator
      */
     public function __invoke($_, array $args)
     {
-        $employee = Employee::find($args['id']);
-        $employee->collaborator_academic_bodies()->detach($args['academic_body_id']);
+        dd($args);
+        $collaborator = Employee::find($args['id'])->collaborators();
+        $employee = $collaborator->employee();
+        $collaborator->delete();
         return $employee;
     }
 }

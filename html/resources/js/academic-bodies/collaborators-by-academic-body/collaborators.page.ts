@@ -1,9 +1,9 @@
 import {Component, Vue} from 'vue-property-decorator';
-import {collaborators} from "../../@shared/repositories/academic_bodies/collaborators/repository.ts";
+import {collaborators} from "@shared/repositories/academic_bodies/collaborators/repository.ts";
 import {membersForm} from "../members/members.page";
-import {Permission} from "../../@shared/application/auth/permission";
-import {employees} from "../../@shared/repositories/employees/repository.ts";
-import {validator as GraphQLSelectIdValidator} from "../../@shared/application/form-fields/vfg-field-select-graphql-id/vfg-field-select-graphql-id"
+import {Permission} from "@shared/application/auth/permission";
+import {employees} from "@shared/repositories/employees/repository.ts";
+import {validator as GraphQLSelectIdValidator} from "@shared/application/form-fields/vfg-field-select-graphql-id/vfg-field-select-graphql-id"
 
 const permission = new Permission('/cuerpos-academicos/:academic_body_id/colaboradores', {
     create: {
@@ -28,6 +28,17 @@ const permission = new Permission('/cuerpos-academicos/:academic_body_id/colabor
                 validator: GraphQLSelectIdValidator({
                     selectValid: "Seleccione un empleado válido"
                 })
+            }
+        ]
+    },
+    destroy: {
+        legend: "Colaborador",
+        fields: [
+            {
+                type: "label",
+                label: "¿Desea remover a este colaborador de este cuerpo académico?",
+                hint: "Acción irreversible.",
+                model: "name"
             }
         ]
     },

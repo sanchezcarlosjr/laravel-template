@@ -1,8 +1,7 @@
 import Vue from "vue";
 import Component from "vue-class-component";
-import {networks} from "../../@shared/repositories/academic_bodies/networks/repository";
-import {Permission} from "../../@shared/application/auth/permission";
-import {employees} from "../../@shared/repositories/employees/repository";
+import {networks} from "@shared/repositories/academic_bodies/networks/repository";
+import {Permission} from "@shared/application/auth/permission";
 
 const permission = new Permission('/cuerpos-academicos/:academic_body_id/redes', {
     create: {
@@ -66,6 +65,17 @@ const permission = new Permission('/cuerpos-academicos/:academic_body_id/redes',
             }
         ]
     },
+    destroy: {
+        legend: "la red",
+        fields: [
+            {
+                type: "label",
+                label: "¿Desea eliminar esta red?",
+                hint: "Acción irreversible.",
+                model: "name"
+            }
+        ]
+    },
     read: {
         legend: "la red",
         fields: [
@@ -79,7 +89,24 @@ const permission = new Permission('/cuerpos-academicos/:academic_body_id/redes',
                 type: 'select',
                 label: 'Alcance',
                 model: 'range',
-                values: ['Local', 'Regional', 'Nacional', 'Internacional']
+                values: [
+                    {
+                        name: 'Local',
+                        id: 0
+                    },
+                    {
+                        name: 'Regional',
+                        id: 1
+                    },
+                    {
+                        name: 'Nacional',
+                        id: 2
+                    },
+                    {
+                        name: 'Internacional',
+                        id: 3
+                    }
+                ]
             },
             {
                 type: 'calendar',
@@ -142,7 +169,7 @@ export default class NetworksPage extends Vue {
     fields = [
         {key: 'name', label: 'Nombre', sortable: true},
         {key: 'leader.name', label: 'Líder', sortable: true},
-        {key: 'range', label: 'Alcance', sortable: true},
+        {key: 'range_name', label: 'Alcance', sortable: true},
         {key: 'start_date', label: 'Fecha de inicio', sortable: true},
         {key: 'finish_date', label: 'Fecha de fin', sortable: true},
     ];

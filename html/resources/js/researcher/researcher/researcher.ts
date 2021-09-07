@@ -51,7 +51,18 @@ const schema = {
 
 const formSchema = new Permission('/investigadores', {
     edit: schema,
-    create: schema
+    create: schema,
+    destroy: {
+        legend: schema.legend,
+        fields: [
+            {
+                type: "label",
+                label: "¿Desea remover el probatorio de este investigador?",
+                hint: "Acción irreversible.",
+                model: "employee.name"
+            }
+        ]
+    }
 });
 
 @Component

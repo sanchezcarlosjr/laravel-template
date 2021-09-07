@@ -126,4 +126,9 @@ class Member {
     $args["optype"] = false;
     return $this->_upsert($args);
   }
+
+  public function destroy($root, array $args) {
+      Employee::find($args['id'])->academic_bodies_lgacs()->wherePivot('nempleado', '=', $args['id'])->detach();
+      return Employee::find($args['id']);
+  }
 }

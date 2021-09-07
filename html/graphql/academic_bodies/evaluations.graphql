@@ -1,41 +1,31 @@
 extend type Query {
-  evaluation(id: ID! @eq): Evaluation @find
-  evaluations(
-    grade: String @scope(name: "grade")
-    academic_body_id: ID @scope(name: "academicBody")
-    terms: [String] @scope(name: "terms")
-  ): [Evaluation] @paginate(defaultCount: 100)
+    evaluation(id: ID! @eq): Evaluation @find
+    evaluations(
+        grade: String @scope(name: "grade")
+        academic_body_id: ID @scope(name: "academicBody")
+        terms: [String] @scope(name: "terms")
+    ): [Evaluation] @paginate(defaultCount: 100)
 }
 
 extend type Mutation {
-  # destroyEvaluation(
-  #     data: destroyEvaluationInput! @spread
-  # ): Evaluation @delete
-  # createEvaluation(
-  #     data: createEvaluationInput
-  #     @spread
-  # ): Evaluation
-  # updateEvaluation(
-  #     data: updateEvaluationInput
-  #     @spread
-  # ): Evaluation
-  upsert_evaluation(
-    data: UpsertEvaluationInput @spread
-  ): Evaluation @upsert
+    destroy_evaluation(id: ID!): Evaluation @delete @guard
+    upsert_evaluation(
+        data: UpsertEvaluationInput @spread
+    ): Evaluation @upsert
 }
 
 input UpsertEvaluationInput {
-  id:ID
-  grade: Int @rename(attribute: "grado")
-  start_date: Date @rename(attribute: "fecha_inicio")
-  years_to_finish: Int
-  academic_body_id: ID @rename(attribute: "cuerpo_academico_id")
+    id:ID
+    grade: Int @rename(attribute: "grado")
+    start_date: Date @rename(attribute: "fecha_inicio")
+    years_to_finish: Int
+    academic_body_id: ID @rename(attribute: "cuerpo_academico_id")
 }
 
 type Evaluation {
     id: ID
     active: Boolean
-    grade: String
+    grade: String @rename(attribute: "grado")
     grade_name: String
     start_date: Date  @rename(attribute: "fecha_inicio")
     finish_date: Date @rename(attribute: "fecha_fin")

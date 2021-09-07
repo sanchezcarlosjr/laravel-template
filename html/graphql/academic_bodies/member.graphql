@@ -14,7 +14,7 @@ extend type Query {
 }
 
 extend type Mutation {
-    removeEmployeesToAcademicBody(data: removeEmployeeToAcademicBodyInput @spread): Employee @guard
+    destroy_member(id: ID!): Employee @field(resolver: "Member@destroy") @guard
     create_member(
         data: CreateMemberInput @spread
     ): Employee @field(resolver: "Member@create") @guard
@@ -24,7 +24,6 @@ extend type Mutation {
     upsert_member(
         data: UpsertMemberInput @spread
     ): Employee @field(resolver: "Member@upsert") @guard
-    ##destroy_member: Employee
 }
 
 input CreateMemberInput {

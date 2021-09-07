@@ -1,7 +1,7 @@
 import {Component, Vue} from 'vue-property-decorator';
-import {grade} from "../../@shared/search-criteria/search-criteria.ts";
-import {evaluations} from "../../@shared/repositories/academic_bodies/evaluations/repository.ts";
-import {Permission} from "../../@shared/application/auth/permission";
+import {grade} from "@shared/search-criteria/search-criteria.ts";
+import {evaluations} from "@shared/repositories/academic_bodies/evaluations/repository.ts";
+import {Permission} from "@shared/application/auth/permission";
 
 
 const schema = {
@@ -60,7 +60,18 @@ const schema = {
 const permission = new Permission('/cuerpos-academicos/:academic_body_id/evaluaciones',
     {
         create: schema,
-        edit: schema
+        edit: schema,
+        destroy: {
+            legend: schema.legend,
+            fields: [
+                {
+                    type: "label",
+                    label: "¿Desea eliminar esta evaluación?",
+                    hint: "Acción irreversible.",
+                    model: "grade_name"
+                }
+            ]
+        },
     }
 );
 

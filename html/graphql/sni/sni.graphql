@@ -21,22 +21,7 @@ extend type Query {
 }
 
 extend type Mutation {
-    destroyResearcher(
-        id: ID!
-    ): Researcher @delete
-    createResearcher(
-        valid: Int
-        probative: String
-        employee_id: Int): Researcher @create
-    updateResearcher(
-        Id:ID!
-        valid: Int
-        probative: String
-        employee_id: Int): Researcher @update
-    destroySnis(
-        data: destroySnisInput!
-        @spread
-    ): Sni @delete
+    destroy_sni(id: ID!): Sni @delete @guard
     upsert_sni(
         data: UpsertSniInput
         @spread

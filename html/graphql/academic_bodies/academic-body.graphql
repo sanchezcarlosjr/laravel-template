@@ -19,15 +19,7 @@ extend type Query {
 }
 
 extend type Mutation {
-    destroyAcademicBody(id: ID!): AcademicBody @delete @guard
-    updateAcademicBody(
-        data: updateAcademicBodyInput
-        @spread
-    ): AcademicBody @update @guard
-    createAcademicBody(
-        data: createAcademicBodyInput
-        @spread
-    ): AcademicBody @create @guard
+    destroy_academic_body(id: ID!): AcademicBody @delete @guard
     upsert_academic_body(
       data: UpsertAcademicBodyInput @spread
     ): AcademicBody @upsert @guard

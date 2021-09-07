@@ -1,10 +1,10 @@
 import {Component, Vue} from 'vue-property-decorator';
 import VueFormGenerator from 'vue-form-generator';
-import {validator as GraphQLSelectIdValidator} from "../../@shared/application/form-fields/vfg-field-select-graphql-id/vfg-field-select-graphql-id"
-import {prodep_helps} from "../../@shared/repositories/prodep/repository.ts";
-import {employees} from "../../@shared/repositories/employees/repository.ts";
-import {campus, close_to_retirement, gender} from "../../@shared/search-criteria/search-criteria.ts";
-import {Permission} from "../../@shared/application/auth/permission";
+import {validator as GraphQLSelectIdValidator} from "@shared/application/form-fields/vfg-field-select-graphql-id/vfg-field-select-graphql-id"
+import {prodep_helps} from "@shared/repositories/prodep/repository.ts";
+import {employees} from "@shared/repositories/employees/repository.ts";
+import {campus, close_to_retirement, gender} from "@shared/search-criteria/search-criteria.ts";
+import {Permission} from "@shared/application/auth/permission";
 
 let fields = [
     {key: "employee.name", label: "Beneficiario", sortable: true},
@@ -101,7 +101,18 @@ let schema = {
 
 const permission = new Permission('/prodep/apoyos', {
     create: schema,
-    edit: schema
+    edit: schema,
+    destroy: {
+        legend: schema.legend,
+        fields: [
+            {
+                type: "label",
+                label: "¿Desea remover este apoyo?",
+                hint: "Acción irreversible.",
+                model: "employee.name"
+            }
+        ]
+    }
 });
 
 @Component

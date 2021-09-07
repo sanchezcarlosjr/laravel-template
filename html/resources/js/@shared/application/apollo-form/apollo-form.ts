@@ -1,10 +1,15 @@
 import {Component, Prop, Vue} from 'vue-property-decorator';
 import VueFormGenerator from 'vue-form-generator';
+import GraphQLResourceRepository from "@shared/infraestructure/communication/graphql/test";
+import {FormType} from "@shared/application/form-type";
+import {DocumentNode} from "graphql";
+import {FormSchema} from "@shared/application/form-schema";
 
 @Component
 export default class ApolloForm extends Vue {
-    @Prop() schema!: any; //Todo Type
-    @Prop() resource!: any; //TDT
+    @Prop() schema!: FormSchema; //Todo Type
+    @Prop() resource!: GraphQLResourceRepository;
+    @Prop({default: FormType.Read}) formType?: FormType;
     public busy: boolean = false;
     private _idArg: any;
     private _fields: any[] = [];
@@ -72,14 +77,7 @@ export default class ApolloForm extends Vue {
             });
         }
         /** Attempt to mutate */
-        let result = await this.$apollo.mutate({
-            mutation: this.resource.upsert(),
-            variables: {
-                data: {
-                    ...this.model
-                }
-            }
-        }).catch((error: any) => {
+        let result = await this.$apollo.mutate(this.factoryMutationEvent()).catch((error: any) => {
             /** Failure */
             console.error(error);
             this.$bvToast.toast(`Compruebe los datos.`, {
@@ -128,6 +126,33 @@ export default class ApolloForm extends Vue {
             return true;
         } else {
             return false;
+        }
+    }
+
+    private factoryMutationEvent(): { mutation: DocumentNode, variables: any } {
+        switch (this.formType) {
+            case FormType.Create:
+            case FormType.Update:
+                return {
+                    mutation: this.resource.upsert(),
+                    variables: {
+                        data: {
+                            ...this.model
+                        }
+                    }
+                }
+            case FormType.Destroy:
+                return {
+                    mutation: this.resource.destroy(),
+                    variables: {
+                        id: this.model.id
+                    }
+                }
+            default:
+                return {
+                    mutation: this.resource.all(),
+                    variables: {}
+                }
         }
     }
 }

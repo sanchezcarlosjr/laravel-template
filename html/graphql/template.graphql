@@ -6,6 +6,7 @@ extend type Query {
 }
 
 extend type Mutation {
+    destroy_SINGULAR_SNAKE(id: ID!): SINGULAR_STUDLY @delete @guard
     upsert_SINGULAR_SNAKE(
         data: UpsertSINGULAR_STUDLYInput
         @spread

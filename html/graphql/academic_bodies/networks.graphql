@@ -9,7 +9,7 @@ extend type Query {
 }
 
 extend type Mutation {
-    destroyNetwork(data: destroyNetworkInput! @spread): Network @guard
+    destroy_network(id: ID!): Network @guard
     upsert_network(
         data: UpsertNetworkInput @spread
     ): Network
@@ -22,7 +22,8 @@ type Network {
     type: String @rename(attribute: "tipo")
     class: String @rename(attribute: "clase")
     start_date: Date @rename(attribute: "fecha_inicio")
-    range: String @rename(attribute: "rango")
+    range: Int @rename(attribute: "rango")
+    range_name: String
     formation_url: String @rename(attribute: "url_convenio")
     finish_date: Date @rename(attribute: "fecha_fin")
     academic_body_id: Int @rename(attribute: "cuerpos_academico_id")

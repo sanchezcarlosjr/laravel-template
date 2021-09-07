@@ -1,6 +1,6 @@
 import {Component, Vue} from 'vue-property-decorator';
-import {lgac} from "../../@shared/repositories/academic_bodies/lgac/repository.ts";
-import {Permission} from "../../@shared/application/auth/permission";
+import {lgac} from "@shared/repositories/academic_bodies/lgac/repository.ts";
+import {Permission} from "@shared/application/auth/permission";
 
 const permission = new Permission('/cuerpos-academicos/lgac', {
     read: {

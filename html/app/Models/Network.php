@@ -8,10 +8,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Network extends Model
 {
-    protected $table = "redes_cuerpos_academicos";
-    use HasFactory;
     public $timestamps = false;
-
+    use HasFactory;
+    protected $table = "redes_cuerpos_academicos";
     protected $fillable = [
         'nombre',
         "id",
@@ -24,6 +23,20 @@ class Network extends Model
         'fecha_fin',
         'lider_de_red_id'
     ];
+
+    public function getTypeNameAttribute()
+    {
+        switch ($this->tipo) {
+            case 0:
+                return "Local";
+            case 1:
+                return "Regional";
+            case 2:
+                return "Nacional";
+            case 3:
+                return "Internacional";
+        }
+    }
 
     public function academic_body(): BelongsTo
     {

@@ -1,15 +1,16 @@
 import state from "../../../store/store";
+import {FormField, FormSchema} from "@shared/application/form-schema";
 
-export interface FormSchema {
-    create?: any;
-    edit?: any;
-    read?: any;
-
-    [key: string]: any;
+export interface CRUDSchema {
+    create?: FormSchema | undefined;
+    edit?: FormSchema | undefined;
+    read?: FormSchema | undefined;
+    destroy?: FormSchema | undefined;
+    [key: string]: FormSchema | undefined;
 }
 
 export class Permission {
-    constructor(private module: string, private formSchema: FormSchema) {
+    constructor(private module: string, private formSchema: CRUDSchema) {
         if (state.user.permissions[this.module] &&
             !state.user.permissions[this.module]['edit'] &&
             state.user.permissions[this.module]['read'] &&
@@ -17,14 +18,14 @@ export class Permission {
             this.formSchema.hasOwnProperty('edit')
         ) {
             this.formSchema['read'] = {
-                legend: this.formSchema['edit'].legend,
-                fields: this.formSchema['edit'].fields.map((field: any) => {
+                legend: this.formSchema['edit']?.legend ?? "",
+                fields: this.formSchema['edit']?.fields.map((field: any): FormField => {
                     return {
                         ...field,
                         readonly: true,
                         disabled: true
                     }
-                })
+                }) ?? []
             }
         }
         Object.keys(this.formSchema).filter((schema) => {

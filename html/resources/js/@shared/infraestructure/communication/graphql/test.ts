@@ -150,7 +150,7 @@ export default class GraphQLResourceRepository {
     let o = arguments[0] || {};
     vars.push({
       name: "$id",
-      type: "Int"
+      type: "ID!"
     });
     o.paginated = paginated;
     o.singular = singular;

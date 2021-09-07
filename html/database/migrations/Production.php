@@ -12,6 +12,9 @@ trait Production
         if (!App::environment('production')) {
             Schema::create($name, $create);
         }
+        if (App::environment('production') && isset($update)) {
+            Schema::table($name, $update);
+        }
     }
 
     public function dropInLocalNoProduction($name)

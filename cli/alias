@@ -1,5 +1,8 @@
 #!/usr/bin/zsh
 alias artisan="docker-compose exec php php artisan"
+echo "docker-compose exec php php artisan -> artisan"
 alias composer="docker-compose exec php composer"
+echo "docker-compose exec php php artisan -> composer"
 alias psql="docker exec -it laravel-pgsql psql -h pgsql -U pguser pgdb"
+echo "docker exec -it laravel-pgsql psql -h pgsql -U pguser pgdb -> psql"
 # source cli/alias

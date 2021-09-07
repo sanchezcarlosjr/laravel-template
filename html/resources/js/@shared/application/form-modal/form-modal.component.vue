@@ -17,6 +17,7 @@
       ref="form"
       :schema="schema"
       :resource="resource"
+      :formType="type"
     />
   </b-modal>
 </template>

@@ -3,7 +3,7 @@ import {Component, Prop, Vue} from 'vue-property-decorator';
 import LineChart from "./chart/LineChart";
 // @ts-ignore
 import BarChart from "./chart/BarChart";
-import {academic_bodies} from "../../../@shared/repositories/academic_bodies/repository.ts";
+import {academic_bodies} from "@shared/repositories/academic_bodies/repository.ts";
 
 @Component({
     components: {

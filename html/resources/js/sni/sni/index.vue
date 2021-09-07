@@ -2,7 +2,7 @@
     <siip-table
         :resource="resource"
         :fields="fields"
-        :formSchemas="formSchemas"
+        :crudSchema="formSchemas"
         :filter="criteria"
     >
         <template #statistics="slotProps">
