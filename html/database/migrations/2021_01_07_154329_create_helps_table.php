@@ -27,7 +27,6 @@ class CreateHelpsTable extends Migration
             $table->integer('nempleado_beneficiado')->unsigned();
             $table->foreign('nempleado_beneficiado')->references('nempleado')->on('empleados')->onDelete('cascade');
         }, function (Blueprint $table) {
-            $table->dropColumn('tipo');
             $table->smallInteger('tipo');
         });
     }
