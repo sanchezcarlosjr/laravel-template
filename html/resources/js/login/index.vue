@@ -16,55 +16,55 @@
                                                 </b-col>
                                             </b-row>
                                             <b-row align-h="center" style="margin: 0;">
-                                                <b-form style="width: 100%" @submit.prevent="login">
-                                                    <b-form-group
-                                                        id="input-group-1"
-                                                        label="Correo electrónico"
-                                                        label-for="input-1"
-                                                        style="padding: 10px 0;"
-                                                    >
-                                                    <b-input-group size="lg" append="@uabc.edu.mx">
-                                                        <b-form-input
-                                                            id="user"
-                                                            required
-                                                            size="lg"
-                                                            autocomplete="current-email"
-                                                            v-model="form.email"
-                                                        ></b-form-input>
-                                                    </b-input-group>
-                                                        
-                                                    </b-form-group>
-                                                    <b-form-group
-                                                        id="input-group-2"
-                                                        label="Contraseña"
-                                                        label-for="contraseña-1"
-                                                        style="padding: 10px 0;"
-                                                    >
-                                                        <b-input-group class="mt-3">
-                                                            <template #append>
-                                                                <b-input-group-text @click="changePasswordStatus">
-                                                                    <font-awesome-icon :icon="password[passwordStatus].icon"
-                                                                                       class="text-muted"></font-awesome-icon>
-                                                                </b-input-group-text>
-                                                            </template>
-                                                            <b-form-input
-                                                                id="password"
-                                                                v-model="form.password"
-                                                                :type="password[passwordStatus].type"
-                                                                required
-                                                                autocomplete="current-password"
-                                                                size="lg"
-                                                            ></b-form-input>
-                                                        </b-input-group>
+                                                <b-overlay :show="form.loading" rounded="sm" style="width: 100%">
+                                                    <b-form style="width: 100%" @submit.prevent="login">
+                                                        <b-form-group
+                                                            id="input-group-1"
+                                                            label="Correo electrónico"
+                                                            label-for="input-1"
+                                                            style="padding: 10px 0;"
+                                                        >
+                                                            <b-input-group size="lg" append="@uabc.edu.mx">
+                                                                <b-form-input
+                                                                    id="user"
+                                                                    required
+                                                                    size="lg"
+                                                                    autocomplete="current-email"
+                                                                    v-model="form.email"
+                                                                ></b-form-input>
+                                                            </b-input-group>
 
-                                                    </b-form-group>
-                                                    <b-button  v-if="!form.loading" block size="lg" squared type="submit" variant="primary">
-                                                        Iniciar sesión
-                                                    </b-button>
-                                                    <b-button v-if="form.loading" block size="lg" squared disabled variant="primary">
-                                                        <b-spinner label="Spinning"></b-spinner>
-                                                    </b-button>
-                                                </b-form>
+                                                        </b-form-group>
+                                                        <b-form-group
+                                                            id="input-group-2"
+                                                            label="Contraseña"
+                                                            label-for="contraseña-1"
+                                                            style="padding: 10px 0;"
+                                                        >
+                                                            <b-input-group class="mt-3">
+                                                                <template #append>
+                                                                    <b-input-group-text @click="changePasswordStatus">
+                                                                        <font-awesome-icon
+                                                                            :icon="password[passwordStatus].icon"
+                                                                            class="text-muted"></font-awesome-icon>
+                                                                    </b-input-group-text>
+                                                                </template>
+                                                                <b-form-input
+                                                                    id="password"
+                                                                    v-model="form.password"
+                                                                    :type="password[passwordStatus].type"
+                                                                    required
+                                                                    autocomplete="current-password"
+                                                                    size="lg"
+                                                                ></b-form-input>
+                                                            </b-input-group>
+
+                                                        </b-form-group>
+                                                        <b-button block size="lg" squared type="submit" variant="primary">
+                                                            Iniciar sesión
+                                                        </b-button>
+                                                    </b-form>
+                                                </b-overlay>
                                             </b-row>
                                         </b-container>
                                     </div>
