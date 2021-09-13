@@ -37,7 +37,8 @@ export const schema = {
             label: "Vigencia",
             model: "active",
             textOn: "Vigente",
-            textOff: "No vigente"
+            textOff: "No vigente",
+            default: true
         },
         {
             type: 'graphql-select-id',
