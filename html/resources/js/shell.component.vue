@@ -1,5 +1,6 @@
 <template>
     <div class="wrapper">
+        <change-password-component></change-password-component>
         <div class="main-header" data-background-color="green">
             <div class="logo-header" data-background-color="green">
                 <router-link class="logo" to="/inicio">SIIIP</router-link>
@@ -18,6 +19,7 @@
                         <template #button-content>
                             <b-avatar></b-avatar>
                         </template>
+                        <b-dropdown-item @click="changePassword">Cambiar contraseña</b-dropdown-item>
                         <b-dropdown-item @click="logout">Salir</b-dropdown-item>
                     </b-dropdown>
                     <router-link v-else :to="{name: 'login'}" tag="b-button">Iniciar sesión</router-link>
@@ -108,8 +110,13 @@ import Vue from "vue"
 import Component from "vue-class-component"
 import router, {routes} from "./routes";
 import state, {mutations} from "./store/store";
+import ChangePasswordComponent from "./change-password.vue";
 
-@Component
+@Component({
+    components: {
+        ChangePasswordComponent
+    }
+})
 export default class ShellComponent extends Vue {
     year = new Date().getFullYear();
     routes = routes[1].children;
@@ -138,6 +145,10 @@ export default class ShellComponent extends Vue {
     changeStatusSidebar() {
         this.sidebar = !this.sidebar;
         localStorage.setItem('sidebar', String(this.sidebar));
+    }
+
+    changePassword() {
+        this.$root.$emit('bv::show::modal', 'abc');
     }
 
     logout() {

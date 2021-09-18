@@ -15,7 +15,7 @@ https://github.com/sanchezcarlosjr/SIIP
 Usage: $cli_name [command]
 
 Commands:
-  deploy    Deploy
+  start     Start all project
   generate  Generate a schematic
   populate  Populate your local database
   vg        Vue generator component

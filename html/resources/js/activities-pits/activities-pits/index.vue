@@ -1,11 +1,8 @@
 <template>
     <siip-table
+        :resource="resource"
         :fields="fields"
-        :resource="apiResource"
-        :schema="schema"
-
-        :toolbar="toolbar"
-
+        :crudSchema="schema"
     ></siip-table>
 </template>
 

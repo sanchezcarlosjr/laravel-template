@@ -1,3 +1,4 @@
+import {FormType} from "@shared/application/form-type";
 
 export interface FormField {
     type: string;
@@ -23,5 +24,6 @@ export interface FormField {
 export interface FormSchema {
     legend?: string;
     size?:  string;
+    formType?: FormType;
     fields: FormField[];
 }

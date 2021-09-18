@@ -6,7 +6,6 @@ import SiipTableComponent from "./@shared/siip-table/index.vue";
 import VfgFieldCalendar from './@shared/application/form-fields/vfg-field-calendar/index.vue';
 import VfgFieldEmail from './@shared/application/form-fields/vfg-field-email/index.vue';
 import VfgFieldApiSelect from './@shared/application/form-fields/vfg-field-select-api/index.vue';
-import VfgFieldGraphQLSelect from './@shared/application/form-fields/vfg-field-select-graphql/index.vue';
 import VfgFieldUpload from './@shared/application/form-fields/vfg-field-upload/index.vue';
 import VfgFieldSwitch from './@shared/application/form-fields/vfg-field-switch/index.vue';
 import VfgFieldLink from './@shared/application/form-fields/vfg-field-link/vfg-field-link.vue';
@@ -41,7 +40,6 @@ Vue.component('field-switch2', VfgFieldSwitch);
 Vue.component('field-api-select', VfgFieldApiSelect);
 Vue.component('field-email', VfgFieldEmail);
 Vue.component('field-upload2', VfgFieldUpload);
-Vue.component('field-graphql-select', VfgFieldGraphQLSelect);
 Vue.component('field-link', VfgFieldLink);
 Vue.component('field-graphql-select-id', VfgFieldGraphQLSelectID)
 Vue.component('font-awesome-icon', FontAwesomeIcon);

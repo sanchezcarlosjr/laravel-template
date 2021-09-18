@@ -1,4 +1,4 @@
-import GraphQLResourceRepository from "../../infraestructure/communication/graphql/test";
+import GraphQLResourceRepository from "../../infraestructure/test";
 
 export const prodep_profiles = new GraphQLResourceRepository(
   {

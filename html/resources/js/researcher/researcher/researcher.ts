@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Component from "vue-class-component";
-import GraphQLResourceRepository from "@shared/infraestructure/communication/graphql/test";
+import GraphQLResourceRepository from "@shared/infraestructure/test";
 import {Permission} from "@shared/application/auth/permission";
 import {employees} from "@shared/repositories/employees/repository";
 import {validator as GraphQLSelectIdValidator} from "@shared/application/form-fields/vfg-field-select-graphql-id/vfg-field-select-graphql-id";

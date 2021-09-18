@@ -3,7 +3,7 @@ import TablePresenter from './application/table-presenter.component.vue';
 import SearcherComponent from './application/searcher.component.vue';
 import SiipTitle from './application/title.component.vue';
 import PrintOptions from "./application/print-options.component.vue";
-import GraphQLResourceRepository from "@shared/infraestructure/communication/graphql/test";
+import GraphQLResourceRepository from "@shared/infraestructure/test";
 import FormModal from "@shared/application/form-modal/form-modal.component.vue";
 import {FormType} from "../application/form-type";
 import {CRUDSchema} from "@shared/application/auth/permission";

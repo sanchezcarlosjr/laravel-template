@@ -1,6 +1,6 @@
 import {Component, Prop, Vue} from 'vue-property-decorator';
 import VueFormGenerator from 'vue-form-generator';
-import GraphQLResourceRepository from "@shared/infraestructure/communication/graphql/test";
+import GraphQLResourceRepository from "@shared/infraestructure/test";
 import {FormType} from "@shared/application/form-type";
 import {DocumentNode} from "graphql";
 import {FormSchema} from "@shared/application/form-schema";

@@ -2,7 +2,9 @@
 alias artisan="docker-compose exec php php artisan"
 echo "docker-compose exec php php artisan -> artisan"
 alias composer="docker-compose exec php composer"
-echo "docker-compose exec php php artisan -> composer"
+echo "docker-compose exec php composer -> composer"
 alias psql="docker exec -it laravel-pgsql psql -h pgsql -U pguser pgdb"
 echo "docker exec -it laravel-pgsql psql -h pgsql -U pguser pgdb -> psql"
+alias sp="$(pwd)/cli/siip"
+echo "cli/siiip -> sp"
 # source cli/alias
