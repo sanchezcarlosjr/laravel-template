@@ -52,7 +52,6 @@ export default class LoginPage extends Vue {
         if (response === undefined) {
             return;
         }
-        console.log(response);
         mutations.updateUser({
             name: response.data.login.employee.name,
             token: response.data.login.current_access_token,
