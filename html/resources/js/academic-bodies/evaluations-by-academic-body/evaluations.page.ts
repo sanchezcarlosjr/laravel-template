@@ -1,8 +1,7 @@
 import {Component, Vue} from 'vue-property-decorator';
 import {grade} from "@shared/search-criteria/search-criteria.ts";
 import {evaluations} from "@shared/repositories/academic_bodies/evaluations/repository.ts";
-import {Permission} from "@shared/application/auth/permission";
-
+import {CRUDSchemaBuilder} from "@shared/application/CRUDSchema";
 
 const schema = {
     legend: "Evaluación",
@@ -57,7 +56,7 @@ const schema = {
     ]
 };
 
-const permission = new Permission('/cuerpos-academicos/:academic_body_id/evaluaciones',
+const builder = new CRUDSchemaBuilder('/cuerpos-academicos/:academic_body_id/evaluaciones',
     {
         create: schema,
         edit: schema,
@@ -71,7 +70,7 @@ const permission = new Permission('/cuerpos-academicos/:academic_body_id/evaluac
                     model: "grade_name"
                 }
             ]
-        },
+        }
     }
 );
 
@@ -79,7 +78,7 @@ const permission = new Permission('/cuerpos-academicos/:academic_body_id/evaluac
 export default class EvaluationsPage extends Vue {
     resource = evaluations;
     criteria = [grade];
-    formSchemas = permission.hasPermissions();
+    formSchemas = builder;
     fields = [
         {key: 'grade_name', label: 'Grado', sortable: true},
         {key: 'start_date', label: 'Vigente desde', sortable: true, class: 'vw-5'},

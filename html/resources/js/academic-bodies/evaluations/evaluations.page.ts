@@ -1,9 +1,9 @@
 import {Component, Vue} from 'vue-property-decorator';
 import {campus, grade, validity} from "@shared/search-criteria/search-criteria";
 import {academic_bodies} from "@shared/repositories/academic_bodies/repository";
-import {Permission} from "@shared/application/auth/permission";
+import {CRUDSchemaBuilder} from "@shared/application/CRUDSchema";
 
-const permission = new Permission('/cuerpos-academicos/evaluaciones', {
+const builder = new CRUDSchemaBuilder('/cuerpos-academicos/evaluaciones', {
     read: {
         legend: "Cuerpo Académico",
         fields: [
@@ -52,7 +52,7 @@ const permission = new Permission('/cuerpos-academicos/evaluaciones', {
 export default class EvaluationsPage extends Vue {
     resource = academic_bodies;
     criteria = [validity, campus, grade];
-    formSchemas = permission.hasPermissions();
+    formSchemas = builder;
     fields = [
         {key: 'name', label: 'Cuerpo académico', sortable: true, class: 'vw-20'},
         {key: 'last_evaluation.grade_name', label: 'Grado de consolidación', sortable: true},

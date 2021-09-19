@@ -1,21 +1,18 @@
 import {Component, Prop, Vue} from 'vue-property-decorator';
-import VueFormGenerator from 'vue-form-generator';
-import GraphQLResourceRepository from "@shared/infraestructure/communication/graphql/test";
-import {FormType} from "@shared/application/form-type";
+import GraphQLResourceRepository from "@shared/infraestructure/GraphQLResourceRepository";
+import {Form} from "@shared/application/form-type";
 import {DocumentNode} from "graphql";
-import {FormSchema} from "@shared/application/form-schema";
 
 @Component
 export default class ApolloForm extends Vue {
-    @Prop() schema!: FormSchema; //Todo Type
+    @Prop() schema!: Form;
     @Prop() resource!: GraphQLResourceRepository;
-    @Prop({default: FormType.Read}) formType?: FormType;
+    model: any = {};
     public busy: boolean = false;
     private _idArg: any;
     private _fields: any[] = [];
     private _args: any[] = [];
     private _vars: any[] = [];
-    private model: any = {};
 
     updateModelQuery() {
         return this.resource.get({
@@ -26,13 +23,7 @@ export default class ApolloForm extends Vue {
     }
 
     beforeMount() {
-        this._fields = this.schema.fields.map((field: { type?: string, name?: string, model?: string, selection?: string }) => {
-            if (field.selection) {
-                return field.selection;
-            }
-            return field.model;
-        });
-        this._fields.push("id");
+        this._fields = this.schema.fields;
         this._idArg = {name: "id", value: -1};
         this._args = [this._idArg];
     }
@@ -70,6 +61,7 @@ export default class ApolloForm extends Vue {
         /** Apollo model returns __typename. */
         /** However none of our input models accept it; therefore goodbye */
         delete this.model.__typename;
+        this.schema.inject(this.model);
         if (addRouteParams) {
             /** Add Route Params */
             Object.keys(this.$route.params).forEach((key: string) => {
@@ -79,13 +71,12 @@ export default class ApolloForm extends Vue {
         /** Attempt to mutate */
         let result = await this.$apollo.mutate(this.factoryMutationEvent()).catch((error: any) => {
             /** Failure */
-            console.error(error);
             this.$bvToast.toast(`Compruebe los datos.`, {
                 title: 'Problemas en la operación',
                 variant: 'danger',
                 solid: true
             })
-        })
+        });
 
         if (result !== undefined) {
             /** Successfully added */
@@ -99,14 +90,13 @@ export default class ApolloForm extends Vue {
         /** Unset Busy */
         this.busy = false;
 
-        /** Result or Undefined */
         return result;
     }
 
     reset() {
         this._idArg.value = -1;
         this.$apollo.queries.model.skip = true;
-        this.model = VueFormGenerator.schema.createDefaultObject(this.schema);
+        this.model = this.schema.defaultModel();
 
 
         /**
@@ -130,29 +120,6 @@ export default class ApolloForm extends Vue {
     }
 
     private factoryMutationEvent(): { mutation: DocumentNode, variables: any } {
-        switch (this.formType) {
-            case FormType.Create:
-            case FormType.Update:
-                return {
-                    mutation: this.resource.upsert(),
-                    variables: {
-                        data: {
-                            ...this.model
-                        }
-                    }
-                }
-            case FormType.Destroy:
-                return {
-                    mutation: this.resource.destroy(),
-                    variables: {
-                        id: this.model.id
-                    }
-                }
-            default:
-                return {
-                    mutation: this.resource.all(),
-                    variables: {}
-                }
-        }
+        return this.schema.mutate(this.resource, this.model);
     }
 }

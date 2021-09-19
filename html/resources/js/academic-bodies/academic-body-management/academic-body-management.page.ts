@@ -7,7 +7,7 @@ import {prodep_areas} from "@shared/repositories/prodep/repository";
 import {campus, grade, validity} from "@shared/search-criteria/search-criteria";
 
 import AcademicBodyStatistics from './statistics/index.vue';
-import {Permission} from "@shared/application/auth/permission";
+import {CRUDSchemaBuilder} from "@shared/application/CRUDSchema";
 
 export const schema = {
     legend: "Cuerpo Académico",
@@ -37,7 +37,8 @@ export const schema = {
             label: "Vigencia",
             model: "active",
             textOn: "Vigente",
-            textOff: "No vigente"
+            textOff: "No vigente",
+            default: true
         },
         {
             type: 'graphql-select-id',
@@ -141,7 +142,7 @@ export default class AcademicBodyManagementPage extends Vue {
         {key: 'discipline', label: 'Disciplina', sortable: true, editable: false, visible: false},
         {key: 'prodep_area.name', label: 'Area PRODEP', sortable: true, editable: false, visible: false}
     ];
-    formSchemas = new Permission('/cuerpos-academicos', {
+    formSchemas = new CRUDSchemaBuilder('/cuerpos-academicos', {
         create: schema,
         destroy: {
             legend: schema.legend,
@@ -154,7 +155,7 @@ export default class AcademicBodyManagementPage extends Vue {
                 }
             ]
         }
-    }).hasPermissions();
+    });
 
     createdElement(item: any) {
         /** Todo: Abstract Item @ apollo form */

@@ -261,3 +261,7 @@ table.table .avatar {
 .form-group label, .form-check label {
     white-space: normal !important;
 }
+
+.vue-form-generator > * {
+    padding: 0;
+}

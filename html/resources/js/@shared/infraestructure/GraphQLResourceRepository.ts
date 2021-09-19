@@ -39,7 +39,7 @@ export default class GraphQLResourceRepository {
   }
 
   public get resource() {
-    return this.root
+    return this.root;
   }
 
   public all({
@@ -193,7 +193,7 @@ export default class GraphQLResourceRepository {
     }`;
   }
 
-  private _query({
+  protected _query({
     args = [],
     fields = ["id"],
     paginated = false,
@@ -204,7 +204,7 @@ export default class GraphQLResourceRepository {
     return this._operation(o);
   }
 
-  private _mutate({
+  protected _mutate({
     args = [],
     fields = ["id"],
     paginated = false,

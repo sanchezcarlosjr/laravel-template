@@ -17,24 +17,24 @@
                                 :items="items"
                             />
                             <b-button
+                                v-if="this.$scopedSlots.statistics"
                                 v-b-tooltip.hover
                                 :title="isVisibleChart ? 'Ocultar gráfico' : 'Mostrar  gráfico'"
                                 size="sm"
-                                v-if="this.$scopedSlots.statistics"
                                 variant="link-secondary"
                                 @click="toggleChart"
                             >
                                 <font-awesome-icon :icon="chartIcon" class="text-muted"></font-awesome-icon>
                             </b-button>
                             <b-button
-                                v-if="this.crudSchema.hasOwnProperty(FormModal.Type.Create)"
+                                v-if="crudSchema.canBeCreate"
                                 v-b-tooltip.hover
                                 :title="`Añadir ${resource.resource.singular}`"
                                 class="b-0"
                                 size="sm"
                                 squared
                                 variant="outline-success"
-                                @click="showModal(FormModal.Type.Create)"
+                                @click="showModal(crudSchema.creator.ref)"
                             >
                                 +Nuevo
                             </b-button>
@@ -63,37 +63,33 @@
         />
         <!-- CREATE -->
         <form-modal
-            v-if="this.crudSchema.hasOwnProperty(FormModal.Type.Create)"
-            :ref="FormModal.Type.Create"
-            :type="FormModal.Type.Create"
-            :schema="crudSchema.create"
+            v-if="crudSchema.canBeCreate"
+            :ref="crudSchema.creator.ref"
             :resource="resource"
+            :schema="crudSchema.creator"
             @mutate-success="onMutateSuccess"
         />
         <!-- READ -->
         <form-modal
-            v-if="this.crudSchema.hasOwnProperty(FormModal.Type.Read)"
-            :ref="FormModal.Type.Read"
-            :type="FormModal.Type.Read"
-            :schema="crudSchema.read"
+            v-if="crudSchema.canBeRead"
+            :ref="crudSchema.reader.ref"
             :resource="resource"
+            :schema="crudSchema.reader"
         />
         <!-- EDIT -->
         <form-modal
-            v-if="this.crudSchema.hasOwnProperty(FormModal.Type.Update)"
-            :ref="FormModal.Type.Update"
-            :type="FormModal.Type.Update"
-            :schema="crudSchema.edit"
+            v-if="crudSchema.canBeUpdate"
+            :ref="crudSchema.updater.ref"
             :resource="resource"
+            :schema="crudSchema.updater"
             @mutate-success="onMutateSuccess"
         />
         <!-- DELETE -->
         <form-modal
-            v-if="this.crudSchema.hasOwnProperty(FormModal.Type.Destroy)"
-            :ref="FormModal.Type.Destroy"
-            :type="FormModal.Type.Destroy"
-            :schema="crudSchema.destroy"
+            v-if="crudSchema.canBeDestroy"
+            :ref="crudSchema.destroyer.ref"
             :resource="resource"
+            :schema="crudSchema.destroyer"
             @mutate-success="onMutateSuccess"
         />
         <!-- TODO: ARCHIVE -->

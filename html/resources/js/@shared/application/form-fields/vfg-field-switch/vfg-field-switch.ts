@@ -11,5 +11,10 @@ export default class VfgFieldSwitch extends Mixins(VueFormGenerator.abstractFiel
             // @ts-ignore
             this.value = false;
         }
+        // @ts-ignore
+        if (typeof this.schema.default === 'boolean') {
+            // @ts-ignore
+            this.value = this.schema.default;
+        }
     }
 }

@@ -1,4 +1,4 @@
-import GraphQLResourceRepository from "../../../infraestructure/communication/graphql/test";
+import GraphQLResourceRepository from "@shared/infraestructure/GraphQLResourceRepository";
 
 export const networks = new GraphQLResourceRepository(
   {

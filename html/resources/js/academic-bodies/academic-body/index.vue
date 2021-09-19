@@ -3,10 +3,10 @@
         <apollo-form
             ref="form"
             :resource="resource"
-            :schema="formSchemas.edit || formSchemas.read"
+            :schema="formSchemas.updater|| formSchemas.reader"
         />
         <b-button
-            v-if="formSchemas.hasOwnProperty('edit')"
+            v-if="formSchemas.canBeUpdate"
             :disabled="busy"
             class="float-right m-3"
             variant="primary"

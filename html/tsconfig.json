@@ -6,6 +6,7 @@
         "skipLibCheck": true,
         "moduleResolution": "node",
         "experimentalDecorators": true,
+        "esModuleInterop": true,
         "baseUrl": "./",
         "paths": {
             "@shared/*": ["resources/js/@shared/*"]

@@ -1,10 +1,10 @@
 import Vue from "vue";
 import Component from "vue-class-component";
-import GraphQLResourceRepository from "@shared/infraestructure/communication/graphql/test";
-import {Permission} from "@shared/application/auth/permission";
+import GraphQLResourceRepository from "@shared/infraestructure/GraphQLResourceRepository";
 import {employees} from "@shared/repositories/employees/repository";
 import {validator as GraphQLSelectIdValidator} from "@shared/application/form-fields/vfg-field-select-graphql-id/vfg-field-select-graphql-id";
 import {campus, gender, validity} from "@shared/search-criteria/search-criteria";
+import {CRUDSchemaBuilder} from "@shared/application/CRUDSchema";
 
 const schema = {
     legend: "profesor-investigador",
@@ -49,7 +49,7 @@ const schema = {
     ]
 };
 
-const formSchema = new Permission('/investigadores', {
+const formSchema = new CRUDSchemaBuilder('/investigadores', {
     edit: schema,
     create: schema,
     destroy: {
@@ -72,7 +72,7 @@ export default class Researcher extends Vue {
         gender,
         campus
     ];
-    formSchemas = formSchema.hasPermissions();
+    formSchemas = formSchema;
     fields = [
         {key: 'employee.name', label: 'Nombre', sortable: true, class: "vw-20"},
         {key: 'employee.sexo', label: 'Nivel', sortable: true},

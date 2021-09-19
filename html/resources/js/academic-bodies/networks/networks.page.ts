@@ -1,9 +1,9 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import {networks} from "@shared/repositories/academic_bodies/networks/repository";
-import {Permission} from "@shared/application/auth/permission";
+import {CRUDSchemaBuilder} from "@shared/application/CRUDSchema";
 
-const permission = new Permission('/cuerpos-academicos/redes', {
+const builder = new CRUDSchemaBuilder('/cuerpos-academicos/redes', {
     read: {
         legend: "los colaboradores de la red",
         fields: [
@@ -59,7 +59,7 @@ export default class NetworksPage extends Vue {
         {key: 'finish_date', label: 'Fecha de fin', sortable: true},
         {key: 'leader.name', label: 'Líder', sortable: true}
     ];
-    formSchemas = permission.hasPermissions();
+    formSchemas = builder;
     defaultCriteria = [
         {
             type: "or",
