@@ -154,7 +154,7 @@ export class ResourceCreatorModalForm extends FormModalSchemaBuilder {
 }
 
 export class ResourceUpdaterModalForm extends FormModalSchemaBuilder {
-    constructor(prefixTitle = "Editar", okTitle = "Editar", id: string = FormType.Update) {
+    constructor(prefixTitle = "Actualizar", okTitle = "Actualizar", id: string = FormType.Update) {
         super(new UpsertMutation(), {
             id,
             prefixTitle,
