@@ -71,13 +71,12 @@ export default class ApolloForm extends Vue {
         /** Attempt to mutate */
         let result = await this.$apollo.mutate(this.factoryMutationEvent()).catch((error: any) => {
             /** Failure */
-            console.error(error);
             this.$bvToast.toast(`Compruebe los datos.`, {
                 title: 'Problemas en la operación',
                 variant: 'danger',
                 solid: true
             })
-        })
+        });
 
         if (result !== undefined) {
             /** Successfully added */
@@ -91,7 +90,6 @@ export default class ApolloForm extends Vue {
         /** Unset Busy */
         this.busy = false;
 
-        /** Result or Undefined */
         return result;
     }
 

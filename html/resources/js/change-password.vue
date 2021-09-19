@@ -32,8 +32,7 @@ export default class ChangePasswordComponent extends Vue {
             inject: [userIdInjector],
             fields: [
                 {
-                    type: 'input',
-                    inputType: 'password',
+                    type: 'password',
                     label: 'Nueva contraseña',
                     model: "contrasena"
                 }

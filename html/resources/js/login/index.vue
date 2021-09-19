@@ -16,58 +16,22 @@
                                                 </b-col>
                                             </b-row>
                                             <b-row align-h="center" style="margin: 0;">
-                                                <b-overlay :show="form.loading" rounded="sm" style="width: 100%">
-                                                    <b-form style="width: 100%" @submit.prevent="login">
-                                                        <b-form-group
-                                                            id="input-group-1"
-                                                            label="Correo electrónico"
-                                                            label-for="input-1"
-                                                            style="padding: 10px 0;"
-                                                        >
-                                                            <b-input-group size="lg" append="@uabc.edu.mx">
-                                                                <b-form-input
-                                                                    id="user"
-                                                                    required
-                                                                    size="lg"
-                                                                    autocomplete="current-email"
-                                                                    v-model="form.email"
-                                                                ></b-form-input>
-                                                            </b-input-group>
-
-                                                        </b-form-group>
-                                                        <b-form-group
-                                                            id="input-group-2"
-                                                            label="Contraseña"
-                                                            label-for="contraseña-1"
-                                                            style="padding: 10px 0;"
-                                                        >
-                                                            <b-input-group class="mt-3">
-                                                                <template #append>
-                                                                    <b-input-group-text @click="changePasswordStatus">
-                                                                        <font-awesome-icon
-                                                                            :icon="password[passwordStatus].icon"
-                                                                            class="text-muted"></font-awesome-icon>
-                                                                    </b-input-group-text>
-                                                                </template>
-                                                                <b-form-input
-                                                                    id="password"
-                                                                    v-model="form.password"
-                                                                    :type="password[passwordStatus].type"
-                                                                    required
-                                                                    autocomplete="current-password"
-                                                                    size="lg"
-                                                                ></b-form-input>
-                                                            </b-input-group>
-
-                                                        </b-form-group>
-                                                        <b-button block size="lg" squared type="submit" variant="primary">
-                                                            Iniciar sesión
-                                                        </b-button>
-                                                    </b-form>
-                                                </b-overlay>
+                                                <apollo-form
+                                                    ref="form"
+                                                    :resource="resource"
+                                                    :schema="schema"
+                                                ></apollo-form>
+                                                <b-button block class="form-group" size="lg" squared variant="primary"
+                                                          @click="login">
+                                                    Iniciar sesión
+                                                </b-button>
                                             </b-row>
-                                            <b-row>
-                                                <p>Si desea ingresar como anónimo presione <router-link to="/inicio">aquí</router-link>.</p>
+                                            <b-row align-h="center">
+                                                <p>
+                                                    <router-link to="/inicio">Si desea ingresar como anónimo presione
+                                                        aquí.
+                                                    </router-link>
+                                                </p>
                                             </b-row>
                                         </b-container>
                                     </div>

@@ -60,6 +60,57 @@ export abstract class Form {
 
 }
 
+export class LoginMutation extends Mutation {
+    mutate(resource: GraphQLResourceRepository, model: { email: string, password: string }): { mutation: DocumentNode; variables: any } {
+        return {
+            mutation: resource.get({
+                fields: [
+                    'id',
+                    'current_access_token',
+                    'permissions.module',
+                    'permissions.create',
+                    'permissions.edit',
+                    'permissions.read',
+                    'permissions.destroy',
+                    'employee.name'
+                ],
+                args: [
+                    {
+                        name: "email",
+                        value: "$email"
+                    },
+                    {
+                        name: "password",
+                        value: "$password"
+                    }
+                ],
+                vars: [{
+                    name: "$email",
+                    type: "String!"
+                }, {
+                    name: "$password",
+                    type: "String!"
+                }]
+            }),
+            variables: {
+                ...model
+            }
+        }
+    }
+}
+
+export class Login extends Form {
+    constructor() {
+        super(new LoginMutation());
+    }
+
+    static instance(schema: FormSchema) {
+        const login = new Login();
+        login.schema = schema;
+        return login;
+    }
+}
+
 export class UpsertMutation extends Mutation {
     mutate(resource: GraphQLResourceRepository, model: any): { mutation: DocumentNode; variables: any } {
         return {
@@ -92,6 +143,7 @@ export class ReaderMutation extends Mutation {
 
 export abstract class FormModalSchemaBuilder extends Form {
     private readonly defaultSize = "md";
+
     protected constructor(mutation: Mutation, private userInterfaceAttributes: {
         id: FormType | string,
         okTitle: string,
@@ -113,12 +165,12 @@ export abstract class FormModalSchemaBuilder extends Form {
         return this.getID();
     }
 
-    getID(): FormType | string {
-        return this.userInterfaceAttributes.id;
-    }
-
     get size() {
         return this._schema.size ?? this.defaultSize;
+    }
+
+    getID(): FormType | string {
+        return this.userInterfaceAttributes.id;
     }
 
     getContextualOption() {
@@ -163,7 +215,7 @@ export class ResourceUpdaterModalForm extends FormModalSchemaBuilder {
         });
     }
 
-    static instance(attributes?: {prefixTitle: string, okTitle: string, id: string, schema: FormSchema}) {
+    static instance(attributes?: { prefixTitle: string, okTitle: string, id: string, schema: FormSchema }) {
         if (!attributes) {
             return new ResourceUpdaterModalForm();
         }

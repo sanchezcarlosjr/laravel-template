@@ -9,6 +9,7 @@ import VfgFieldApiSelect from './@shared/application/form-fields/vfg-field-selec
 import VfgFieldUpload from './@shared/application/form-fields/vfg-field-upload/index.vue';
 import VfgFieldSwitch from './@shared/application/form-fields/vfg-field-switch/index.vue';
 import VfgFieldLink from './@shared/application/form-fields/vfg-field-link/vfg-field-link.vue';
+import VfgFieldPassword from './@shared/application/form-fields/vfg-field-password.vue';
 import EntryComponent from './entry.component.vue';
 import AcademicBodyLgacs from './academic-bodies/lgac-by-academic-body/index.vue';
 import ContextMenu from './@shared/application/context-menu/context-menu.component.vue';
@@ -39,6 +40,7 @@ Vue.component('field-calendar', VfgFieldCalendar);
 Vue.component('field-switch2', VfgFieldSwitch);
 Vue.component('field-api-select', VfgFieldApiSelect);
 Vue.component('field-email', VfgFieldEmail);
+Vue.component('field-password', VfgFieldPassword);
 Vue.component('field-upload2', VfgFieldUpload);
 Vue.component('field-link', VfgFieldLink);
 Vue.component('field-graphql-select-id', VfgFieldGraphQLSelectID)
