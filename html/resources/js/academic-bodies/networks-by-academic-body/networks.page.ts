@@ -1,9 +1,9 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import {networks} from "@shared/repositories/academic_bodies/networks/repository";
-import {Permission} from "@shared/application/auth/permission";
+import {CRUDSchemaBuilder} from "@shared/application/CRUDSchema";
 
-const permission = new Permission('/cuerpos-academicos/:academic_body_id/redes', {
+const builder = new CRUDSchemaBuilder('/cuerpos-academicos/:academic_body_id/redes', {
     create: {
         legend: "nueva red",
         fields: [
@@ -197,5 +197,5 @@ export default class NetworksPage extends Vue {
             ]
         }
     ];
-    formSchemas = permission.hasPermissions();
+    formSchemas = builder;
 }

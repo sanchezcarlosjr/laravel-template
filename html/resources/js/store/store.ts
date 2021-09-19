@@ -4,6 +4,7 @@ const state = Vue.observable({
     user: {
         name: '',
         token: '',
+        id: '',
         permissions: {
             "/inicio": {
                 "module": "/inicio",
@@ -137,7 +138,7 @@ export const mutations = {
         }
         sessionStorage.clear();
     },
-    updateUser: (user: { name: string, token: string, permissions: [{ module: string }] }) => {
+    updateUser: (user: { name: string, token: string, id: string, permissions: [{ module: string }] }) => {
         state.user = {
             ...user,
             permissions: user.permissions.reduce((previousValue, actual) => {
@@ -150,15 +151,18 @@ export const mutations = {
             }, {})
         };
         sessionStorage.setItem('token', `Bearer ${state.user.token}`);
+        sessionStorage.setItem('id', state.user.id);
         sessionStorage.setItem('permissions', JSON.stringify(state.user.permissions));
     },
     loadTokenFromStorage: () => {
         const token = sessionStorage.getItem('token');
         const permissions = sessionStorage.getItem('permissions');
+        const id = sessionStorage.getItem('id');
         state.user = {
             ...state.user,
             permissions: permissions === null ? state.user.permissions: JSON.parse(permissions),
-            token: token === null ? "" : token
+            token: token === null ? "" : token,
+            id: token === null ? "": id
         }
     }
 }

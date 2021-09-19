@@ -5,7 +5,7 @@ import {validator as GraphQLSelectIdValidator} from "@shared/application/form-fi
 import {sni_areas, snis} from "@shared/repositories/sni/repository";
 import {campus, close_to_expire, close_to_retirement, gender} from "@shared/search-criteria/search-criteria";
 import SniStatistics from "./statistics/index.vue";
-import {Permission} from "@shared/application/auth/permission";
+import {CRUDSchemaBuilder} from "@shared/application/CRUDSchema";
 
 const schema = {
     legend: "SNI",
@@ -141,7 +141,7 @@ const editSchema = {
     ]
 };
 
-const permission = new Permission('/sni', {
+const builder = new CRUDSchemaBuilder('/sni', {
     create: schema,
     edit: editSchema,
     destroy: {
@@ -180,5 +180,5 @@ export default class SniPage extends Vue {
         {key: "finish_date", label: "Fecha fin", sortable: true, editable: true},
         {key: "sni_area.name", label: "Área SNI", sortable: true, editable: true}
     ];
-    formSchemas = permission.hasPermissions();
+    formSchemas = builder;
 }

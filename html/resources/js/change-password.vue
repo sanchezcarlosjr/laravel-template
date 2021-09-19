@@ -1,8 +1,7 @@
 <template>
     <form-modal
-        :type="formSchema.formType"
-        :schema="formSchema"
         :resource="resource"
+        :schema="formSchema"
         @mutate-success="onMutateSuccess"
     />
 </template>
@@ -12,9 +11,9 @@
 import Component from "vue-class-component";
 import Vue from "vue";
 import FormModal from "@shared/application/form-modal/form-modal.component.vue";
-import {FormType} from "@shared/application/form-type";
-import {FormSchema} from "@shared/application/form-schema";
+import {FormModalSchemaBuilder, ResourceUpdaterModalForm} from "@shared/application/form-type";
 import {users} from "@shared/repositories/users/repository";
+import {userIdInjector} from "@shared/application/injector/user-id-injector";
 
 @Component({
     components: {
@@ -22,24 +21,27 @@ import {users} from "@shared/repositories/users/repository";
     }
 })
 export default class ChangePasswordComponent extends Vue {
-    resource = users;
-    formSchema: FormSchema = {
-        legend: "contraseña",
-        formType: FormType.Update,
-        fields: [
-            {
-                type: 'input',
-                inputType: 'text',
-                label: 'Nueva contraseña',
-                model: "contrasena"
-            }
-        ]
-    };
+    id = "change-password";
+    private resource = users;
+    private formSchema: FormModalSchemaBuilder = ResourceUpdaterModalForm.instance({
+        prefixTitle: "Cambiar ",
+        okTitle: "Cambiar",
+        id: this.id,
+        schema: {
+            legend: "contraseña",
+            inject: [userIdInjector],
+            fields: [
+                {
+                    type: 'input',
+                    inputType: 'password',
+                    label: 'Nueva contraseña',
+                    model: "contrasena"
+                }
+            ]
+        }
+    });
+
     onMutateSuccess() {
     }
 }
 </script>
-
-<style scoped>
-
-</style>

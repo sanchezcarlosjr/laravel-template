@@ -1,6 +1,5 @@
 <template>
     <div class="wrapper">
-        <change-password-component></change-password-component>
         <div class="main-header" data-background-color="green">
             <div class="logo-header" data-background-color="green">
                 <router-link class="logo" to="/inicio">SIIIP</router-link>
@@ -102,6 +101,7 @@
                 </div>
             </footer>
         </div>
+        <change-password-component ref="change-password-form"></change-password-component>
     </div>
 </template>
 
@@ -111,6 +111,7 @@ import Component from "vue-class-component"
 import router, {routes} from "./routes";
 import state, {mutations} from "./store/store";
 import ChangePasswordComponent from "./change-password.vue";
+import {Ref} from "vue-property-decorator";
 
 @Component({
     components: {
@@ -121,6 +122,7 @@ export default class ShellComponent extends Vue {
     year = new Date().getFullYear();
     routes = routes[1].children;
     sidebar = true;
+    @Ref('change-password-form') changerPasswordForm!: ChangePasswordComponent;
 
     get displaySidebar() {
         return this.sidebar ? 'block' : 'none';
@@ -148,7 +150,7 @@ export default class ShellComponent extends Vue {
     }
 
     changePassword() {
-        this.$root.$emit('bv::show::modal', 'abc');
+        this.$root.$emit('bv::show::modal', this.changerPasswordForm.id);
     }
 
     logout() {

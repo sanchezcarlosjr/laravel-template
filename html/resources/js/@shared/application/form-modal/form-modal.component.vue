@@ -1,14 +1,14 @@
 <template>
   <b-modal
     ref="modal"
-    :id="_id"
-    :title="_title"
-    :size="modalSize"
+    :id="schema.getID()"
+    :title="schema.getTitle()"
+    :size="schema.size"
     :static="true"
-    :hide-footer="isTypeRead()"
+    :hide-footer="schema.hideFooter"
     :busy="busy"
     cancel-title="Cancelar"
-    :ok-title="_okTitle"
+    :ok-title="schema.okTitle"
     @ok="onOk"
     scrollable
     @hide="onHide"
@@ -17,7 +17,6 @@
       ref="form"
       :schema="schema"
       :resource="resource"
-      :formType="type"
     />
   </b-modal>
 </template>

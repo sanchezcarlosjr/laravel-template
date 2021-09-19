@@ -1,4 +1,4 @@
-import GraphQLResourceRepository from "../../../infraestructure/test";
+import GraphQLResourceRepository from "@shared/infraestructure/GraphQLResourceRepository";
 
 export const collaborators = new GraphQLResourceRepository(
   {

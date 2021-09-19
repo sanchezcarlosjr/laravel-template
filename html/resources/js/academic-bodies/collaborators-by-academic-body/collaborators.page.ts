@@ -1,11 +1,11 @@
 import {Component, Vue} from 'vue-property-decorator';
 import {collaborators} from "@shared/repositories/academic_bodies/collaborators/repository.ts";
-import {membersForm} from "../members/members.page";
-import {Permission} from "@shared/application/auth/permission";
 import {employees} from "@shared/repositories/employees/repository.ts";
 import {validator as GraphQLSelectIdValidator} from "@shared/application/form-fields/vfg-field-select-graphql-id/vfg-field-select-graphql-id"
+import {CRUDSchemaBuilder} from "@shared/application/CRUDSchema";
+import {membersForm} from "../members/membersForm";
 
-const permission = new Permission('/cuerpos-academicos/:academic_body_id/colaboradores', {
+const builder = new CRUDSchemaBuilder('/cuerpos-academicos/:academic_body_id/colaboradores', {
     create: {
         legend: "Colaborador",
         fields: [
@@ -49,7 +49,7 @@ const permission = new Permission('/cuerpos-academicos/:academic_body_id/colabor
 export default class CollaboratorsPage extends Vue {
     resource = collaborators;
     criteria = [];
-    formSchemas = permission.hasPermissions();
+    formSchemas = builder;
     fields = [
         {key: 'name', label: 'Nombre', sortable: true, class: 'w-40'},
         {key: 'academic_unit.name', label: 'Unidad Académica', sortable: true},

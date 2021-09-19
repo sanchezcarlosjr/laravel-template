@@ -1,7 +1,7 @@
 import {Component, Vue} from 'vue-property-decorator';
 import VueFormGenerator from 'vue-form-generator';
 import {lgac} from "@shared/repositories/academic_bodies/lgac/repository.ts";
-import {Permission} from "@shared/application/auth/permission";
+import {CRUDSchemaBuilder} from "@shared/application/CRUDSchema";
 
 const schema = {
     legend: "LGAC",
@@ -25,7 +25,7 @@ const schema = {
     ]
 };
 
-const permission = new Permission('/cuerpos-academicos/:academic_body_id/lgac', {
+const builder = new CRUDSchemaBuilder('/cuerpos-academicos/:academic_body_id/lgac', {
     create: schema,
     edit: schema,
     destroy: {
@@ -49,5 +49,5 @@ export default class LGACPage extends Vue {
         {key: 'name', label: 'Nombre', sortable: true},
         {key: 'description', label: 'Descripción', sortable: true}
     ];
-    formSchemas = permission.hasPermissions();
+    formSchemas = builder;
 }

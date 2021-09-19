@@ -1,4 +1,4 @@
-import {FormType} from "@shared/application/form-type";
+import {FormModalSchemaBuilder, FormType} from "@shared/application/form-type";
 
 export interface FormField {
     type: string;
@@ -24,6 +24,9 @@ export interface FormField {
 export interface FormSchema {
     legend?: string;
     size?:  string;
-    formType?: FormType;
+    inject?: ((model: any) => Promise<void>)[];
+    formType?: FormType | FormModalSchemaBuilder;
     fields: FormField[];
 }
+
+

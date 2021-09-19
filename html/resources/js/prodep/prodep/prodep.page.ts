@@ -5,6 +5,7 @@ import {prodep_areas, prodep_profiles} from "@shared/repositories/prodep/reposit
 import {employees} from "@shared/repositories/employees/repository.ts";
 import {campus, close_to_retirement, gender, validity} from "@shared/search-criteria/search-criteria.ts";
 import {Permission} from "@shared/application/auth/permission";
+import {CRUDSchemaBuilder} from "@shared/application/CRUDSchema";
 
 let fields = [
     {key: 'employee.name', label: 'Nombre', sortable: true, class: "vw-20"},
@@ -82,7 +83,7 @@ let schema = {
 };
 
 
-const permission = new Permission('/prodep/apoyos', {
+const builder = new CRUDSchemaBuilder('/prodep/apoyos', {
     create: schema,
     edit: schema,
     destroy: {
@@ -108,5 +109,5 @@ export default class ProdepPage extends Vue {
         close_to_retirement
     ];
     fields = fields;
-    formSchemas = permission.hasPermissions();
+    formSchemas = builder;
 }

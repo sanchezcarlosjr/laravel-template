@@ -1,7 +1,7 @@
 <template>
     <vue-form-generator
       ref="form"
-      :schema="schema"
+      :schema="schema.schema"
       :model="model"
     />
 </template>

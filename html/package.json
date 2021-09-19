@@ -7,6 +7,7 @@
         "watch-poll": "npm run watch -- --watch-poll",
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --disable-host-check --config=node_modules/laravel-mix/setup/webpack.config.js",
         "prod": "npm run production",
+        "test:unit": "jest",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
@@ -30,11 +31,13 @@
         "resolve-url-loader": "^3.1.2",
         "sass": "^1.20.1",
         "sass-loader": "^8.0.0",
+        "ts-jest": "^26.5.6",
         "ts-loader": "^8.0.11",
         "typescript": "^4.1.2",
         "v-click-outside": "^3.1.2",
         "vue-class-component": "^7.2.6",
         "vue-form-generator": "^2.3.4",
+        "vue-jest": "^3.0.7",
         "vue-property-decorator": "^9.1.2",
         "vue-router": "^3.4.9",
         "vue-template-compiler": "^2.6.10"
@@ -49,5 +52,19 @@
         "vue": "^2.6.12",
         "vue-apollo": "^3.0.5",
         "vue-chartjs": "^3.5.1"
+    },
+    "jest": {
+        "testRegex": "(resources/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+        "moduleFileExtensions": [
+            "js",
+            "ts",
+            "json",
+            "vue"
+        ],
+        "transform": {
+            ".*\\.(vue)$": "vue-jest",
+            "^.+\\.tsx?$": "ts-jest"
+        },
+        "testURL": "http://localhost:8080/"
     }
 }

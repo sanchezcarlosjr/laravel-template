@@ -45,6 +45,7 @@ export default class LoginPage extends Vue {
                 query: gql`
                     query authentication ($email: String!, $password: String!){
                         login(email: $email, password: $password) {
+                            id
                             current_access_token
                             permissions {
                                 module
@@ -67,7 +68,8 @@ export default class LoginPage extends Vue {
             mutations.updateUser({
                 name: response.data.login.employee.name,
                 token: response.data.login.current_access_token,
-                permissions: response.data.login.permissions
+                permissions: response.data.login.permissions,
+                id: response.data.login.id
             });
             if (this.$route.query.redirectTo === undefined) {
                 await router.push({name: 'Inicio'});

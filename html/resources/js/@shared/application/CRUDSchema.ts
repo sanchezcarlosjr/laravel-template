@@ -1,0 +1,92 @@
+import {FormSchema} from "@shared/application/form-schema";
+import {
+    FormModalSchemaBuilder,
+    FormType,
+    ResourceCreatorModalForm,
+    ResourceDestroyerFormModal,
+    ResourceReaderFormModal,
+    ResourceUpdaterModalForm
+} from "./form-type";
+import {Permission} from "@shared/application/auth/permission";
+
+export interface CRUDSchema {
+    create?: FormSchema | undefined;
+    edit?: FormSchema | undefined;
+    read?: FormSchema | undefined;
+    destroy?: FormSchema | undefined;
+
+    [key: string]: FormSchema | undefined;
+}
+
+export interface CRUDModalSchema {
+    [key: string]: FormModalSchemaBuilder
+}
+
+export class CRUDSchemaBuilder {
+    private schema: CRUDModalSchema = {};
+    private options: { click: string, name: string }[] = [];
+
+    constructor(module: string, crudSchema: CRUDSchema) {
+        const permissions = new Permission(module);
+        permissions.hasPermissions(crudSchema);
+        Object.entries(crudSchema).forEach((entry: [string, FormSchema | undefined]) => {
+            this.schema[entry[0]] = CRUDSchemaBuilder.factory(entry[0]);
+            this.schema[entry[0]].schema = entry[1];
+            this.options.push(this.schema[entry[0]].getContextualOption());
+        });
+    }
+
+    get reader(): ResourceReaderFormModal {
+        return this.schema.read;
+    }
+
+    get updater(): ResourceUpdaterModalForm {
+        return this.schema.edit;
+    }
+
+    get destroyer(): ResourceDestroyerFormModal {
+        return this.schema.destroy;
+    }
+
+    get creator(): ResourceCreatorModalForm {
+        return this.schema.create;
+    }
+
+    get canBeRead(): boolean {
+        return this.hasProperty(FormType.Read);
+    }
+
+    get canBeUpdate(): boolean {
+        return this.hasProperty(FormType.Update);
+    }
+
+    get canBeDestroy(): boolean {
+        return this.hasProperty(FormType.Destroy);
+    }
+
+    get canBeCreate() {
+        return this.hasProperty(FormType.Create);
+    }
+
+    static factory(formType: string): ResourceUpdaterModalForm {
+        switch (formType) {
+            case FormType.Update:
+                return new ResourceUpdaterModalForm();
+            case FormType.Destroy:
+                return new ResourceDestroyerFormModal();
+            case FormType.Create:
+                return new ResourceCreatorModalForm();
+            case FormType.Read:
+            default:
+                return new ResourceReaderFormModal();
+        }
+    }
+
+    getOptions() {
+        return this.options;
+    }
+
+    private hasProperty(property: string) {
+        return this.schema.hasOwnProperty(property);
+    }
+}
