@@ -66,6 +66,9 @@
                                                     </b-form>
                                                 </b-overlay>
                                             </b-row>
+                                            <b-row>
+                                                <p>Si desea ingresar como anónimo presione <router-link to="/inicio">aquí</router-link>.</p>
+                                            </b-row>
                                         </b-container>
                                     </div>
                                 </div>
