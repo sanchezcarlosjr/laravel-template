@@ -2,7 +2,6 @@
     <form-modal
         :resource="resource"
         :schema="formSchema"
-        @mutate-success="onMutateSuccess"
     />
 </template>
 
@@ -39,8 +38,5 @@ export default class ChangePasswordComponent extends Vue {
             ]
         }
     });
-
-    onMutateSuccess() {
-    }
 }
 </script>
