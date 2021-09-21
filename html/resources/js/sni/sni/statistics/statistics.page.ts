@@ -1,9 +1,9 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 // @ts-ignore
-import LineChart from "./chart/LineChart";
+import LineChart from "@shared/application/chart/LineChart";
 // @ts-ignore
-import BarChart from "./chart/BarChart";
+import BarChart from "@shared/application/chart/BarChart";
 import SniStatisticsTable from "./table.presenter.vue";
 import {Prop} from "vue-property-decorator";
 import {snis} from "@shared/repositories/sni/repository";

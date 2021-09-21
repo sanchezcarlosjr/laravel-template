@@ -2,7 +2,7 @@ import {Component, Vue} from 'vue-property-decorator';
 import {validator as GraphQLSelectIdValidator} from "@shared/application/form-fields/vfg-field-select-graphql-id/vfg-field-select-graphql-id"
 import {helps} from "@shared/repositories/academic_bodies/helps/repository.ts";
 import {members} from "@shared/repositories/academic_bodies/members/repository.ts";
-import {Permission} from "@shared/application/auth/permission";
+import {CRUDSchemaBuilder} from "@shared/application/form/CRUDSchema";
 
 @Component
 export default class HelpsPage extends Vue {
@@ -96,7 +96,7 @@ export default class HelpsPage extends Vue {
         {key: 'benefited_employee.academic_unit.name', label: 'Unidad académica', sortable: true},
         {key: 'benefited_employee.academic_unit.campus', label: 'Campus', sortable: true}
     ];
-    formSchemas = new Permission('/cuerpos-academicos/:academic_body_id/apoyos', {
+    formSchemas = new CRUDSchemaBuilder('/cuerpos-academicos/:academic_body_id/apoyos', {
         create: this._schema,
         edit: this._schema,
         destroy: {
@@ -147,5 +147,5 @@ export default class HelpsPage extends Vue {
                 }
             ]
         }
-    }).hasPermissions();
+    });
 }

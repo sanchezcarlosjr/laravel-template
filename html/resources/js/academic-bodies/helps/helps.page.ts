@@ -1,8 +1,8 @@
 import {Component, Vue} from 'vue-property-decorator';
 import {helps} from "@shared/repositories/academic_bodies/helps/repository.ts";
-import {Permission} from "@shared/application/auth/permission";
+import {CRUDSchemaBuilder} from "@shared/application/form/CRUDSchema";
 
-const permission = new Permission('/cuerpos-academicos/apoyos', {
+const builder = new CRUDSchemaBuilder('/cuerpos-academicos/apoyos', {
     read: {
         legend: "Apoyo",
         fields: [
@@ -55,5 +55,5 @@ export default class HelpsPage extends Vue {
         {key: 'academic_body.leader.academic_unit.name', label: 'Unidad académica', sortable: true},
         {key: 'academic_body.leader.academic_unit.campus', label: 'Campus', sortable: true},
     ];
-    formSchemas = permission.hasPermissions();
+    formSchemas = builder;
 }

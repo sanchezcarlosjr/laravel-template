@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Component from "vue-class-component";
-import GraphQLResourceRepository from "@shared/infraestructure/communication/graphql/test";
+import GraphQLResourceRepository from "../../js/@shared/infraestructure/test";
 import {Permission} from "@shared/application/auth/permission";
 
 const schema = {

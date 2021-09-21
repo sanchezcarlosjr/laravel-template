@@ -18,6 +18,7 @@
                         <template #button-content>
                             <b-avatar></b-avatar>
                         </template>
+                        <b-dropdown-item @click="changePassword">Cambiar contraseña</b-dropdown-item>
                         <b-dropdown-item @click="logout">Salir</b-dropdown-item>
                     </b-dropdown>
                     <router-link v-else :to="{name: 'login'}" tag="b-button">Iniciar sesión</router-link>
@@ -100,6 +101,7 @@
                 </div>
             </footer>
         </div>
+        <change-password-component ref="change-password-form"></change-password-component>
     </div>
 </template>
 
@@ -108,12 +110,19 @@ import Vue from "vue"
 import Component from "vue-class-component"
 import router, {routes} from "./routes";
 import state, {mutations} from "./store/store";
+import ChangePasswordComponent from "./change-password.vue";
+import {Ref} from "vue-property-decorator";
 
-@Component
+@Component({
+    components: {
+        ChangePasswordComponent
+    }
+})
 export default class ShellComponent extends Vue {
     year = new Date().getFullYear();
     routes = routes[1].children;
     sidebar = true;
+    @Ref('change-password-form') changerPasswordForm!: ChangePasswordComponent;
 
     get displaySidebar() {
         return this.sidebar ? 'block' : 'none';
@@ -138,6 +147,10 @@ export default class ShellComponent extends Vue {
     changeStatusSidebar() {
         this.sidebar = !this.sidebar;
         localStorage.setItem('sidebar', String(this.sidebar));
+    }
+
+    changePassword() {
+        this.$root.$emit('bv::show::modal', this.changerPasswordForm.id);
     }
 
     logout() {

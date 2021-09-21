@@ -5,6 +5,7 @@ import {prodep_helps} from "@shared/repositories/prodep/repository.ts";
 import {employees} from "@shared/repositories/employees/repository.ts";
 import {campus, close_to_retirement, gender} from "@shared/search-criteria/search-criteria.ts";
 import {Permission} from "@shared/application/auth/permission";
+import {CRUDSchemaBuilder} from "@shared/application/form/CRUDSchema";
 
 let fields = [
     {key: "employee.name", label: "Beneficiario", sortable: true},
@@ -99,7 +100,7 @@ let schema = {
     ]
 };
 
-const permission = new Permission('/prodep/apoyos', {
+const builder = new CRUDSchemaBuilder('/prodep/apoyos', {
     create: schema,
     edit: schema,
     destroy: {
@@ -124,5 +125,5 @@ export default class HelpsPage extends Vue {
         close_to_retirement
     ];
     fields = fields;
-    formSchemas = permission.hasPermissions();
+    formSchemas = builder;
 }

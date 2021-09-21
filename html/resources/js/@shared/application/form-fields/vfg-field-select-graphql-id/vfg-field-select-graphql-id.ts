@@ -1,5 +1,6 @@
 import {Component, Mixins, Watch} from 'vue-property-decorator';
 import VueFormGenerator from "vue-form-generator";
+import {FormField} from "@shared/application/form/form-schema";
 
 export function validator({
   selectValid = "Seleccione un recurso valido"
@@ -33,7 +34,7 @@ export default class VfgFieldGraphQLIdSelect extends Mixins(VueFormGenerator.abs
   private focus: number = -1;
 
   public value: string = "";
-  public schema: any;
+  public schema: FormField | any;
   public model!: any;
 
   beforeMount() {

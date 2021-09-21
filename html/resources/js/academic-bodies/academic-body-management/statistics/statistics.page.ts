@@ -1,8 +1,8 @@
 import {Component, Prop, Vue} from 'vue-property-decorator';
 // @ts-ignore
-import LineChart from "./chart/LineChart";
+import LineChart from "@shared/application/chart/LineChart";
 // @ts-ignore
-import BarChart from "./chart/BarChart";
+import BarChart from "@shared/application/chart/BarChart";
 import {academic_bodies} from "@shared/repositories/academic_bodies/repository.ts";
 
 @Component({

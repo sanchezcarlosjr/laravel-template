@@ -4,6 +4,7 @@ import {users} from "@shared/repositories/users/repository";
 import {employees} from "@shared/repositories/employees/repository";
 import {campus, gender} from "@shared/search-criteria/search-criteria";
 import {Permission} from "@shared/application/auth/permission";
+import {CRUDSchemaBuilder} from "@shared/application/form/CRUDSchema";
 
 const words = [
     'Erg0',
@@ -69,45 +70,43 @@ const schema = {
     ]
 };
 
-const formSchema = new Permission('/usuarios', {
-    destroy: {
-        legend: schema.legend,
-        fields: [
-            {
-                type: "label",
-                label: "¿Desea eliminar a este usuario?",
-                hint: "Acción irreversible",
-                model: "employee.name"
-            }
-        ]
-    },
-    edit: schema,
-    create: {
-        legend: schema.legend,
-        fields: [
-            ...schema.fields,
-            {
-                type: 'input',
-                inputType: "text",
-                disabled: true,
-                label: 'Contraseña',
-                model: "contrasena",
-                get: function (model: { contrasena: string }) {
-                    model.contrasena = words[random(0, words.length - 1)] + words[random(0, words.length - 1)] + words[random(0, words.length - 1)];
-                    return model.contrasena;
-                }
-            }
-        ]
-    }
-});
-
 @Component
 export default class UsersPage extends Vue {
     criteria = [
         gender,
         campus,
     ];
-    formSchemas = formSchema.hasPermissions();
+    formSchemas = new CRUDSchemaBuilder('/usuarios', {
+        destroy: {
+            legend: schema.legend,
+            fields: [
+                {
+                    type: "label",
+                    label: "¿Desea eliminar a este usuario?",
+                    hint: "Acción irreversible",
+                    model: "employee.name"
+                }
+            ]
+        },
+        edit: schema,
+        create: {
+            legend: schema.legend,
+            fields: [
+                ...schema.fields,
+                {
+                    type: 'input',
+                    inputType: "text",
+                    disabled: true,
+                    label: 'Contraseña',
+                    model: "contrasena",
+                    get: function (model: { contrasena: string }) {
+                        model.contrasena = words[random(0, words.length - 1)] + words[random(0, words.length - 1)] + words[random(0, words.length - 1)];
+                        return model.contrasena;
+                    }
+                }
+            ]
+        }
+    });
     fields = [
         {key: 'employee.name', label: 'Nombre', sortable: true, class: 'vw-20'},
         {key: 'employee.correo1', label: 'Correo Electrónico', sortable: true},

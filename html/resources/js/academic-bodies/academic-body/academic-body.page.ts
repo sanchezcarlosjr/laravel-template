@@ -1,7 +1,7 @@
 import {Component, Ref, Vue} from 'vue-property-decorator';
 import {schema} from "../academic-body-management/academic-body-management.page";
-import {Permission} from "@shared/application/auth/permission";
 import {academic_bodies} from "@shared/repositories/academic_bodies/repository";
+import {CRUDSchemaBuilder} from "@shared/application/form/CRUDSchema";
 
 @Component
 export default class AcademicBodyPage extends Vue {
@@ -14,9 +14,9 @@ export default class AcademicBodyPage extends Vue {
     }
     public busy: boolean = false;
     resource = academic_bodies;
-    formSchemas = new Permission('/cuerpos-academicos', {
+    formSchemas = new CRUDSchemaBuilder('/cuerpos-academicos', {
         'edit': schema
-    }).hasPermissions();
+    });
 
     mounted() {
         this.form.get(Number(this.$route.params.academic_body_id));

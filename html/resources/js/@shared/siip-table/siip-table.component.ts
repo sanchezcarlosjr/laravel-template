@@ -3,10 +3,11 @@ import TablePresenter from './application/table-presenter.component.vue';
 import SearcherComponent from './application/searcher.component.vue';
 import SiipTitle from './application/title.component.vue';
 import PrintOptions from "./application/print-options.component.vue";
-import GraphQLResourceRepository from "@shared/infraestructure/communication/graphql/test";
+import GraphQLResourceRepository from "@shared/infraestructure/GraphQLResourceRepository";
 import FormModal from "@shared/application/form-modal/form-modal.component.vue";
-import {FormType} from "../application/form-type";
-import {CRUDSchema} from "@shared/application/auth/permission";
+import {CRUDSchemaBuilder} from "@shared/application/form/CRUDSchema";
+import {FormType} from "@shared/application/form/form-type";
+import {FormModalSchemaBuilder} from "@shared/application/form/form-modal-schema-builder";
 
 @Component({
     components: {
@@ -22,19 +23,15 @@ export default class SiipTableComponent extends Vue {
     @Prop({default: () => []}) filter!: any[]; //ToDo Type
 
     selectedFilters: any[] = []; //ToDo Type
-    private _routeArgs: any[] = [];
-
     @Prop() fields!: any[]; // Table Fields
     _fields: string[] = []; // Query Fields
-    @Prop() crudSchema!: CRUDSchema; //ToDo Type
-
+    @Prop() crudSchema!: CRUDSchemaBuilder;
     /** Literally form options */
     formOptions = {
         validateAsync: true,
         validateAfterLoad: false,
         validateAfterChanged: true
     };
-
     //@ts-ignore
     @Ref(FormType.Create) createForm!: Vue & {
         fetch: (id: number) => void;
@@ -47,36 +44,36 @@ export default class SiipTableComponent extends Vue {
     @Ref(FormType.Update) updateForm!: Vue & {
         fetch: (id: number) => void;
     }
-    /** Workaround */
-    private FormModal = FormModal;
-
     /** Filter by field.visible & label */
     tableFields: {}[] = this.fields.filter((field) => {
         return (field.label !== undefined && (field.visible ?? true))
     });
-
     /** Used in Members */
     @Prop() rowClass: ((response: any) => string) | undefined;
-
     /** Used in Academic Bodies */
     @Prop() links!: Object;
-
     /** Bound to Apollo */
     items: any = [];
-    /** Diff */
-
     /** Table Presenter Stuff */
     /** TODO: Check */
     criteria: string[] = [];
     sortBy = '';
+    /** Diff */
     sortDesc = false;
     sortDirection = 'asc';
     options: any[] = [];
-
     /** Charts */
     isVisibleChart = false;
+    private _routeArgs: any[] = [];
+    /** Workaround */
+    private FormModal = FormModal;
 
     //[x: string]: any; //bruh
+
+    /** Charts */
+    get chartIcon() {
+        return this.isVisibleChart ? ['fas', 'chevron-up'] : ['fas', 'chevron-down'];
+    }
 
     /** Methods */
     beforeMount() {
@@ -114,10 +111,95 @@ export default class SiipTableComponent extends Vue {
         /** Unpause Query */
         this.$apollo.queries.items.skip = false;
 
+        /** Open modal by query params */
         this.runQueryParams();
 
         /** Push options for context menu */
-        this.options = this.generateOptions();
+        this.options = this.crudSchema.getOptions();
+    }
+
+    /** Search */
+    public filterItems(filters: { criteria: any[], terms: any[] }) {
+        let args = [filters.terms];
+        filters.criteria.map(criteria => args.push(criteria));
+
+        /** Update Filters in Repository */
+        this.selectedFilters = args;
+
+        /** Refresh Query */
+        this.$apollo.queries.items.refresh();
+        /**
+         * Apparently Apollo calls the query twice:
+         * https://github.com/vuejs/vue-apollo/discussions/492
+         * This is intended behaviour for cache or something idk
+         */
+    }
+
+    /** Table */
+    onRowClick(item: any, index: number, button: any) {
+        try {
+            if (this.crudSchema.canBeUpdate) {
+                this._showAndFetch(FormType.Update, item.id);
+            } else if (this.crudSchema.canBeRead) {
+                this._showAndFetch(FormType.Read, item.id);
+            } else {
+                //@ts-ignore
+                this.$router.push(this.links.edit.link.replace("*", item.id));
+            }
+        } catch (e) {
+        }
+    }
+
+    /** Todo: */
+    search(row: any, criteria: string[]) {
+        const values: string[] = Object.values(row);
+        const valueString = values.toString();
+        return criteria.filter(value => {
+            return valueString.toLowerCase().indexOf(value.toLowerCase()) !== -1;
+        }).length > 0;
+    }
+
+    /** Listeners */
+    onMutateSuccess(item: any, type: FormModalSchemaBuilder) {
+        if (type.ref == FormType.Create) {
+            this.$emit("created-element", item);
+        }
+        /** Refresh Table */
+        this.$apollo.queries.items.refetch();
+    }
+
+    /** Modals */
+    /** Used for Create */
+    showModal(type: string) {
+        this.$root.$emit('bv::show::modal', type);
+    }
+
+    /** WIP */
+    updateCache(item: any) {
+        /** Not done yet lol */
+        return;
+        //@ts-ignore
+        let query = this.$apollo.queries.items.options.query;
+        let cache = this.$apollo.getClient().cache;
+
+        const data = cache.readQuery({query: query});
+        //@ts-ignore
+        data.items.push(item);
+        cache.writeQuery({query: query, data})
+    }
+
+    /** Context Menu Option Handler */
+    optionClicked(event: any) {
+        let target = event.option.click;
+        let id = event.item.row.id;
+
+        this.$router.replace(`?${target}=${id}`).catch(error => {
+            if (error.name != "NavigationDuplicated") {
+                throw error;
+            }
+        });
+
+        this.runQueryParams();
     }
 
     /** Redirect Query Params */
@@ -147,11 +229,6 @@ export default class SiipTableComponent extends Vue {
         }
     }
 
-    /** Charts */
-    get chartIcon() {
-        return this.isVisibleChart ? ['fas', 'chevron-up'] : ['fas', 'chevron-down'];
-    }
-
     private toggleChart() {
         this.isVisibleChart = !this.isVisibleChart;
     }
@@ -165,62 +242,6 @@ export default class SiipTableComponent extends Vue {
         });
     }
 
-    /** Search */
-    public filterItems(filters: { criteria: any[], terms: any[] }) {
-        let args = [filters.terms];
-        filters.criteria.map(criteria => args.push(criteria));
-
-        /** Update Filters in Repository */
-        this.selectedFilters = args;
-
-        /** Refresh Query */
-        this.$apollo.queries.items.refresh();
-        /**
-         * Apparently Apollo calls the query twice:
-         * https://github.com/vuejs/vue-apollo/discussions/492
-         * This is intended behaviour for cache or something idk
-         */
-    }
-
-    /** Table */
-    onRowClick(item: any, index: number, button: any) {
-        try {
-            if (this.crudSchema.hasOwnProperty(FormType.Update)) {
-                this._showAndFetch(FormType.Update, item.id);
-            } else if (this.crudSchema.hasOwnProperty(FormType.Read)) {
-                this._showAndFetch(FormType.Read, item.id);
-            } else {
-                //@ts-ignore
-                this.$router.push(this.links.edit.link.replace("*", item.id));
-            }
-        } catch (e) {
-        }
-    }
-
-    /** Todo: */
-    search(row: any, criteria: string[]) {
-        const values: string[] = Object.values(row);
-        const valueString = values.toString();
-        return criteria.filter(value => {
-            return valueString.toLowerCase().indexOf(value.toLowerCase()) !== -1;
-        }).length > 0;
-    }
-
-    /** Listeners */
-    onMutateSuccess(item: any, type: string) {
-        if (type === "create") {
-            this.$emit("created-element", item);
-        }
-        /** Refresh Table */
-        this.$apollo.queries.items.refetch();
-    }
-
-    /** Modals */
-    /** Used for Create */
-    showModal(type: string) {
-        this.$root.$emit('bv::show::modal', type);
-    }
-
     /** Used for Edit & reads */
     private _showAndFetch(type: string, itemId: string) {
         this.showModal(type);
@@ -228,95 +249,4 @@ export default class SiipTableComponent extends Vue {
         this.$refs[type].fetch(itemId);
     }
 
-    /** WIP */
-    updateCache(item: any) {
-        /** Not done yet lol */
-        return;
-        //@ts-ignore
-        let query = this.$apollo.queries.items.options.query;
-        let cache = this.$apollo.getClient().cache;
-
-        const data = cache.readQuery({query: query});
-        //@ts-ignore
-        data.items.push(item);
-        cache.writeQuery({query: query, data})
-    }
-
-    /** Options Generator */
-    /** Where to Generate? */
-    private generateOptions() {
-        let options: { click: string, name: string }[] = [];
-
-
-        Object.keys(this.crudSchema).forEach(form => {
-            /** Doesn't make sense lol */
-            // //@ts-ignore
-            // if (form === FormType.Create) {
-            //   options.push({
-            //     //@ts-ignore
-            //     click: FormType.Create,
-            //     //@ts-ignore
-            //     name: this.generateOptionsText("plus-square", this.$refs[FormType.Create].title)
-            //   });
-            // }
-            if (form === FormType.Read) {
-                options.push({
-                    //@ts-ignore
-                    click: FormType.Read,
-                    //@ts-ignore
-                    name: this.generateOptionsText("info-circle", this.$refs[FormType.Read].title)
-                });
-            }
-            //@ts-ignore
-            if (form === FormType.Update) {
-                options.push({
-                    //@ts-ignore
-                    click: FormType.Update,
-                    //@ts-ignore
-                    name: this.generateOptionsText("edit", this.$refs[FormType.Update].title)
-                });
-            }
-            //@ts-ignore
-            if (form === FormType.Destroy) {
-                options.push({
-                    //@ts-ignore
-                    click: FormType.Destroy,
-                    //@ts-ignore
-                    name: this.generateOptionsText("trash", this.$refs[FormType.Destroy].title)
-                });
-            }
-            //@ts-ignore
-            if (form === FormType.Archive) {
-                options.push({
-                    //@ts-ignore
-                    click: FormType.Archive,
-                    //@ts-ignore
-                    name: this.generateOptionsText("archive", this.$refs[FormType.Archive].title)
-                });
-            }
-        });
-        return options;
-    }
-
-    private generateOptionsText(icon: string, text: string) {
-        /** TODO: Think harder lmao */
-        return `<a>
-                  <i class="fas fa-${icon}"></i>
-                   ${text}
-           </a>`;
-    }
-
-    /** Context Menu Option Handler */
-    optionClicked(event: any) {
-        let target = event.option.click;
-        let id = event.item.row.id;
-
-        this.$router.replace(`?${target}=${id}`).catch(error => {
-            if (error.name != "NavigationDuplicated") {
-                throw error;
-            }
-        });
-        ;
-        this.runQueryParams();
-    }
 }

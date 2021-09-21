@@ -4,6 +4,7 @@
                         :readonly="schema.readonly"
                         v-model="userName"
                         type="email"
+                        size="lg"
                         placeholder="Ingresa usuario uabc"
                     ></b-form-input>
     </b-input-group>

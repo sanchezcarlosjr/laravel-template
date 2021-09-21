@@ -46,7 +46,6 @@ export default {
   ],
   methods: {
     test() {
-      console.log(this.data);
     },
     _escapeForCSV(str) {
       if (str == null) {

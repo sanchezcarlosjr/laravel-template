@@ -5,6 +5,7 @@ import {prodep_nptcs} from "@shared/repositories/prodep/repository.ts";
 import {employees} from "@shared/repositories/employees/repository.ts";
 import {authorized, campus, extended} from "@shared/search-criteria/search-criteria.ts";
 import {Permission} from "@shared/application/auth/permission";
+import {CRUDSchemaBuilder} from "@shared/application/form/CRUDSchema";
 
 let schema = {
     legend: "Apoyo a NPTC",
@@ -108,7 +109,7 @@ let schema = {
         }
     ]
 };
-const permission = new Permission('/prodep/nptcs', {
+const builder = new CRUDSchemaBuilder('/prodep/nptcs', {
     create: schema,
     destroy: {
         legend: schema.legend,
@@ -134,5 +135,5 @@ export default class NptcsPage extends Vue {
         {key: "employee.academic_unit.name", label: "Unidad académica", sortable: true},
         {key: "start_date", label: "Fecha Inicio", sortable: true}
     ];
-    formSchemas = permission.hasPermissions();
+    formSchemas = builder;
 }

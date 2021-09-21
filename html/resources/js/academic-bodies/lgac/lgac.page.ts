@@ -1,8 +1,8 @@
 import {Component, Vue} from 'vue-property-decorator';
 import {lgac} from "@shared/repositories/academic_bodies/lgac/repository.ts";
-import {Permission} from "@shared/application/auth/permission";
+import {CRUDSchemaBuilder} from "@shared/application/form/CRUDSchema";
 
-const permission = new Permission('/cuerpos-academicos/lgac', {
+const builder = new CRUDSchemaBuilder('/cuerpos-academicos/lgac', {
     read: {
         legend: "LGAC",
         fields: [
@@ -25,5 +25,5 @@ export default class LGACPage extends Vue {
         {key: 'academic_body.prodep_area.name', label: 'Área del conocimiento', sortable: true},
         {key: `academic_body.leader.academic_unit.name`, label: 'Unidad Académica', sortable: true}
     ];
-    formSchemas = permission.hasPermissions();
+    formSchemas = builder;
 }
