@@ -5,7 +5,7 @@ import {prodep_helps} from "@shared/repositories/prodep/repository.ts";
 import {employees} from "@shared/repositories/employees/repository.ts";
 import {campus, close_to_retirement, gender} from "@shared/search-criteria/search-criteria.ts";
 import {Permission} from "@shared/application/auth/permission";
-import {CRUDSchemaBuilder} from "@shared/application/CRUDSchema";
+import {CRUDSchemaBuilder} from "@shared/application/form/CRUDSchema";
 
 let fields = [
     {key: "employee.name", label: "Beneficiario", sortable: true},

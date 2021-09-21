@@ -1,7 +1,7 @@
 import {Component, Ref, Vue} from 'vue-property-decorator';
 import {schema} from "../academic-body-management/academic-body-management.page";
 import {academic_bodies} from "@shared/repositories/academic_bodies/repository";
-import {CRUDSchemaBuilder} from "@shared/application/CRUDSchema";
+import {CRUDSchemaBuilder} from "@shared/application/form/CRUDSchema";
 
 @Component
 export default class AcademicBodyPage extends Vue {

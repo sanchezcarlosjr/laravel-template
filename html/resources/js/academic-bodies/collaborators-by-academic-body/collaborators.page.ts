@@ -2,7 +2,7 @@ import {Component, Vue} from 'vue-property-decorator';
 import {collaborators} from "@shared/repositories/academic_bodies/collaborators/repository.ts";
 import {employees} from "@shared/repositories/employees/repository.ts";
 import {validator as GraphQLSelectIdValidator} from "@shared/application/form-fields/vfg-field-select-graphql-id/vfg-field-select-graphql-id"
-import {CRUDSchemaBuilder} from "@shared/application/CRUDSchema";
+import {CRUDSchemaBuilder} from "@shared/application/form/CRUDSchema";
 import {membersForm} from "../members/membersForm";
 
 const builder = new CRUDSchemaBuilder('/cuerpos-academicos/:academic_body_id/colaboradores', {

@@ -1,4 +1,5 @@
-import {FormModalSchemaBuilder, FormType} from "@shared/application/form-type";
+import {FormType} from "@shared/application/form/form-type";
+import {FormModalSchemaBuilder} from "@shared/application/form/form-modal-schema-builder";
 
 export interface FormField {
     type: string;

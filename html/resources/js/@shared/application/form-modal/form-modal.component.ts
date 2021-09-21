@@ -1,6 +1,6 @@
 import {Component, Prop, Ref, Vue} from 'vue-property-decorator';
-import {FormModalSchemaBuilder} from "@shared/application/form-type";
 import GraphQLResourceRepository from "@shared/infraestructure/GraphQLResourceRepository";
+import {FormModalSchemaBuilder} from "@shared/application/form/form-modal-schema-builder";
 
 @Component
 export default class FormModal extends Vue {

@@ -1,5 +1,5 @@
 import state from "../../../store/store";
-import {FormField} from "@shared/application/form-schema";
+import {FormField} from "@shared/application/form/form-schema";
 import {CRUDSchema} from "@shared/application/CRUDSchema";
 
 

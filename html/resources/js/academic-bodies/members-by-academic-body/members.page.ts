@@ -4,7 +4,7 @@ import {members} from "@shared/repositories/academic_bodies/members/repository.t
 import {employees} from "@shared/repositories/employees/repository.ts";
 import {lgac} from "@shared/repositories/academic_bodies/lgac/repository.ts";
 import {campus, close_to_retirement} from "@shared/search-criteria/search-criteria.ts";
-import {CRUDSchemaBuilder} from "@shared/application/CRUDSchema";
+import {CRUDSchemaBuilder} from "@shared/application/form/CRUDSchema";
 import {membersForm} from "../members/membersForm";
 
 let fields = [

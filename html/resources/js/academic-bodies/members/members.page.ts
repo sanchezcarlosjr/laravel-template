@@ -7,7 +7,7 @@ import {
     leaders,
     members as members_criteria
 } from "@shared/search-criteria/search-criteria.ts";
-import {CRUDSchemaBuilder} from "@shared/application/CRUDSchema";
+import {CRUDSchemaBuilder} from "@shared/application/form/CRUDSchema";
 import {membersForm} from "./membersForm";
 
 const builder = new CRUDSchemaBuilder('/cuerpos-academicos/miembros', {

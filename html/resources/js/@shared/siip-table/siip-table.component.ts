@@ -5,8 +5,9 @@ import SiipTitle from './application/title.component.vue';
 import PrintOptions from "./application/print-options.component.vue";
 import GraphQLResourceRepository from "@shared/infraestructure/GraphQLResourceRepository";
 import FormModal from "@shared/application/form-modal/form-modal.component.vue";
-import {FormModalSchemaBuilder, FormType} from "../application/form-type";
-import {CRUDSchemaBuilder} from "@shared/application/CRUDSchema";
+import {CRUDSchemaBuilder} from "@shared/application/form/CRUDSchema";
+import {FormType} from "@shared/application/form/form-type";
+import {FormModalSchemaBuilder} from "@shared/application/form/form-modal-schema-builder";
 
 @Component({
     components: {

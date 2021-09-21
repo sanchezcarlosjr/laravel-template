@@ -4,7 +4,7 @@ import {users} from "@shared/repositories/users/repository";
 import {employees} from "@shared/repositories/employees/repository";
 import {campus, gender} from "@shared/search-criteria/search-criteria";
 import {Permission} from "@shared/application/auth/permission";
-import {CRUDSchemaBuilder} from "@shared/application/CRUDSchema";
+import {CRUDSchemaBuilder} from "@shared/application/form/CRUDSchema";
 
 const words = [
     'Erg0',

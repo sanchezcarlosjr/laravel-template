@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import {networks} from "@shared/repositories/academic_bodies/networks/repository";
-import {CRUDSchemaBuilder} from "@shared/application/CRUDSchema";
+import {CRUDSchemaBuilder} from "@shared/application/form/CRUDSchema";
 
 const builder = new CRUDSchemaBuilder('/cuerpos-academicos/redes', {
     read: {

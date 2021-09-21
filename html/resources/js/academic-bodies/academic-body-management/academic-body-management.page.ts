@@ -7,7 +7,7 @@ import {prodep_areas} from "@shared/repositories/prodep/repository";
 import {campus, grade, validity} from "@shared/search-criteria/search-criteria";
 
 import AcademicBodyStatistics from './statistics/index.vue';
-import {CRUDSchemaBuilder} from "@shared/application/CRUDSchema";
+import {CRUDSchemaBuilder} from "@shared/application/form/CRUDSchema";
 
 export const schema = {
     legend: "Cuerpo Académico",
