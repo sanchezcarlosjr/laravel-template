@@ -61,9 +61,12 @@
             "json",
             "vue"
         ],
+        "moduleNameMapper": {
+            "^@/(.*)$": "<rootDir>/resources/js/$1"
+        },
         "transform": {
             ".*\\.(vue)$": "vue-jest",
-            "^.+\\.tsx?$": "ts-jest"
+            "^.+\\.ts?$": "ts-jest"
         },
         "testURL": "http://localhost:8080/"
     }

@@ -7,7 +7,7 @@ import {
     ResourceReaderFormModal,
     ResourceUpdaterModalForm
 } from "./form-type";
-import {Permission} from "@shared/application/auth/permission";
+import {Permission} from "../application/auth/permission";
 
 export interface CRUDSchema {
     create?: FormSchema | undefined;
@@ -26,9 +26,10 @@ export class CRUDSchemaBuilder {
     private schema: CRUDModalSchema = {};
     private options: { click: string, name: string }[] = [];
 
-    constructor(module: string, crudSchema: CRUDSchema) {
-        const permissions = new Permission(module);
-        permissions.hasPermissions(crudSchema);
+    constructor(module: string, crudSchema: CRUDSchema, permissions: Permission | null = new Permission(module)) {
+        if (permissions) {
+            permissions.hasPermissions(crudSchema);
+        }
         Object.entries(crudSchema).forEach((entry: [string, FormSchema | undefined]) => {
             this.schema[entry[0]] = CRUDSchemaBuilder.factory(entry[0]);
             this.schema[entry[0]].schema = entry[1];
