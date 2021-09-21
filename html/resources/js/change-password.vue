@@ -12,8 +12,8 @@ import Vue from "vue";
 import FormModal from "@shared/application/form-modal/form-modal.component.vue";
 import {users} from "@shared/repositories/users/repository";
 import {userIdInjector} from "@shared/application/injector/user-id-injector";
-import {FormModalSchemaBuilder} from "@shared/application/form-modal-schema-builder";
-import {ResourceUpdaterModalForm} from "@shared/application/resource-updater-modal-form";
+import {FormModalSchemaBuilder} from "@shared/application/form/form-modal-schema-builder";
+import {ResourceUpdaterModalForm} from "@shared/application/form/resource-updater-modal-form";
 
 @Component({
     components: {

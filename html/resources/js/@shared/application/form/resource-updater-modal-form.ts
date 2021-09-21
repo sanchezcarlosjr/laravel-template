@@ -1,7 +1,7 @@
-import {FormModalSchemaBuilder} from "@shared/application/form-modal-schema-builder";
+import {FormModalSchemaBuilder} from "@shared/application/form/form-modal-schema-builder";
 import {FormType} from "@shared/application/form/form-type";
-import {UpsertMutation} from "@shared/application/upsert-mutation";
-import {FormSchema} from "@shared/application/form-schema";
+import {UpsertMutation} from "@shared/application/form/upsert-mutation";
+import {FormSchema} from "@shared/application/form/form-schema";
 
 export class ResourceUpdaterModalForm extends FormModalSchemaBuilder {
     constructor(prefixTitle = "Actualizar", okTitle = "Actualizar", id: string = FormType.Update) {

@@ -1,6 +1,6 @@
-import {FormModalSchemaBuilder} from "@shared/application/form-modal-schema-builder";
+import {FormModalSchemaBuilder} from "@shared/application/form/form-modal-schema-builder";
 import {FormType} from "@shared/application/form/form-type";
-import {UpsertMutation} from "@shared/application/upsert-mutation";
+import {UpsertMutation} from "@shared/application/form/upsert-mutation";
 
 export class ResourceCreatorModalForm extends FormModalSchemaBuilder {
     constructor(prefixTitle = "Crear", okTitle = "Añadir", id = FormType.Create) {

@@ -1,6 +1,6 @@
-import {Form} from "@shared/application/form";
-import {LoginMutation} from "@shared/application/login-mutation";
-import {FormSchema} from "@shared/application/form-schema";
+import {Form} from "@shared/application/form/form";
+import {LoginMutation} from "@shared/application/form/login-mutation";
+import {FormSchema} from "@shared/application/form/form-schema";
 
 export class Login extends Form {
     constructor() {

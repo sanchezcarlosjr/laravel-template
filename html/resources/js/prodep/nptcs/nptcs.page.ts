@@ -5,7 +5,7 @@ import {prodep_nptcs} from "@shared/repositories/prodep/repository.ts";
 import {employees} from "@shared/repositories/employees/repository.ts";
 import {authorized, campus, extended} from "@shared/search-criteria/search-criteria.ts";
 import {Permission} from "@shared/application/auth/permission";
-import {CRUDSchemaBuilder} from "@shared/application/CRUDSchema";
+import {CRUDSchemaBuilder} from "@shared/application/form/CRUDSchema";
 
 let schema = {
     legend: "Apoyo a NPTC",

@@ -1,6 +1,6 @@
 import {Component, Vue} from 'vue-property-decorator';
 import {helps} from "@shared/repositories/academic_bodies/helps/repository.ts";
-import {CRUDSchemaBuilder} from "@shared/application/CRUDSchema";
+import {CRUDSchemaBuilder} from "@shared/application/form/CRUDSchema";
 
 const builder = new CRUDSchemaBuilder('/cuerpos-academicos/apoyos', {
     read: {

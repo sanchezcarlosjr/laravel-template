@@ -5,8 +5,8 @@ import {Ref} from "vue-property-decorator";
 import GraphQLResourceRepository from "@shared/infraestructure/GraphQLResourceRepository";
 import {mutations} from "../store/store";
 import router from "../routes";
-import {Form} from "@shared/application/form";
-import {Login} from "@shared/application/login";
+import {Form} from "@shared/application/form/form";
+import {Login} from "@shared/application/form/login";
 
 @Component
 export default class LoginPage extends Vue {

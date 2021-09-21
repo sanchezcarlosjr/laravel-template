@@ -1,6 +1,6 @@
 import {Component, Mixins, Watch} from 'vue-property-decorator';
 import VueFormGenerator from "vue-form-generator";
-import {FormField} from "@shared/application/form-schema";
+import {FormField} from "@shared/application/form/form-schema";
 
 export function validator({
   selectValid = "Seleccione un recurso valido"

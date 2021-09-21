@@ -5,7 +5,7 @@ import {validator as GraphQLSelectIdValidator} from "@shared/application/form-fi
 import {sni_areas, snis} from "@shared/repositories/sni/repository";
 import {campus, close_to_expire, close_to_retirement, gender} from "@shared/search-criteria/search-criteria";
 import SniStatistics from "./statistics/index.vue";
-import {CRUDSchemaBuilder} from "@shared/application/CRUDSchema";
+import {CRUDSchemaBuilder} from "@shared/application/form/CRUDSchema";
 
 const schema = {
     legend: "SNI",

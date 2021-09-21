@@ -1,7 +1,7 @@
 import {Component, Vue} from 'vue-property-decorator';
 import {campus, grade, validity} from "@shared/search-criteria/search-criteria";
 import {academic_bodies} from "@shared/repositories/academic_bodies/repository";
-import {CRUDSchemaBuilder} from "@shared/application/CRUDSchema";
+import {CRUDSchemaBuilder} from "@shared/application/form/CRUDSchema";
 
 const builder = new CRUDSchemaBuilder('/cuerpos-academicos/evaluaciones', {
     read: {

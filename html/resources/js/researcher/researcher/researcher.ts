@@ -4,7 +4,7 @@ import GraphQLResourceRepository from "@shared/infraestructure/GraphQLResourceRe
 import {employees} from "@shared/repositories/employees/repository";
 import {validator as GraphQLSelectIdValidator} from "@shared/application/form-fields/vfg-field-select-graphql-id/vfg-field-select-graphql-id";
 import {campus, gender, validity} from "@shared/search-criteria/search-criteria";
-import {CRUDSchemaBuilder} from "@shared/application/CRUDSchema";
+import {CRUDSchemaBuilder} from "@shared/application/form/CRUDSchema";
 
 const schema = {
     legend: "profesor-investigador",

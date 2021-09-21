@@ -1,5 +1,5 @@
 import {Mutation} from "@shared/application/form/mutation";
-import {FormSchema} from "@shared/application/form-schema";
+import {FormSchema} from "@shared/application/form/form-schema";
 import VueFormGenerator from "vue-form-generator";
 import GraphQLResourceRepository from "@shared/infraestructure/GraphQLResourceRepository";
 

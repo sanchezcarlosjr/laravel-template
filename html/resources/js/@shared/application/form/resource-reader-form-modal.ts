@@ -1,5 +1,5 @@
-import {FormModalSchemaBuilder} from "@shared/application/form-modal-schema-builder";
-import {ReaderMutation} from "@shared/application/reader-mutation";
+import {FormModalSchemaBuilder} from "@shared/application/form/form-modal-schema-builder";
+import {ReaderMutation} from "@shared/application/form/reader-mutation";
 import {FormType} from "@shared/application/form/form-type";
 
 export class ResourceReaderFormModal extends FormModalSchemaBuilder {

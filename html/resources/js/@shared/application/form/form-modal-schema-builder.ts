@@ -1,4 +1,4 @@
-import {Form} from "@shared/application/form";
+import {Form} from "@shared/application/form/form";
 import {Mutation} from "@shared/application/form/mutation";
 import {FormType} from "@shared/application/form/form-type";
 

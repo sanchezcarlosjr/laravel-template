@@ -2,7 +2,7 @@ import {Component, Vue} from 'vue-property-decorator';
 import {validator as GraphQLSelectIdValidator} from "@shared/application/form-fields/vfg-field-select-graphql-id/vfg-field-select-graphql-id"
 import {helps} from "@shared/repositories/academic_bodies/helps/repository.ts";
 import {members} from "@shared/repositories/academic_bodies/members/repository.ts";
-import {CRUDSchemaBuilder} from "@shared/application/CRUDSchema";
+import {CRUDSchemaBuilder} from "@shared/application/form/CRUDSchema";
 
 @Component
 export default class HelpsPage extends Vue {

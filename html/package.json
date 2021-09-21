@@ -61,9 +61,6 @@
             "json",
             "vue"
         ],
-        "moduleNameMapper": {
-            "^@/(.*)$": "<rootDir>/resources/js/$1"
-        },
         "transform": {
             ".*\\.(vue)$": "vue-jest",
             "^.+\\.ts?$": "ts-jest"

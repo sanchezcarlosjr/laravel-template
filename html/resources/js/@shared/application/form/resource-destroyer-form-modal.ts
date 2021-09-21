@@ -1,6 +1,6 @@
-import {FormModalSchemaBuilder} from "@shared/application/form-modal-schema-builder";
+import {FormModalSchemaBuilder} from "@shared/application/form/form-modal-schema-builder";
 import {FormType} from "@shared/application/form/form-type";
-import {DestroyerMutation} from "@shared/application/destroyer-mutation";
+import {DestroyerMutation} from "@shared/application/form/destroyer-mutation";
 
 export class ResourceDestroyerFormModal extends FormModalSchemaBuilder {
     constructor(prefixTitle = "Eliminar", okTitle = "Eliminar", id = FormType.Destroy) {

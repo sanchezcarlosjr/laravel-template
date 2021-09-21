@@ -1,6 +1,6 @@
 import {Component, Vue} from 'vue-property-decorator';
 import {lgac} from "@shared/repositories/academic_bodies/lgac/repository.ts";
-import {CRUDSchemaBuilder} from "@shared/application/CRUDSchema";
+import {CRUDSchemaBuilder} from "@shared/application/form/CRUDSchema";
 
 const builder = new CRUDSchemaBuilder('/cuerpos-academicos/lgac', {
     read: {
