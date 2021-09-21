@@ -1,10 +1,9 @@
 import {CRUDSchemaBuilder, CRUDSchema} from "../js/@shared/application/CRUDSchema";
-import {
-    FormType, ResourceCreatorModalForm,
-    ResourceDestroyerFormModal,
-    ResourceReaderFormModal,
-    ResourceUpdaterModalForm
-} from "../js/@shared/application/form-type";
+import {FormType} from "../js/@shared/application/form/form-type";
+import {ResourceCreatorModalForm} from "../js/@shared/application/resource-creator-modal-form";
+import {ResourceUpdaterModalForm} from "../js/@shared/application/resource-updater-modal-form";
+import {ResourceReaderFormModal} from "../js/@shared/application/resource-reader-form-modal";
+import {ResourceDestroyerFormModal} from "../js/@shared/application/resource-destroyer-form-modal";
 
 describe('CRUD Schema Builder', () => {
     const crudSchema: CRUDSchema = {read: {fields: []}, destroy: {fields: []}, create: {fields: []}, edit: {fields: []}};

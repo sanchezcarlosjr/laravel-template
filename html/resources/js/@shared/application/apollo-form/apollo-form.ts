@@ -1,7 +1,7 @@
 import {Component, Prop, Vue} from 'vue-property-decorator';
 import GraphQLResourceRepository from "@shared/infraestructure/GraphQLResourceRepository";
-import {Form} from "@shared/application/form-type";
 import {DocumentNode} from "graphql";
+import {Form} from "@shared/application/form";
 
 @Component
 export default class ApolloForm extends Vue {

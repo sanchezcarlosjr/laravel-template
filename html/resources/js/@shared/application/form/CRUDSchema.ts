@@ -1,13 +1,11 @@
 import {FormSchema} from "@shared/application/form-schema";
-import {
-    FormModalSchemaBuilder,
-    FormType,
-    ResourceCreatorModalForm,
-    ResourceDestroyerFormModal,
-    ResourceReaderFormModal,
-    ResourceUpdaterModalForm
-} from "./form-type";
 import {Permission} from "../application/auth/permission";
+import {FormType} from "@shared/application/form/form-type";
+import {FormModalSchemaBuilder} from "@shared/application/form-modal-schema-builder";
+import {ResourceCreatorModalForm} from "@shared/application/resource-creator-modal-form";
+import {ResourceUpdaterModalForm} from "@shared/application/resource-updater-modal-form";
+import {ResourceReaderFormModal} from "@shared/application/resource-reader-form-modal";
+import {ResourceDestroyerFormModal} from "@shared/application/resource-destroyer-form-modal";
 
 export interface CRUDSchema {
     create?: FormSchema | undefined;
